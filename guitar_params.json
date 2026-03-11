@@ -1,0 +1,492 @@
+{
+  "Strat": {
+    "guitar": "Strat",
+    "bodyHeight_px": 1654.36,
+    "lowerBoutWidth_px": 918.89,
+    "bassExtent_px": -612,
+    "trebleExtent_px": 599.31,
+    "totalWidthAtLowerBout_px": 1211.3,
+    "waistOffsetAngle_deg": -3.13,
+    "waistLine_bassY": 647.171,
+    "waistLine_trebY": 700.172,
+    "waistLine_bassX": -499.326,
+    "waistLine_trebX": 468.641,
+    "waistOffset_dy": 53.000999999999976,
+    "bassHornTip": {
+      "x": -422.435,
+      "y": -78.839
+    },
+    "bassHornLength_px": 78.839,
+    "bassHornRadius_px": 81.3,
+    "bassHornTipX": -530.2,
+    "trebleHornTip": {
+      "x": 481.966,
+      "y": 186.275
+    },
+    "trebleHornLength_px": -186.275,
+    "trebleHornRadius_px": 226.1,
+    "bassCutawayStyle": "arc",
+    "bassCutawayDeepX": -109,
+    "bassCutawayDeepY": 167,
+    "bassCutawayRadius_px": 46.6,
+    "trebleCutawayStyle": "arc",
+    "trebleCutawayDeepX": 119.4,
+    "trebleCutawayDeepY": 370.8,
+    "trebleCutawayRadius_px": 58.4,
+    "bottomY": 1654.36,
+    "bottomWidth": 918.89,
+    "bottomLeftX": -459.45,
+    "bottomRightX": 459.45,
+    "bottomArcCount": 4,
+    "bottomRadius_px": 1220.3,
+    "bottomRadii_px": [
+      459.7,
+      1980.9,
+      1980.9,
+      459.7
+    ],
+    "neckHeel_bassEnd": {
+      "x": -475.19,
+      "y": -52.12
+    },
+    "neckHeel_trebleStart": {
+      "x": 520.4,
+      "y": 298.61
+    },
+    "normalized": {
+      "lowerBoutWidth": 0.5554,
+      "bassExtent": -0.3699,
+      "trebleExtent": 0.3623,
+      "bassHornLength": 0.0477,
+      "trebleHornLength": -0.1126,
+      "bassCutawayDeepX": -0.0659,
+      "trebleCutawayDeepX": 0.0722
+    }
+  },
+  "Tele": {
+    "guitar": "Tele",
+    "bodyHeight_px": 1670.14,
+    "lowerBoutWidth_px": 840.11,
+    "bassExtent_px": -611.54,
+    "trebleExtent_px": 611.96,
+    "totalWidthAtLowerBout_px": 1223.5,
+    "waistOffsetAngle_deg": -1.53,
+    "waistLine_bassY": 702.962,
+    "waistLine_trebY": 728.067,
+    "waistLine_bassX": -479.799,
+    "waistLine_trebX": 463.062,
+    "waistOffset_dy": 25.105000000000018,
+    "bassHornTip": {
+      "x": -460.673,
+      "y": 169.413
+    },
+    "bassHornLength_px": -169.413,
+    "bassHornTipX": -504,
+    "trebleHornTip": {
+      "x": 480.779,
+      "y": 178.729
+    },
+    "trebleHornLength_px": -178.729,
+    "trebleHornRadius_px": 179.4,
+    "bassCutawayStyle": "line",
+    "bassCutawayDeepX": -98.7,
+    "bassCutawayDeepY": 164.6,
+    "bassCutawayRadius_px": 36,
+    "trebleCutawayStyle": "arc",
+    "trebleCutawayDeepX": 104.9,
+    "trebleCutawayDeepY": 317.4,
+    "trebleCutawayRadius_px": 59.5,
+    "bottomY": 1670.14,
+    "bottomWidth": 840.11,
+    "bottomLeftX": -428.74,
+    "bottomRightX": 411.37,
+    "bottomArcCount": 5,
+    "bottomRadius_px": 1638.3,
+    "bottomRadii_px": [
+      361.4,
+      1336.2,
+      4800,
+      1373,
+      321
+    ],
+    "neckHeel_bassEnd": {
+      "x": -504.05,
+      "y": 217.02
+    },
+    "neckHeel_trebleStart": {
+      "x": 522.51,
+      "y": 259.73
+    },
+    "normalized": {
+      "lowerBoutWidth": 0.503,
+      "bassExtent": -0.3662,
+      "trebleExtent": 0.3664,
+      "bassHornLength": -0.1014,
+      "trebleHornLength": -0.107,
+      "bassCutawayDeepX": -0.0591,
+      "trebleCutawayDeepX": 0.0628
+    }
+  },
+  "Jazzmaster": {
+    "guitar": "Jazzmaster",
+    "bodyHeight_px": 1854.59,
+    "lowerBoutWidth_px": 798.14,
+    "bassExtent_px": -644.03,
+    "trebleExtent_px": 635.91,
+    "totalWidthAtLowerBout_px": 1279.9,
+    "waistOffsetAngle_deg": -20.2,
+    "waistLine_bassY": 649.961,
+    "waistLine_trebY": 995.862,
+    "waistLine_bassX": -463.062,
+    "waistLine_trebX": 477.01,
+    "waistOffset_dy": 345.90099999999995,
+    "bassHornTip": {
+      "x": -487.417,
+      "y": 33.144
+    },
+    "bassHornLength_px": -33.144,
+    "bassHornRadius_px": 82.7,
+    "bassHornTipX": -524.9,
+    "trebleHornTip": {
+      "x": 431.99,
+      "y": 388.926
+    },
+    "trebleHornLength_px": -388.926,
+    "trebleHornRadius_px": 115,
+    "bassCutawayStyle": "arc",
+    "bassCutawayDeepX": -119.5,
+    "bassCutawayDeepY": 187.5,
+    "bassCutawayRadius_px": 50.9,
+    "trebleCutawayStyle": "arc",
+    "trebleCutawayDeepX": 110.4,
+    "trebleCutawayDeepY": 348.2,
+    "trebleCutawayRadius_px": 160.6,
+    "bottomY": 1854.59,
+    "bottomWidth": 798.14,
+    "bottomLeftX": -376.99,
+    "bottomRightX": 421.15,
+    "bottomArcCount": 3,
+    "bottomRadius_px": 1568.6,
+    "bottomRadii_px": [
+      1038.9,
+      2329.1,
+      1337.7
+    ],
+    "neckHeel_bassEnd": {
+      "x": -521.61,
+      "y": 84.61
+    },
+    "neckHeel_trebleStart": {
+      "x": 489.76,
+      "y": 429.16
+    },
+    "normalized": {
+      "lowerBoutWidth": 0.4304,
+      "bassExtent": -0.3473,
+      "trebleExtent": 0.3429,
+      "bassHornLength": -0.0179,
+      "trebleHornLength": -0.2097,
+      "bassCutawayDeepX": -0.0644,
+      "trebleCutawayDeepX": 0.0595
+    }
+  },
+  "Mustang": {
+    "guitar": "Mustang",
+    "bodyHeight_px": 1853.59,
+    "lowerBoutWidth_px": 553.58,
+    "bassExtent_px": -577.33,
+    "trebleExtent_px": 557.22,
+    "totalWidthAtLowerBout_px": 1134.6,
+    "waistOffsetAngle_deg": -17.42,
+    "waistLine_bassY": 700.172,
+    "waistLine_trebY": 967.967,
+    "waistLine_bassX": -440.746,
+    "waistLine_trebX": 412.85,
+    "waistOffset_dy": 267.79499999999996,
+    "bassHornTip": {
+      "x": -439.8,
+      "y": 111.689
+    },
+    "bassHornLength_px": -111.689,
+    "bassHornRadius_px": 182.8,
+    "bassHornTipX": -485,
+    "trebleHornTip": {
+      "x": 449.059,
+      "y": 381.233
+    },
+    "trebleHornLength_px": -381.233,
+    "trebleHornRadius_px": 201.6,
+    "bassCutawayStyle": "arc",
+    "bassCutawayDeepX": -105.5,
+    "bassCutawayDeepY": 234.7,
+    "bassCutawayRadius_px": 60.1,
+    "trebleCutawayStyle": "arc",
+    "trebleCutawayDeepX": 114.2,
+    "trebleCutawayDeepY": 420.7,
+    "trebleCutawayRadius_px": 60.5,
+    "bottomY": 1853.59,
+    "bottomWidth": 553.58,
+    "bottomLeftX": -363.61,
+    "bottomRightX": 189.97,
+    "bottomArcCount": 3,
+    "bottomRadius_px": 1153.9,
+    "bottomRadii_px": [
+      896.5,
+      1770.8,
+      794.4
+    ],
+    "neckHeel_bassEnd": {
+      "x": -477.35,
+      "y": 191.14
+    },
+    "neckHeel_trebleStart": {
+      "x": 478.6,
+      "y": 471.5
+    },
+    "normalized": {
+      "lowerBoutWidth": 0.2987,
+      "bassExtent": -0.3115,
+      "trebleExtent": 0.3006,
+      "bassHornLength": -0.0603,
+      "trebleHornLength": -0.2057,
+      "bassCutawayDeepX": -0.0569,
+      "trebleCutawayDeepX": 0.0616
+    }
+  },
+  "Fender Lead": {
+    "guitar": "Fender Lead",
+    "bodyHeight_px": 1631.43,
+    "lowerBoutWidth_px": 564.88,
+    "bassExtent_px": -572.91,
+    "trebleExtent_px": 575.46,
+    "totalWidthAtLowerBout_px": 1148.4,
+    "waistOffsetAngle_deg": -0.39,
+    "waistLine_bassY": 636.013,
+    "waistLine_trebY": 641.592,
+    "waistLine_bassX": -407.271,
+    "waistLine_trebX": 410.061,
+    "waistOffset_dy": 5.578999999999951,
+    "bassHornTip": {
+      "x": -452.008,
+      "y": 69.684
+    },
+    "bassHornLength_px": -69.684,
+    "bassHornRadius_px": 137.5,
+    "bassHornTipX": -484.9,
+    "trebleHornTip": {
+      "x": 403.701,
+      "y": 171.506
+    },
+    "trebleHornLength_px": -171.506,
+    "trebleHornRadius_px": 53.3,
+    "bassCutawayStyle": "arc",
+    "bassCutawayDeepX": -102.4,
+    "bassCutawayDeepY": 261.6,
+    "bassCutawayRadius_px": 50.2,
+    "trebleCutawayStyle": "arc",
+    "trebleCutawayDeepX": 107.5,
+    "trebleCutawayDeepY": 331.9,
+    "trebleCutawayRadius_px": 49.2,
+    "bottomY": 1631.43,
+    "bottomWidth": 564.88,
+    "bottomLeftX": -282.55,
+    "bottomRightX": 282.32,
+    "bottomArcCount": 1,
+    "bottomRadius_px": 1697.2,
+    "neckHeel_bassEnd": {
+      "x": -484.87,
+      "y": 140.09
+    },
+    "neckHeel_trebleStart": {
+      "x": 450.62,
+      "y": 199.34
+    },
+    "normalized": {
+      "lowerBoutWidth": 0.3462,
+      "bassExtent": -0.3512,
+      "trebleExtent": 0.3527,
+      "bassHornLength": -0.0427,
+      "trebleHornLength": -0.1051,
+      "bassCutawayDeepX": -0.0628,
+      "trebleCutawayDeepX": 0.0659
+    }
+  },
+  "Akula": {
+    "guitar": "Akula",
+    "bodyHeight_px": 1854.59,
+    "lowerBoutWidth_px": 798.14,
+    "bassExtent_px": -644.03,
+    "trebleExtent_px": 635.91,
+    "totalWidthAtLowerBout_px": 1279.9,
+    "waistOffsetAngle_deg": -20.2,
+    "waistLine_bassY": 649.961,
+    "waistLine_trebY": 995.862,
+    "waistLine_bassX": -463.062,
+    "waistLine_trebX": 477.01,
+    "waistOffset_dy": 345.90099999999995,
+    "bassHornTip": {
+      "x": -525.903,
+      "y": 51.013
+    },
+    "bassHornLength_px": -51.013,
+    "trebleHornTip": {
+      "x": 544.615,
+      "y": 448.873
+    },
+    "trebleHornLength_px": -448.873,
+    "bassCutawayStyle": "line",
+    "bassCutawayDeepX": -124.6,
+    "bassCutawayDeepY": 193.8,
+    "bassCutawayRadius_px": 42,
+    "trebleCutawayStyle": "line",
+    "trebleCutawayDeepX": 103.1,
+    "trebleCutawayDeepY": 275.7,
+    "trebleCutawayRadius_px": 72,
+    "bottomY": 1854.59,
+    "bottomWidth": 798.14,
+    "bottomLeftX": -376.99,
+    "bottomRightX": 421.15,
+    "bottomArcCount": 3,
+    "bottomRadius_px": 1425,
+    "bottomRadii_px": [
+      1038.9,
+      2041.7,
+      1194.5
+    ],
+    "neckHeel_bassEnd": {
+      "x": -453.63,
+      "y": 599.95
+    },
+    "neckHeel_trebleStart": {
+      "x": 451.69,
+      "y": 926.93
+    },
+    "normalized": {
+      "lowerBoutWidth": 0.4304,
+      "bassExtent": -0.3473,
+      "trebleExtent": 0.3429,
+      "bassHornLength": -0.0275,
+      "trebleHornLength": -0.242,
+      "bassCutawayDeepX": -0.0672,
+      "trebleCutawayDeepX": 0.0556
+    }
+  },
+  "Wolfgang": {
+    "guitar": "Wolfgang",
+    "bodyHeight_px": 1573.07,
+    "lowerBoutWidth_px": 780.3,
+    "bassExtent_px": -593.3,
+    "trebleExtent_px": 594.3,
+    "totalWidthAtLowerBout_px": 1187.6,
+    "waistOffsetAngle_deg": -9.01,
+    "waistLine_bassY": 513.274,
+    "waistLine_trebY": 658.329,
+    "waistLine_bassX": -451.904,
+    "waistLine_trebX": 463.062,
+    "waistOffset_dy": 145.05499999999995,
+    "bassHornTip": {
+      "x": -405.135,
+      "y": -34.328
+    },
+    "bassHornLength_px": 34.328,
+    "bassHornRadius_px": 97.7,
+    "bassHornTipX": -491.4,
+    "trebleHornTip": {
+      "x": 439.274,
+      "y": 326.782
+    },
+    "trebleHornLength_px": -326.782,
+    "trebleHornRadius_px": 80,
+    "bassCutawayStyle": "arc",
+    "bassCutawayDeepX": -79,
+    "bassCutawayDeepY": 152.6,
+    "bassCutawayRadius_px": 71.2,
+    "trebleCutawayStyle": "arc",
+    "trebleCutawayDeepX": 101.3,
+    "trebleCutawayDeepY": 333.8,
+    "trebleCutawayRadius_px": 39.5,
+    "bottomY": 1573.07,
+    "bottomWidth": 780.3,
+    "bottomLeftX": -350.64,
+    "bottomRightX": 429.67,
+    "bottomArcCount": 3,
+    "bottomRadius_px": 775.3,
+    "bottomRadii_px": [
+      506.6,
+      1103.9,
+      715.4
+    ],
+    "neckHeel_bassEnd": {
+      "x": -441.41,
+      "y": -3.95
+    },
+    "neckHeel_trebleStart": {
+      "x": 468.58,
+      "y": 354.69
+    },
+    "normalized": {
+      "lowerBoutWidth": 0.496,
+      "bassExtent": -0.3772,
+      "trebleExtent": 0.3778,
+      "bassHornLength": 0.0218,
+      "trebleHornLength": -0.2077,
+      "bassCutawayDeepX": -0.0502,
+      "trebleCutawayDeepX": 0.0644
+    }
+  },
+  "Les Paul": {
+    "guitar": "Les Paul",
+    "bodyHeight_px": 1800.82,
+    "lowerBoutWidth_px": 323.02,
+    "bassExtent_px": -627.59,
+    "trebleExtent_px": 628.3,
+    "totalWidthAtLowerBout_px": 1255.9,
+    "waistOffsetAngle_deg": 179.8,
+    "waistLine_bassY": 733.646,
+    "waistLine_trebY": 730.857,
+    "waistLine_bassX": 396.113,
+    "waistLine_trebX": -412.85,
+    "waistOffset_dy": -2.7889999999999873,
+    "bassHornTip": {
+      "x": -134.485,
+      "y": 150.878
+    },
+    "bassHornLength_px": -150.878,
+    "bassHornTipX": -376,
+    "trebleHornTip": {
+      "x": 436.595,
+      "y": 352.88
+    },
+    "trebleHornLength_px": -352.88,
+    "trebleHornRadius_px": 223.8,
+    "bassCutawayStyle": "none",
+    "bassCutawayDeepX": null,
+    "trebleCutawayStyle": "arc",
+    "trebleCutawayDeepX": 103.7,
+    "trebleCutawayDeepY": 332.1,
+    "trebleCutawayRadius_px": 32.8,
+    "bottomY": 1800.82,
+    "bottomWidth": 323.02,
+    "bottomLeftX": -161.15,
+    "bottomRightX": 161.87,
+    "bottomArcCount": 1,
+    "bottomRadius_px": 1027,
+    "neckHeel_bassEnd": {
+      "x": -376.01,
+      "y": 249.55
+    },
+    "neckHeel_trebleStart": {
+      "x": 434.25,
+      "y": 474.19
+    },
+    "normalized": {
+      "lowerBoutWidth": 0.1794,
+      "bassExtent": -0.3485,
+      "trebleExtent": 0.3489,
+      "bassHornLength": -0.0838,
+      "trebleHornLength": -0.196,
+      "bassCutawayDeepX": null,
+      "trebleCutawayDeepX": 0.0576
+    }
+  }
+}

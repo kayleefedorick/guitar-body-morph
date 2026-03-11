@@ -1,0 +1,7158 @@
+{
+  "Strat": {
+    "guitar": "Strat",
+    "totalSegments": 35,
+    "sections": [
+      {
+        "name": "bass_side",
+        "segStart": 0,
+        "segEnd": 10,
+        "startPt": {
+          "x": -459.45,
+          "y": 1570.5
+        },
+        "endPt": {
+          "x": -422.44,
+          "y": -78.84
+        }
+      },
+      {
+        "name": "inner_bass_cutaway",
+        "segStart": 11,
+        "segEnd": 16,
+        "startPt": {
+          "x": -422.44,
+          "y": -78.84
+        },
+        "endPt": {
+          "x": -109.05,
+          "y": 167
+        }
+      },
+      {
+        "name": "inner_treble_cutaway",
+        "segStart": 17,
+        "segEnd": 21,
+        "startPt": {
+          "x": 119.39,
+          "y": 370.84
+        },
+        "endPt": {
+          "x": 481.97,
+          "y": 186.28
+        }
+      },
+      {
+        "name": "treble_side",
+        "segStart": 22,
+        "segEnd": 29,
+        "startPt": {
+          "x": 481.97,
+          "y": 186.28
+        },
+        "endPt": {
+          "x": 459.45,
+          "y": 1570.5
+        }
+      },
+      {
+        "name": "bottom",
+        "segStart": 30,
+        "segEnd": 34,
+        "startPt": {
+          "x": 459.45,
+          "y": 1570.5
+        },
+        "endPt": {
+          "x": -459.45,
+          "y": 1570.5
+        }
+      }
+    ],
+    "neckHeelIndex": 17,
+    "neckHeelBassEnd": {
+      "x": -109.05,
+      "y": 167
+    },
+    "neckHeelTrebleStart": {
+      "x": 119.39,
+      "y": 370.84
+    },
+    "neckHeelGap_px": 306.16,
+    "joins": [
+      {
+        "from": "bass_side",
+        "to": "inner_bass_cutaway",
+        "posGap": 0,
+        "kink_deg": 0.55,
+        "fromPt": {
+          "x": -422.44,
+          "y": -78.84
+        },
+        "toPt": {
+          "x": -422.44,
+          "y": -78.84
+        },
+        "isNeckHeel": false
+      },
+      {
+        "from": "inner_bass_cutaway",
+        "to": "inner_treble_cutaway",
+        "posGap": 306.165,
+        "kink_deg": 100.73,
+        "fromPt": {
+          "x": -109.05,
+          "y": 167
+        },
+        "toPt": {
+          "x": 119.39,
+          "y": 370.84
+        },
+        "isNeckHeel": true
+      },
+      {
+        "from": "inner_treble_cutaway",
+        "to": "treble_side",
+        "posGap": 0,
+        "kink_deg": 0.45,
+        "fromPt": {
+          "x": 481.97,
+          "y": 186.28
+        },
+        "toPt": {
+          "x": 481.97,
+          "y": 186.28
+        },
+        "isNeckHeel": false
+      },
+      {
+        "from": "treble_side",
+        "to": "bottom",
+        "posGap": 0,
+        "kink_deg": 0.86,
+        "fromPt": {
+          "x": 459.45,
+          "y": 1570.5
+        },
+        "toPt": {
+          "x": 459.45,
+          "y": 1570.5
+        },
+        "isNeckHeel": false
+      },
+      {
+        "from": "bottom",
+        "to": "bass_side",
+        "posGap": 0,
+        "kink_deg": 0.86,
+        "fromPt": {
+          "x": -459.45,
+          "y": 1570.5
+        },
+        "toPt": {
+          "x": -459.45,
+          "y": 1570.5
+        },
+        "isClose": true
+      }
+    ],
+    "segments": [
+      {
+        "type": "arc",
+        "x0": -459.446,
+        "y0": 1570.499,
+        "x1": -612,
+        "y1": 1287.228,
+        "rx": 339.273,
+        "ry": 339.273,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 339.27,
+        "arcLength": 335.21,
+        "tangentStart": {
+          "x": -0.8349,
+          "y": -0.5503
+        },
+        "tangentEnd": {
+          "x": 0,
+          "y": -1
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -612,
+        "y0": 1287.228,
+        "x1": -607.659,
+        "y1": 1210.421,
+        "rx": 681.644,
+        "ry": 681.644,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 681.64,
+        "arcLength": 76.97,
+        "tangentStart": {
+          "x": 0,
+          "y": -1
+        },
+        "tangentEnd": {
+          "x": 0.1127,
+          "y": -0.9936
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -607.659,
+        "y0": 1210.421,
+        "x1": -536.669,
+        "y1": 953.711,
+        "rx": 852.391,
+        "ry": 852.391,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 852.39,
+        "arcLength": 267.44,
+        "tangentStart": {
+          "x": 0.1127,
+          "y": -0.9936
+        },
+        "tangentEnd": {
+          "x": 0.4138,
+          "y": -0.9103
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -536.669,
+        "y0": 953.711,
+        "x1": -459.384,
+        "y1": 771.292,
+        "rx": 3819.966,
+        "ry": 3819.966,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 3819.97,
+        "arcLength": 198.14,
+        "tangentStart": {
+          "x": 0.4138,
+          "y": -0.9103
+        },
+        "tangentEnd": {
+          "x": 0.3661,
+          "y": -0.9306
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -459.384,
+        "y0": 771.292,
+        "x1": -433.823,
+        "y1": 661.53,
+        "rx": 387.325,
+        "ry": 387.325,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 387.32,
+        "arcLength": 113.1,
+        "tangentStart": {
+          "x": 0.3661,
+          "y": -0.9306
+        },
+        "tangentEnd": {
+          "x": 0.0827,
+          "y": -0.9966
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -433.823,
+        "y0": 661.53,
+        "x1": -446.014,
+        "y1": 531.643,
+        "rx": 371.739,
+        "ry": 371.739,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 371.74,
+        "arcLength": 131.14,
+        "tangentStart": {
+          "x": 0.0827,
+          "y": -0.9966
+        },
+        "tangentEnd": {
+          "x": -0.2667,
+          "y": -0.9638
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -446.014,
+        "y0": 531.643,
+        "x1": -480.298,
+        "y1": 423.1,
+        "rx": 1582.64,
+        "ry": 1582.64,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 1582.64,
+        "arcLength": 113.85,
+        "tangentStart": {
+          "x": -0.2667,
+          "y": -0.9638
+        },
+        "tangentEnd": {
+          "x": -0.3353,
+          "y": -0.9421
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -480.298,
+        "y0": 423.1,
+        "x1": -530.248,
+        "y1": 227.887,
+        "rx": 1103.794,
+        "ry": 1103.794,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 1103.79,
+        "arcLength": 201.78,
+        "tangentStart": {
+          "x": -0.3353,
+          "y": -0.9421
+        },
+        "tangentEnd": {
+          "x": -0.1584,
+          "y": -0.9874
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -530.248,
+        "y0": 227.887,
+        "x1": -526.025,
+        "y1": 48.423,
+        "rx": 494.229,
+        "ry": 494.229,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 494.23,
+        "arcLength": 180.52,
+        "tangentStart": {
+          "x": -0.1584,
+          "y": -0.9874
+        },
+        "tangentEnd": {
+          "x": 0.2047,
+          "y": -0.9788
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -526.025,
+        "y0": 48.423,
+        "x1": -475.194,
+        "y1": -52.121,
+        "rx": 217.539,
+        "ry": 217.539,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 217.54,
+        "arcLength": 113.96,
+        "tangentStart": {
+          "x": 0.2047,
+          "y": -0.9788
+        },
+        "tangentEnd": {
+          "x": 0.6669,
+          "y": -0.7452
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -475.194,
+        "y0": -52.121,
+        "x1": -422.435,
+        "y1": -78.839,
+        "rx": 81.349,
+        "ry": 81.349,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 81.35,
+        "arcLength": 60.53,
+        "tangentStart": {
+          "x": 0.6669,
+          "y": -0.7452
+        },
+        "tangentEnd": {
+          "x": 0.9953,
+          "y": -0.0966
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -422.435,
+        "y0": -78.839,
+        "x1": -382.585,
+        "y1": -66.292,
+        "rx": 53.415,
+        "ry": 53.415,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 53.41,
+        "arcLength": 42.92,
+        "tangentStart": {
+          "x": 0.9953,
+          "y": -0.0966
+        },
+        "tangentEnd": {
+          "x": 0.7604,
+          "y": 0.6494
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -382.585,
+        "y0": -66.292,
+        "x1": -366.272,
+        "y1": -32.472,
+        "rx": 46.615,
+        "ry": 46.615,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 46.62,
+        "arcLength": 38.65,
+        "tangentStart": {
+          "x": 0.7604,
+          "y": 0.6494
+        },
+        "tangentEnd": {
+          "x": 0.0349,
+          "y": 0.9994
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -366.272,
+        "y0": -32.472,
+        "x1": -357.266,
+        "y1": 75.139,
+        "rx": 1111.729,
+        "ry": 1111.729,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 1111.73,
+        "arcLength": 108.03,
+        "tangentStart": {
+          "x": 0.0349,
+          "y": 0.9994
+        },
+        "tangentEnd": {
+          "x": 0.1317,
+          "y": 0.9913
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -357.266,
+        "y0": 75.139,
+        "x1": -232.133,
+        "y1": 213.932,
+        "rx": 165.092,
+        "ry": 165.092,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 165.09,
+        "arcLength": 198.64,
+        "tangentStart": {
+          "x": 0.1317,
+          "y": 0.9913
+        },
+        "tangentEnd": {
+          "x": 0.9724,
+          "y": 0.2333
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -232.133,
+        "y0": 213.932,
+        "x1": -175.55,
+        "y1": 218.662,
+        "rx": 187.396,
+        "ry": 187.396,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 187.4,
+        "arcLength": 57,
+        "tangentStart": {
+          "x": 0.9724,
+          "y": 0.2333
+        },
+        "tangentEnd": {
+          "x": 0.9976,
+          "y": -0.0686
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -175.55,
+        "y0": 218.662,
+        "x1": -109.05,
+        "y1": 167.003,
+        "rx": 75.477,
+        "ry": 75.477,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 75.48,
+        "arcLength": 89.33,
+        "tangentStart": {
+          "x": 0.9976,
+          "y": -0.0686
+        },
+        "tangentEnd": {
+          "x": 0.3132,
+          "y": -0.9497
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 119.393,
+        "y0": 370.843,
+        "x1": 296.575,
+        "y1": 370.514,
+        "rx": 182.241,
+        "ry": 182.241,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 182.24,
+        "arcLength": 185.03,
+        "tangentStart": {
+          "x": 0.8748,
+          "y": 0.4845
+        },
+        "tangentEnd": {
+          "x": 0.873,
+          "y": -0.4877
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 296.575,
+        "y0": 370.514,
+        "x1": 355.641,
+        "y1": 297.868,
+        "rx": 126.645,
+        "ry": 126.645,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 126.64,
+        "arcLength": 95.9,
+        "tangentStart": {
+          "x": 0.873,
+          "y": -0.4877
+        },
+        "tangentEnd": {
+          "x": 0.2994,
+          "y": -0.9541
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 355.641,
+        "y0": 297.868,
+        "x1": 368.076,
+        "y1": 246.894,
+        "rx": 405.456,
+        "ry": 405.456,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 405.46,
+        "arcLength": 52.51,
+        "tangentStart": {
+          "x": 0.2994,
+          "y": -0.9541
+        },
+        "tangentEnd": {
+          "x": 0.1736,
+          "y": -0.9848
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 368.076,
+        "y0": 246.894,
+        "x1": 377.036,
+        "y1": 204.831,
+        "rx": 608.567,
+        "ry": 608.567,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 608.57,
+        "arcLength": 43.02,
+        "tangentStart": {
+          "x": 0.1736,
+          "y": -0.9848
+        },
+        "tangentEnd": {
+          "x": 0.2428,
+          "y": -0.9701
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 377.036,
+        "y0": 204.831,
+        "x1": 481.966,
+        "y1": 186.275,
+        "rx": 58.357,
+        "ry": 58.357,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 58.36,
+        "arcLength": 134.28,
+        "tangentStart": {
+          "x": 0.2428,
+          "y": -0.9701
+        },
+        "tangentEnd": {
+          "x": 0.5607,
+          "y": 0.828
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 481.966,
+        "y0": 186.275,
+        "x1": 520.395,
+        "y1": 298.61,
+        "rx": 226.106,
+        "ry": 226.106,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 226.11,
+        "arcLength": 120.13,
+        "tangentStart": {
+          "x": 0.5607,
+          "y": 0.828
+        },
+        "tangentEnd": {
+          "x": 0.0639,
+          "y": 0.998
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 520.395,
+        "y0": 298.61,
+        "x1": 488.259,
+        "y1": 499.864,
+        "rx": 462.202,
+        "ry": 462.202,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 462.2,
+        "arcLength": 205.49,
+        "tangentStart": {
+          "x": 0.0639,
+          "y": 0.998
+        },
+        "tangentEnd": {
+          "x": -0.3715,
+          "y": 0.9284
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 488.259,
+        "y0": 499.864,
+        "x1": 453.71,
+        "y1": 581.053,
+        "rx": 2035.065,
+        "ry": 2035.065,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 2035.07,
+        "arcLength": 88.24,
+        "tangentStart": {
+          "x": -0.3715,
+          "y": 0.9284
+        },
+        "tangentEnd": {
+          "x": -0.4114,
+          "y": 0.9115
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 453.71,
+        "y0": 581.053,
+        "x1": 449.759,
+        "y1": 799.015,
+        "rx": 276.07,
+        "ry": 276.07,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 276.07,
+        "arcLength": 224.1,
+        "tangentStart": {
+          "x": -0.4114,
+          "y": 0.9115
+        },
+        "tangentEnd": {
+          "x": 0.3781,
+          "y": 0.9258
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 449.759,
+        "y0": 799.015,
+        "x1": 506.843,
+        "y1": 925.62,
+        "rx": 1937.782,
+        "ry": 1937.782,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 1937.78,
+        "arcLength": 138.91,
+        "tangentStart": {
+          "x": 0.3781,
+          "y": 0.9258
+        },
+        "tangentEnd": {
+          "x": 0.4434,
+          "y": 0.8963
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 506.843,
+        "y0": 925.62,
+        "x1": 574.413,
+        "y1": 1097.439,
+        "rx": 1090.523,
+        "ry": 1090.523,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 1090.52,
+        "arcLength": 184.85,
+        "tangentStart": {
+          "x": 0.4434,
+          "y": 0.8963
+        },
+        "tangentEnd": {
+          "x": 0.2859,
+          "y": 0.9583
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 574.413,
+        "y0": 1097.439,
+        "x1": 599.315,
+        "y1": 1334.005,
+        "rx": 646.407,
+        "ry": 646.407,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 646.41,
+        "arcLength": 239.24,
+        "tangentStart": {
+          "x": 0.2859,
+          "y": 0.9583
+        },
+        "tangentEnd": {
+          "x": -0.0801,
+          "y": 0.9968
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 599.315,
+        "y0": 1334.005,
+        "x1": 459.446,
+        "y1": 1570.499,
+        "rx": 313.3,
+        "ry": 313.3,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 313.3,
+        "arcLength": 284.43,
+        "tangentStart": {
+          "x": -0.0801,
+          "y": 0.9968
+        },
+        "tangentEnd": {
+          "x": -0.8349,
+          "y": 0.5503
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 459.446,
+        "y0": 1570.499,
+        "x1": 253.494,
+        "y1": 1643.964,
+        "rx": 459.681,
+        "ry": 459.681,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 459.68,
+        "arcLength": 220.78,
+        "tangentStart": {
+          "x": -0.8349,
+          "y": 0.5503
+        },
+        "tangentEnd": {
+          "x": -0.9948,
+          "y": 0.1023
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 253.494,
+        "y0": 1643.964,
+        "x1": 50.817,
+        "y1": 1654.36,
+        "rx": 1980.869,
+        "ry": 1980.869,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 1980.87,
+        "arcLength": 203.03,
+        "tangentStart": {
+          "x": -0.9948,
+          "y": 0.1023
+        },
+        "tangentEnd": {
+          "x": -1,
+          "y": 0
+        }
+      },
+      {
+        "type": "line",
+        "x0": 50.817,
+        "y0": 1654.36,
+        "x1": -50.817,
+        "y1": 1654.36,
+        "length": 101.634,
+        "tangentStart": {
+          "x": -1,
+          "y": 0
+        },
+        "tangentEnd": {
+          "x": -1,
+          "y": 0
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -50.817,
+        "y0": 1654.36,
+        "x1": -253.494,
+        "y1": 1643.964,
+        "rx": 1980.869,
+        "ry": 1980.869,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 1980.87,
+        "arcLength": 203.03,
+        "tangentStart": {
+          "x": -1,
+          "y": 0
+        },
+        "tangentEnd": {
+          "x": -0.9948,
+          "y": -0.1023
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -253.494,
+        "y0": 1643.964,
+        "x1": -459.446,
+        "y1": 1570.499,
+        "rx": 459.681,
+        "ry": 459.681,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 459.68,
+        "arcLength": 220.78,
+        "tangentStart": {
+          "x": -0.9948,
+          "y": -0.1023
+        },
+        "tangentEnd": {
+          "x": -0.8349,
+          "y": -0.5503
+        }
+      }
+    ]
+  },
+  "Tele": {
+    "guitar": "Tele",
+    "totalSegments": 45,
+    "sections": [
+      {
+        "name": "bass_side",
+        "segStart": 0,
+        "segEnd": 11,
+        "startPt": {
+          "x": -428.74,
+          "y": 1612.97
+        },
+        "endPt": {
+          "x": -460.67,
+          "y": 169.41
+        }
+      },
+      {
+        "name": "inner_bass_cutaway",
+        "segStart": 12,
+        "segEnd": 16,
+        "startPt": {
+          "x": -460.67,
+          "y": 169.41
+        },
+        "endPt": {
+          "x": -98.73,
+          "y": 164.58
+        }
+      },
+      {
+        "name": "inner_treble_cutaway",
+        "segStart": 17,
+        "segEnd": 25,
+        "startPt": {
+          "x": 104.88,
+          "y": 317.37
+        },
+        "endPt": {
+          "x": 480.78,
+          "y": 178.73
+        }
+      },
+      {
+        "name": "treble_side",
+        "segStart": 26,
+        "segEnd": 39,
+        "startPt": {
+          "x": 480.78,
+          "y": 178.73
+        },
+        "endPt": {
+          "x": 411.37,
+          "y": 1620.74
+        }
+      },
+      {
+        "name": "bottom",
+        "segStart": 40,
+        "segEnd": 44,
+        "startPt": {
+          "x": 411.37,
+          "y": 1620.74
+        },
+        "endPt": {
+          "x": -428.74,
+          "y": 1612.97
+        }
+      }
+    ],
+    "neckHeelIndex": 17,
+    "neckHeelBassEnd": {
+      "x": -98.73,
+      "y": 164.58
+    },
+    "neckHeelTrebleStart": {
+      "x": 104.88,
+      "y": 317.37
+    },
+    "neckHeelGap_px": 254.56,
+    "joins": [
+      {
+        "from": "bass_side",
+        "to": "inner_bass_cutaway",
+        "posGap": 0,
+        "kink_deg": 0,
+        "fromPt": {
+          "x": -460.67,
+          "y": 169.41
+        },
+        "toPt": {
+          "x": -460.67,
+          "y": 169.41
+        },
+        "isNeckHeel": false
+      },
+      {
+        "from": "inner_bass_cutaway",
+        "to": "inner_treble_cutaway",
+        "posGap": 254.565,
+        "kink_deg": 167.03,
+        "fromPt": {
+          "x": -98.73,
+          "y": 164.58
+        },
+        "toPt": {
+          "x": 104.88,
+          "y": 317.37
+        },
+        "isNeckHeel": true
+      },
+      {
+        "from": "inner_treble_cutaway",
+        "to": "treble_side",
+        "posGap": 0,
+        "kink_deg": 0.56,
+        "fromPt": {
+          "x": 480.78,
+          "y": 178.73
+        },
+        "toPt": {
+          "x": 480.78,
+          "y": 178.73
+        },
+        "isNeckHeel": false
+      },
+      {
+        "from": "treble_side",
+        "to": "bottom",
+        "posGap": 0,
+        "kink_deg": 0.47,
+        "fromPt": {
+          "x": 411.37,
+          "y": 1620.74
+        },
+        "toPt": {
+          "x": 411.37,
+          "y": 1620.74
+        },
+        "isNeckHeel": false
+      },
+      {
+        "from": "bottom",
+        "to": "bass_side",
+        "posGap": 0,
+        "kink_deg": 0,
+        "fromPt": {
+          "x": -428.74,
+          "y": 1612.97
+        },
+        "toPt": {
+          "x": -428.74,
+          "y": 1612.97
+        },
+        "isClose": true
+      }
+    ],
+    "segments": [
+      {
+        "type": "arc",
+        "x0": -428.736,
+        "y0": 1612.975,
+        "x1": -611.543,
+        "y1": 1305.998,
+        "rx": 360.016,
+        "ry": 360.016,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 360.02,
+        "arcLength": 373.86,
+        "tangentStart": {
+          "x": -0.8706,
+          "y": -0.4921
+        },
+        "tangentEnd": {
+          "x": -0.0179,
+          "y": -0.9998
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -611.543,
+        "y0": 1305.998,
+        "x1": -583.91,
+        "y1": 1118.701,
+        "rx": 578.535,
+        "ry": 578.535,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 578.53,
+        "arcLength": 190.18,
+        "tangentStart": {
+          "x": -0.0179,
+          "y": -0.9998
+        },
+        "tangentEnd": {
+          "x": 0.3059,
+          "y": -0.9521
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -583.91,
+        "y0": 1118.701,
+        "x1": -501.868,
+        "y1": 919.697,
+        "rx": 1343.601,
+        "ry": 1343.601,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 1343.6,
+        "arcLength": 215.48,
+        "tangentStart": {
+          "x": 0.3059,
+          "y": -0.9521
+        },
+        "tangentEnd": {
+          "x": 0.454,
+          "y": -0.891
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -501.868,
+        "y0": 919.697,
+        "x1": -454.814,
+        "y1": 814.679,
+        "rx": 1151.616,
+        "ry": 1151.616,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 1151.62,
+        "arcLength": 115.13,
+        "tangentStart": {
+          "x": 0.454,
+          "y": -0.891
+        },
+        "tangentEnd": {
+          "x": 0.3628,
+          "y": -0.9319
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -454.814,
+        "y0": 814.679,
+        "x1": -442.311,
+        "y1": 776.333,
+        "rx": 359.917,
+        "ry": 359.917,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 359.92,
+        "arcLength": 40.35,
+        "tangentStart": {
+          "x": 0.3628,
+          "y": -0.9319
+        },
+        "tangentEnd": {
+          "x": 0.2562,
+          "y": -0.9666
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -442.311,
+        "y0": 776.333,
+        "x1": -449.211,
+        "y1": 612.966,
+        "rx": 275.457,
+        "ry": 275.457,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 275.46,
+        "arcLength": 166.01,
+        "tangentStart": {
+          "x": 0.2562,
+          "y": -0.9666
+        },
+        "tangentEnd": {
+          "x": -0.3368,
+          "y": -0.9416
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -449.211,
+        "y0": 612.966,
+        "x1": -483.045,
+        "y1": 527.679,
+        "rx": 1345.183,
+        "ry": 1345.183,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 1345.18,
+        "arcLength": 91.77,
+        "tangentStart": {
+          "x": -0.3368,
+          "y": -0.9416
+        },
+        "tangentEnd": {
+          "x": -0.4002,
+          "y": -0.9164
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -483.045,
+        "y0": 527.679,
+        "x1": -502.922,
+        "y1": 477.423,
+        "rx": 769.194,
+        "ry": 769.194,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 769.19,
+        "arcLength": 54.05,
+        "tangentStart": {
+          "x": -0.4002,
+          "y": -0.9164
+        },
+        "tangentEnd": {
+          "x": -0.3349,
+          "y": -0.9423
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -502.922,
+        "y0": 477.423,
+        "x1": -520.964,
+        "y1": 416.096,
+        "rx": 577.411,
+        "ry": 577.411,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 577.41,
+        "arcLength": 63.96,
+        "tangentStart": {
+          "x": -0.3349,
+          "y": -0.9423
+        },
+        "tangentEnd": {
+          "x": -0.2287,
+          "y": -0.9735
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -520.964,
+        "y0": 416.096,
+        "x1": -520.1,
+        "y1": 258.818,
+        "rx": 336.018,
+        "ry": 336.018,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 336.02,
+        "arcLength": 158.75,
+        "tangentStart": {
+          "x": -0.2287,
+          "y": -0.9735
+        },
+        "tangentEnd": {
+          "x": 0.2394,
+          "y": -0.9709
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -520.1,
+        "y0": 258.818,
+        "x1": -504.047,
+        "y1": 217.023,
+        "rx": 179.572,
+        "ry": 179.572,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 179.57,
+        "arcLength": 44.89,
+        "tangentStart": {
+          "x": 0.2394,
+          "y": -0.9709
+        },
+        "tangentEnd": {
+          "x": 0.4721,
+          "y": -0.8815
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -504.047,
+        "y0": 217.023,
+        "x1": -460.673,
+        "y1": 169.413,
+        "rx": 131.619,
+        "ry": 131.619,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 131.62,
+        "arcLength": 65.07,
+        "tangentStart": {
+          "x": 0.4721,
+          "y": -0.8815
+        },
+        "tangentEnd": {
+          "x": 0.8339,
+          "y": -0.552
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -460.673,
+        "y0": 169.413,
+        "x1": -353.053,
+        "y1": 139.814,
+        "rx": 179.386,
+        "ry": 179.386,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 179.39,
+        "arcLength": 113.5,
+        "tangentStart": {
+          "x": 0.8339,
+          "y": -0.552
+        },
+        "tangentEnd": {
+          "x": 0.9988,
+          "y": 0.0479
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -353.053,
+        "y0": 139.814,
+        "x1": -261.108,
+        "y1": 158.337,
+        "rx": 312.107,
+        "ry": 312.107,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 312.11,
+        "arcLength": 94.15,
+        "tangentStart": {
+          "x": 0.9988,
+          "y": 0.0479
+        },
+        "tangentEnd": {
+          "x": 0.9395,
+          "y": 0.3425
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -261.108,
+        "y0": 158.337,
+        "x1": -158.77,
+        "y1": 210.037,
+        "rx": 486.275,
+        "ry": 486.275,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 486.27,
+        "arcLength": 114.92,
+        "tangentStart": {
+          "x": 0.9395,
+          "y": 0.3425
+        },
+        "tangentEnd": {
+          "x": 0.8332,
+          "y": 0.553
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -158.77,
+        "y0": 210.037,
+        "x1": -103.661,
+        "y1": 187.586,
+        "rx": 36,
+        "ry": 36,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 36,
+        "arcLength": 70.04,
+        "tangentStart": {
+          "x": 0.8332,
+          "y": 0.553
+        },
+        "tangentEnd": {
+          "x": 0.2096,
+          "y": -0.9778
+        }
+      },
+      {
+        "type": "line",
+        "x0": -103.665,
+        "y0": 187.587,
+        "x1": -98.735,
+        "y1": 164.582,
+        "length": 23.527,
+        "tangentStart": {
+          "x": 0.2095,
+          "y": -0.9778
+        },
+        "tangentEnd": {
+          "x": 0.2095,
+          "y": -0.9778
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 104.883,
+        "y0": 317.366,
+        "x1": 113.223,
+        "y1": 368.083,
+        "rx": 174.649,
+        "ry": 174.649,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 174.65,
+        "arcLength": 51.59,
+        "tangentStart": {
+          "x": 0.0153,
+          "y": 0.9999
+        },
+        "tangentEnd": {
+          "x": 0.3057,
+          "y": 0.9521
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 113.223,
+        "y0": 368.083,
+        "x1": 125.656,
+        "y1": 389.701,
+        "rx": 59.465,
+        "ry": 59.465,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 59.47,
+        "arcLength": 25.13,
+        "tangentStart": {
+          "x": 0.3057,
+          "y": 0.9521
+        },
+        "tangentEnd": {
+          "x": 0.6692,
+          "y": 0.743
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 125.656,
+        "y0": 389.701,
+        "x1": 221.792,
+        "y1": 418.151,
+        "rx": 95.923,
+        "ry": 95.923,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 95.92,
+        "arcLength": 105.49,
+        "tangentStart": {
+          "x": 0.6692,
+          "y": 0.743
+        },
+        "tangentEnd": {
+          "x": 0.9658,
+          "y": -0.2592
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 221.792,
+        "y0": 418.151,
+        "x1": 296.037,
+        "y1": 370.106,
+        "rx": 143.969,
+        "ry": 143.969,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 143.97,
+        "arcLength": 89.89,
+        "tangentStart": {
+          "x": 0.9658,
+          "y": -0.2592
+        },
+        "tangentEnd": {
+          "x": 0.6321,
+          "y": -0.7749
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 296.037,
+        "y0": 370.106,
+        "x1": 339.626,
+        "y1": 288.425,
+        "rx": 240.023,
+        "ry": 240.023,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 240.02,
+        "arcLength": 93.17,
+        "tangentStart": {
+          "x": 0.6321,
+          "y": -0.7749
+        },
+        "tangentEnd": {
+          "x": 0.2918,
+          "y": -0.9565
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 339.626,
+        "y0": 288.425,
+        "x1": 356.208,
+        "y1": 230.352,
+        "rx": 1680.301,
+        "ry": 1680.301,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 1680.3,
+        "arcLength": 60.4,
+        "tangentStart": {
+          "x": 0.2918,
+          "y": -0.9565
+        },
+        "tangentEnd": {
+          "x": 0.2572,
+          "y": -0.9663
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 356.208,
+        "y0": 230.352,
+        "x1": 381.673,
+        "y1": 182.394,
+        "rx": 120.147,
+        "ry": 120.147,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 120.15,
+        "arcLength": 54.77,
+        "tangentStart": {
+          "x": 0.2572,
+          "y": -0.9663
+        },
+        "tangentEnd": {
+          "x": 0.6564,
+          "y": -0.7544
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 381.673,
+        "y0": 182.394,
+        "x1": 453.273,
+        "y1": 161.422,
+        "rx": 69.149,
+        "ry": 69.149,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 69.15,
+        "arcLength": 78.8,
+        "tangentStart": {
+          "x": 0.6564,
+          "y": -0.7544
+        },
+        "tangentEnd": {
+          "x": 0.9597,
+          "y": 0.281
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 453.273,
+        "y0": 161.422,
+        "x1": 480.779,
+        "y1": 178.729,
+        "rx": 59.472,
+        "ry": 59.472,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 59.47,
+        "arcLength": 32.92,
+        "tangentStart": {
+          "x": 0.9597,
+          "y": 0.281
+        },
+        "tangentEnd": {
+          "x": 0.6687,
+          "y": 0.7435
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 480.779,
+        "y0": 178.729,
+        "x1": 522.51,
+        "y1": 259.726,
+        "rx": 179.449,
+        "ry": 179.449,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 179.45,
+        "arcLength": 92.12,
+        "tangentStart": {
+          "x": 0.6687,
+          "y": 0.7435
+        },
+        "tangentEnd": {
+          "x": 0.2173,
+          "y": 0.9761
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 522.51,
+        "y0": 259.726,
+        "x1": 523.171,
+        "y1": 402.72,
+        "rx": 335.971,
+        "ry": 335.971,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 335.97,
+        "arcLength": 144.1,
+        "tangentStart": {
+          "x": 0.2173,
+          "y": 0.9761
+        },
+        "tangentEnd": {
+          "x": -0.2083,
+          "y": 0.9781
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 523.171,
+        "y0": 402.72,
+        "x1": 511.901,
+        "y1": 446.95,
+        "rx": 575.742,
+        "ry": 575.742,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 575.74,
+        "arcLength": 45.66,
+        "tangentStart": {
+          "x": -0.2083,
+          "y": 0.9781
+        },
+        "tangentEnd": {
+          "x": -0.2851,
+          "y": 0.9585
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 511.901,
+        "y0": 446.95,
+        "x1": 481.159,
+        "y1": 531.708,
+        "rx": 766.781,
+        "ry": 766.781,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 766.78,
+        "arcLength": 90.21,
+        "tangentStart": {
+          "x": -0.2851,
+          "y": 0.9585
+        },
+        "tangentEnd": {
+          "x": -0.3957,
+          "y": 0.9184
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 481.159,
+        "y0": 531.708,
+        "x1": 449.887,
+        "y1": 611.085,
+        "rx": 1354.994,
+        "ry": 1354.994,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 1354.99,
+        "arcLength": 85.33,
+        "tangentStart": {
+          "x": -0.3957,
+          "y": 0.9184
+        },
+        "tangentEnd": {
+          "x": -0.3371,
+          "y": 0.9415
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 449.887,
+        "y0": 611.085,
+        "x1": 443.081,
+        "y1": 775.18,
+        "rx": 275.778,
+        "ry": 275.778,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 275.78,
+        "arcLength": 166.77,
+        "tangentStart": {
+          "x": -0.3371,
+          "y": 0.9415
+        },
+        "tangentEnd": {
+          "x": 0.258,
+          "y": 0.9662
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 443.081,
+        "y0": 775.18,
+        "x1": 455.435,
+        "y1": 812.952,
+        "rx": 360.125,
+        "ry": 360.125,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 360.13,
+        "arcLength": 39.76,
+        "tangentStart": {
+          "x": 0.258,
+          "y": 0.9662
+        },
+        "tangentEnd": {
+          "x": 0.3628,
+          "y": 0.9319
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 455.435,
+        "y0": 812.952,
+        "x1": 502.466,
+        "y1": 917.911,
+        "rx": 1151.713,
+        "ry": 1151.713,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 1151.71,
+        "arcLength": 115.06,
+        "tangentStart": {
+          "x": 0.3628,
+          "y": 0.9319
+        },
+        "tangentEnd": {
+          "x": 0.454,
+          "y": 0.891
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 502.466,
+        "y0": 917.911,
+        "x1": 576.446,
+        "y1": 1092.597,
+        "rx": 1344.252,
+        "ry": 1344.252,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 1344.25,
+        "arcLength": 189.86,
+        "tangentStart": {
+          "x": 0.454,
+          "y": 0.891
+        },
+        "tangentEnd": {
+          "x": 0.324,
+          "y": 0.946
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 576.446,
+        "y0": 1092.597,
+        "x1": 606.215,
+        "y1": 1213.535,
+        "rx": 703.628,
+        "ry": 703.628,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 703.63,
+        "arcLength": 124.71,
+        "tangentStart": {
+          "x": 0.324,
+          "y": 0.946
+        },
+        "tangentEnd": {
+          "x": 0.1521,
+          "y": 0.9884
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 606.215,
+        "y0": 1213.535,
+        "x1": 611.96,
+        "y1": 1314.548,
+        "rx": 528.205,
+        "ry": 528.205,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 528.21,
+        "arcLength": 101.33,
+        "tangentStart": {
+          "x": 0.1521,
+          "y": 0.9884
+        },
+        "tangentEnd": {
+          "x": -0.0391,
+          "y": 0.9992
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 611.96,
+        "y0": 1314.548,
+        "x1": 590.706,
+        "y1": 1421.393,
+        "rx": 347.8,
+        "ry": 347.8,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 347.8,
+        "arcLength": 109.39,
+        "tangentStart": {
+          "x": -0.0391,
+          "y": 0.9992
+        },
+        "tangentEnd": {
+          "x": -0.3463,
+          "y": 0.9381
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 590.706,
+        "y0": 1421.393,
+        "x1": 528.437,
+        "y1": 1529.07,
+        "rx": 366.149,
+        "ry": 366.149,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 366.15,
+        "arcLength": 124.99,
+        "tangentStart": {
+          "x": -0.3463,
+          "y": 0.9381
+        },
+        "tangentEnd": {
+          "x": -0.6404,
+          "y": 0.7681
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 528.437,
+        "y0": 1529.07,
+        "x1": 411.374,
+        "y1": 1620.736,
+        "rx": 354.147,
+        "ry": 354.147,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 354.15,
+        "arcLength": 149.8,
+        "tangentStart": {
+          "x": -0.6404,
+          "y": 0.7681
+        },
+        "tangentEnd": {
+          "x": -0.8992,
+          "y": 0.4375
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 411.374,
+        "y0": 1620.736,
+        "x1": 313.029,
+        "y1": 1652.185,
+        "rx": 361.427,
+        "ry": 361.427,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 361.43,
+        "arcLength": 103.61,
+        "tangentStart": {
+          "x": -0.8992,
+          "y": 0.4375
+        },
+        "tangentEnd": {
+          "x": -0.9862,
+          "y": 0.1654
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 313.029,
+        "y0": 1652.185,
+        "x1": 126.829,
+        "y1": 1670.137,
+        "rx": 1336.225,
+        "ry": 1336.225,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 1336.22,
+        "arcLength": 187.22,
+        "tangentStart": {
+          "x": -0.9862,
+          "y": 0.1654
+        },
+        "tangentEnd": {
+          "x": -0.9997,
+          "y": 0.0261
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 126.829,
+        "y0": 1670.137,
+        "x1": -123.36,
+        "y1": 1670.137,
+        "rx": 4800.045,
+        "ry": 4800.045,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 4800.05,
+        "arcLength": 250.22,
+        "tangentStart": {
+          "x": -0.9997,
+          "y": 0.0261
+        },
+        "tangentEnd": {
+          "x": -0.9997,
+          "y": -0.0261
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -123.36,
+        "y0": 1670.137,
+        "x1": -326.675,
+        "y1": 1649.625,
+        "rx": 1372.951,
+        "ry": 1372.951,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 1372.95,
+        "arcLength": 204.54,
+        "tangentStart": {
+          "x": -0.9997,
+          "y": -0.0261
+        },
+        "tangentEnd": {
+          "x": -0.9847,
+          "y": -0.1741
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -326.675,
+        "y0": 1649.625,
+        "x1": -428.736,
+        "y1": 1612.975,
+        "rx": 321.029,
+        "ry": 321.029,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 321.03,
+        "arcLength": 108.96,
+        "tangentStart": {
+          "x": -0.9847,
+          "y": -0.1741
+        },
+        "tangentEnd": {
+          "x": -0.8706,
+          "y": -0.4921
+        }
+      }
+    ]
+  },
+  "Jazzmaster": {
+    "guitar": "Jazzmaster",
+    "totalSegments": 34,
+    "sections": [
+      {
+        "name": "bass_side",
+        "segStart": 0,
+        "segEnd": 10,
+        "startPt": {
+          "x": -376.99,
+          "y": 1733.43
+        },
+        "endPt": {
+          "x": -487.42,
+          "y": 33.14
+        }
+      },
+      {
+        "name": "inner_bass_cutaway",
+        "segStart": 11,
+        "segEnd": 16,
+        "startPt": {
+          "x": -487.42,
+          "y": 33.14
+        },
+        "endPt": {
+          "x": -119.47,
+          "y": 187.45
+        }
+      },
+      {
+        "name": "inner_treble_cutaway",
+        "segStart": 17,
+        "segEnd": 18,
+        "startPt": {
+          "x": 110.35,
+          "y": 348.17
+        },
+        "endPt": {
+          "x": 431.99,
+          "y": 388.93
+        }
+      },
+      {
+        "name": "treble_side",
+        "segStart": 19,
+        "segEnd": 30,
+        "startPt": {
+          "x": 431.99,
+          "y": 388.93
+        },
+        "endPt": {
+          "x": 421.15,
+          "y": 1841.28
+        }
+      },
+      {
+        "name": "bottom",
+        "segStart": 31,
+        "segEnd": 33,
+        "startPt": {
+          "x": 421.15,
+          "y": 1841.28
+        },
+        "endPt": {
+          "x": -376.99,
+          "y": 1733.43
+        }
+      }
+    ],
+    "neckHeelIndex": 17,
+    "neckHeelBassEnd": {
+      "x": -119.47,
+      "y": 187.45
+    },
+    "neckHeelTrebleStart": {
+      "x": 110.35,
+      "y": 348.17
+    },
+    "neckHeelGap_px": 280.44,
+    "joins": [
+      {
+        "from": "bass_side",
+        "to": "inner_bass_cutaway",
+        "posGap": 0,
+        "kink_deg": 0.68,
+        "fromPt": {
+          "x": -487.42,
+          "y": 33.14
+        },
+        "toPt": {
+          "x": -487.42,
+          "y": 33.14
+        },
+        "isNeckHeel": false
+      },
+      {
+        "from": "inner_bass_cutaway",
+        "to": "inner_treble_cutaway",
+        "posGap": 280.439,
+        "kink_deg": 104.71,
+        "fromPt": {
+          "x": -119.47,
+          "y": 187.45
+        },
+        "toPt": {
+          "x": 110.35,
+          "y": 348.17
+        },
+        "isNeckHeel": true
+      },
+      {
+        "from": "inner_treble_cutaway",
+        "to": "treble_side",
+        "posGap": 0,
+        "kink_deg": 0,
+        "fromPt": {
+          "x": 431.99,
+          "y": 388.93
+        },
+        "toPt": {
+          "x": 431.99,
+          "y": 388.93
+        },
+        "isNeckHeel": false
+      },
+      {
+        "from": "treble_side",
+        "to": "bottom",
+        "posGap": 0,
+        "kink_deg": 0,
+        "fromPt": {
+          "x": 421.15,
+          "y": 1841.28
+        },
+        "toPt": {
+          "x": 421.15,
+          "y": 1841.28
+        },
+        "isNeckHeel": false
+      },
+      {
+        "from": "bottom",
+        "to": "bass_side",
+        "posGap": 0,
+        "kink_deg": 0.7,
+        "fromPt": {
+          "x": -376.99,
+          "y": 1733.43
+        },
+        "toPt": {
+          "x": -376.99,
+          "y": 1733.43
+        },
+        "isClose": true
+      }
+    ],
+    "segments": [
+      {
+        "type": "arc",
+        "x0": -376.989,
+        "y0": 1733.427,
+        "x1": -449.373,
+        "y1": 1696.402,
+        "rx": 668.856,
+        "ry": 668.856,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 668.86,
+        "arcLength": 81.35,
+        "tangentStart": {
+          "x": -0.9163,
+          "y": -0.4004
+        },
+        "tangentEnd": {
+          "x": -0.861,
+          "y": -0.5087
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -449.373,
+        "y0": 1696.402,
+        "x1": -515.888,
+        "y1": 1648.199,
+        "rx": 439.996,
+        "ry": 439.996,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 440,
+        "arcLength": 82.27,
+        "tangentStart": {
+          "x": -0.861,
+          "y": -0.5087
+        },
+        "tangentEnd": {
+          "x": -0.7514,
+          "y": -0.6598
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -515.888,
+        "y0": 1648.199,
+        "x1": -644.032,
+        "y1": 1166.864,
+        "rx": 447.631,
+        "ry": 447.631,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 447.63,
+        "arcLength": 528.22,
+        "tangentStart": {
+          "x": -0.7514,
+          "y": -0.6598
+        },
+        "tangentEnd": {
+          "x": 0.3239,
+          "y": -0.9461
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -644.032,
+        "y0": 1166.864,
+        "x1": -596.81,
+        "y1": 1050.453,
+        "rx": 1131.425,
+        "ry": 1131.425,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 1131.42,
+        "arcLength": 125.69,
+        "tangentStart": {
+          "x": 0.3239,
+          "y": -0.9461
+        },
+        "tangentEnd": {
+          "x": 0.4268,
+          "y": -0.9044
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -596.81,
+        "y0": 1050.453,
+        "x1": -482.718,
+        "y1": 828.767,
+        "rx": 3625.516,
+        "ry": 3625.516,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 3625.52,
+        "arcLength": 249.37,
+        "tangentStart": {
+          "x": 0.4268,
+          "y": -0.9044
+        },
+        "tangentEnd": {
+          "x": 0.4879,
+          "y": -0.8729
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -482.718,
+        "y0": 828.767,
+        "x1": -441.364,
+        "y1": 714.757,
+        "rx": 376.573,
+        "ry": 376.573,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 376.57,
+        "arcLength": 121.81,
+        "tangentStart": {
+          "x": 0.4879,
+          "y": -0.8729
+        },
+        "tangentEnd": {
+          "x": 0.1852,
+          "y": -0.9827
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -441.364,
+        "y0": 714.757,
+        "x1": -452.895,
+        "y1": 526.593,
+        "rx": 384.859,
+        "ry": 384.859,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 384.86,
+        "arcLength": 190.46,
+        "tangentStart": {
+          "x": 0.1852,
+          "y": -0.9827
+        },
+        "tangentEnd": {
+          "x": -0.3038,
+          "y": -0.9527
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -452.895,
+        "y0": 526.593,
+        "x1": -487.417,
+        "y1": 406.939,
+        "rx": 2244.335,
+        "ry": 2244.335,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 2244.34,
+        "arcLength": 124.55,
+        "tangentStart": {
+          "x": -0.3038,
+          "y": -0.9527
+        },
+        "tangentEnd": {
+          "x": -0.2504,
+          "y": -0.9681
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -487.417,
+        "y0": 406.939,
+        "x1": -524.909,
+        "y1": 226.774,
+        "rx": 1918.609,
+        "ry": 1918.609,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 1918.61,
+        "arcLength": 184.1,
+        "tangentStart": {
+          "x": -0.2504,
+          "y": -0.9681
+        },
+        "tangentEnd": {
+          "x": -0.1565,
+          "y": -0.9877
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -524.909,
+        "y0": 226.774,
+        "x1": -521.613,
+        "y1": 84.608,
+        "rx": 396.345,
+        "ry": 396.345,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 396.35,
+        "arcLength": 142.98,
+        "tangentStart": {
+          "x": -0.1565,
+          "y": -0.9877
+        },
+        "tangentEnd": {
+          "x": 0.2021,
+          "y": -0.9794
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -521.613,
+        "y0": 84.608,
+        "x1": -487.417,
+        "y1": 33.144,
+        "rx": 82.687,
+        "ry": 82.687,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 82.69,
+        "arcLength": 63.33,
+        "tangentStart": {
+          "x": 0.2021,
+          "y": -0.9794
+        },
+        "tangentEnd": {
+          "x": 0.8245,
+          "y": -0.5658
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -487.417,
+        "y0": 33.144,
+        "x1": -393.1,
+        "y1": 33.144,
+        "rx": 83.349,
+        "ry": 83.349,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 83.35,
+        "arcLength": 100.25,
+        "tangentStart": {
+          "x": 0.8245,
+          "y": -0.5658
+        },
+        "tangentEnd": {
+          "x": 0.8245,
+          "y": 0.5658
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -393.1,
+        "y0": 33.144,
+        "x1": -353.762,
+        "y1": 65.811,
+        "rx": 279.469,
+        "ry": 279.469,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 279.47,
+        "arcLength": 51.2,
+        "tangentStart": {
+          "x": 0.8245,
+          "y": 0.5658
+        },
+        "tangentEnd": {
+          "x": 0.7077,
+          "y": 0.7066
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -353.762,
+        "y0": 65.811,
+        "x1": -302.537,
+        "y1": 120.142,
+        "rx": 1236.777,
+        "ry": 1236.777,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 1236.78,
+        "arcLength": 74.68,
+        "tangentStart": {
+          "x": 0.7077,
+          "y": 0.7066
+        },
+        "tangentEnd": {
+          "x": 0.6637,
+          "y": 0.748
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -302.537,
+        "y0": 120.142,
+        "x1": -248.379,
+        "y1": 169.327,
+        "rx": 340.286,
+        "ry": 340.286,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 340.29,
+        "arcLength": 73.3,
+        "tangentStart": {
+          "x": 0.6637,
+          "y": 0.748
+        },
+        "tangentEnd": {
+          "x": 0.8083,
+          "y": 0.5888
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -248.379,
+        "y0": 169.327,
+        "x1": -176.63,
+        "y1": 206.075,
+        "rx": 259.005,
+        "ry": 259.005,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 259,
+        "arcLength": 80.94,
+        "tangentStart": {
+          "x": 0.8083,
+          "y": 0.5888
+        },
+        "tangentEnd": {
+          "x": 0.9501,
+          "y": 0.3118
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -176.63,
+        "y0": 206.075,
+        "x1": -119.469,
+        "y1": 187.454,
+        "rx": 50.88,
+        "ry": 50.88,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 50.88,
+        "arcLength": 64.31,
+        "tangentStart": {
+          "x": 0.9501,
+          "y": 0.3118
+        },
+        "tangentEnd": {
+          "x": 0.5842,
+          "y": -0.8116
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 110.351,
+        "y0": 348.167,
+        "x1": 318.552,
+        "y1": 396.275,
+        "rx": 175.718,
+        "ry": 175.718,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 175.72,
+        "arcLength": 229.69,
+        "tangentStart": {
+          "x": 0.6366,
+          "y": 0.7712
+        },
+        "tangentEnd": {
+          "x": 0.9104,
+          "y": -0.4137
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 318.552,
+        "y0": 396.275,
+        "x1": 431.99,
+        "y1": 388.926,
+        "rx": 160.573,
+        "ry": 160.573,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 160.57,
+        "arcLength": 116.19,
+        "tangentStart": {
+          "x": 0.9104,
+          "y": -0.4137
+        },
+        "tangentEnd": {
+          "x": 0.9562,
+          "y": 0.2928
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 431.99,
+        "y0": 388.926,
+        "x1": 489.758,
+        "y1": 429.157,
+        "rx": 114.95,
+        "ry": 114.95,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 114.95,
+        "arcLength": 71.55,
+        "tangentStart": {
+          "x": 0.9562,
+          "y": 0.2928
+        },
+        "tangentEnd": {
+          "x": 0.6062,
+          "y": 0.7953
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 489.758,
+        "y0": 429.157,
+        "x1": 536.496,
+        "y1": 548.555,
+        "rx": 233.478,
+        "ry": 233.478,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 233.48,
+        "arcLength": 129.89,
+        "tangentStart": {
+          "x": 0.6062,
+          "y": 0.7953
+        },
+        "tangentEnd": {
+          "x": 0.0948,
+          "y": 0.9955
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 536.496,
+        "y0": 548.555,
+        "x1": 525.681,
+        "y1": 719.959,
+        "rx": 545.914,
+        "ry": 545.914,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 545.91,
+        "arcLength": 172.46,
+        "tangentStart": {
+          "x": 0.0948,
+          "y": 0.9955
+        },
+        "tangentEnd": {
+          "x": -0.2192,
+          "y": 0.9757
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 525.681,
+        "y0": 719.959,
+        "x1": 484.109,
+        "y1": 850.074,
+        "rx": 774.608,
+        "ry": 774.608,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 774.61,
+        "arcLength": 136.77,
+        "tangentStart": {
+          "x": -0.2192,
+          "y": 0.9757
+        },
+        "tangentEnd": {
+          "x": -0.3871,
+          "y": 0.922
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 484.109,
+        "y0": 850.074,
+        "x1": 455.866,
+        "y1": 928.616,
+        "rx": 797.775,
+        "ry": 797.775,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 797.77,
+        "arcLength": 83.5,
+        "tangentStart": {
+          "x": -0.3871,
+          "y": 0.922
+        },
+        "tangentEnd": {
+          "x": -0.2887,
+          "y": 0.9574
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 455.866,
+        "y0": 928.616,
+        "x1": 446.938,
+        "y1": 1012.687,
+        "rx": 227.291,
+        "ry": 227.291,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 227.29,
+        "arcLength": 85.04,
+        "tangentStart": {
+          "x": -0.2887,
+          "y": 0.9574
+        },
+        "tangentEnd": {
+          "x": 0.0812,
+          "y": 0.9967
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 446.938,
+        "y0": 1012.687,
+        "x1": 468.315,
+        "y1": 1103.851,
+        "rx": 315.286,
+        "ry": 315.286,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 315.29,
+        "arcLength": 93.98,
+        "tangentStart": {
+          "x": 0.0812,
+          "y": 0.9967
+        },
+        "tangentEnd": {
+          "x": 0.3703,
+          "y": 0.9289
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 468.315,
+        "y0": 1103.851,
+        "x1": 538.401,
+        "y1": 1233.44,
+        "rx": 634.191,
+        "ry": 634.191,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 634.19,
+        "arcLength": 147.66,
+        "tangentStart": {
+          "x": 0.3703,
+          "y": 0.9289
+        },
+        "tangentEnd": {
+          "x": 0.5747,
+          "y": 0.8184
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 538.401,
+        "y0": 1233.44,
+        "x1": 623.064,
+        "y1": 1375.701,
+        "rx": 1099.176,
+        "ry": 1099.176,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 1099.18,
+        "arcLength": 165.71,
+        "tangentStart": {
+          "x": 0.5747,
+          "y": 0.8184
+        },
+        "tangentEnd": {
+          "x": 0.4452,
+          "y": 0.8954
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 623.064,
+        "y0": 1375.701,
+        "x1": 635.912,
+        "y1": 1681.797,
+        "rx": 376.091,
+        "ry": 376.091,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 376.09,
+        "arcLength": 315.54,
+        "tangentStart": {
+          "x": 0.4452,
+          "y": 0.8954
+        },
+        "tangentEnd": {
+          "x": -0.3686,
+          "y": 0.9296
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 635.912,
+        "y0": 1681.797,
+        "x1": 538.401,
+        "y1": 1797.066,
+        "rx": 236.71,
+        "ry": 236.71,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 236.71,
+        "arcLength": 153.66,
+        "tangentStart": {
+          "x": -0.3686,
+          "y": 0.9296
+        },
+        "tangentEnd": {
+          "x": -0.8556,
+          "y": 0.5176
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 538.401,
+        "y0": 1797.066,
+        "x1": 421.147,
+        "y1": 1841.277,
+        "rx": 343.36,
+        "ry": 343.36,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 343.36,
+        "arcLength": 126.02,
+        "tangentStart": {
+          "x": -0.8556,
+          "y": 0.5176
+        },
+        "tangentEnd": {
+          "x": -0.9844,
+          "y": 0.1761
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 421.147,
+        "y0": 1841.277,
+        "x1": 160.209,
+        "y1": 1854.592,
+        "rx": 1038.912,
+        "ry": 1038.912,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 1038.91,
+        "arcLength": 261.97,
+        "tangentStart": {
+          "x": -0.9844,
+          "y": 0.1761
+        },
+        "tangentEnd": {
+          "x": -0.9972,
+          "y": -0.075
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 160.209,
+        "y0": 1854.592,
+        "x1": -79.2,
+        "y1": 1824.038,
+        "rx": 2329.064,
+        "ry": 2329.064,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 2329.06,
+        "arcLength": 241.46,
+        "tangentStart": {
+          "x": -0.9972,
+          "y": -0.075
+        },
+        "tangentEnd": {
+          "x": -0.9841,
+          "y": -0.1778
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -79.2,
+        "y0": 1824.038,
+        "x1": -376.989,
+        "y1": 1733.427,
+        "rx": 1337.678,
+        "ry": 1337.678,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 1337.68,
+        "arcLength": 311.98,
+        "tangentStart": {
+          "x": -0.9841,
+          "y": -0.1778
+        },
+        "tangentEnd": {
+          "x": -0.9163,
+          "y": -0.4004
+        }
+      }
+    ]
+  },
+  "Mustang": {
+    "guitar": "Mustang",
+    "totalSegments": 32,
+    "sections": [
+      {
+        "name": "bass_side",
+        "segStart": 0,
+        "segEnd": 9,
+        "startPt": {
+          "x": -363.61,
+          "y": 1784.68
+        },
+        "endPt": {
+          "x": -439.8,
+          "y": 111.69
+        }
+      },
+      {
+        "name": "inner_bass_cutaway",
+        "segStart": 10,
+        "segEnd": 14,
+        "startPt": {
+          "x": -439.8,
+          "y": 111.69
+        },
+        "endPt": {
+          "x": -105.54,
+          "y": 234.75
+        }
+      },
+      {
+        "name": "inner_treble_cutaway",
+        "segStart": 15,
+        "segEnd": 17,
+        "startPt": {
+          "x": 114.18,
+          "y": 420.75
+        },
+        "endPt": {
+          "x": 449.06,
+          "y": 381.23
+        }
+      },
+      {
+        "name": "treble_side",
+        "segStart": 18,
+        "segEnd": 28,
+        "startPt": {
+          "x": 449.06,
+          "y": 381.23
+        },
+        "endPt": {
+          "x": 189.97,
+          "y": 1846.62
+        }
+      },
+      {
+        "name": "bottom",
+        "segStart": 29,
+        "segEnd": 31,
+        "startPt": {
+          "x": 189.97,
+          "y": 1846.62
+        },
+        "endPt": {
+          "x": -363.61,
+          "y": 1784.68
+        }
+      }
+    ],
+    "neckHeelIndex": 15,
+    "neckHeelBassEnd": {
+      "x": -105.54,
+      "y": 234.75
+    },
+    "neckHeelTrebleStart": {
+      "x": 114.18,
+      "y": 420.75
+    },
+    "neckHeelGap_px": 287.88,
+    "joins": [
+      {
+        "from": "bass_side",
+        "to": "inner_bass_cutaway",
+        "posGap": 0,
+        "kink_deg": 0,
+        "fromPt": {
+          "x": -439.8,
+          "y": 111.69
+        },
+        "toPt": {
+          "x": -439.8,
+          "y": 111.69
+        },
+        "isNeckHeel": false
+      },
+      {
+        "from": "inner_bass_cutaway",
+        "to": "inner_treble_cutaway",
+        "posGap": 287.876,
+        "kink_deg": 121.09,
+        "fromPt": {
+          "x": -105.54,
+          "y": 234.75
+        },
+        "toPt": {
+          "x": 114.18,
+          "y": 420.75
+        },
+        "isNeckHeel": true
+      },
+      {
+        "from": "inner_treble_cutaway",
+        "to": "treble_side",
+        "posGap": 0,
+        "kink_deg": 0,
+        "fromPt": {
+          "x": 449.06,
+          "y": 381.23
+        },
+        "toPt": {
+          "x": 449.06,
+          "y": 381.23
+        },
+        "isNeckHeel": false
+      },
+      {
+        "from": "treble_side",
+        "to": "bottom",
+        "posGap": 0.001,
+        "kink_deg": 0.51,
+        "fromPt": {
+          "x": 189.97,
+          "y": 1846.62
+        },
+        "toPt": {
+          "x": 189.97,
+          "y": 1846.62
+        },
+        "isNeckHeel": false
+      },
+      {
+        "from": "bottom",
+        "to": "bass_side",
+        "posGap": 0.001,
+        "kink_deg": 0.68,
+        "fromPt": {
+          "x": -363.61,
+          "y": 1784.68
+        },
+        "toPt": {
+          "x": -363.61,
+          "y": 1784.68
+        },
+        "isClose": true
+      }
+    ],
+    "segments": [
+      {
+        "type": "arc",
+        "x0": -363.605,
+        "y0": 1784.685,
+        "x1": -507.619,
+        "y1": 1684.38,
+        "rx": 397.355,
+        "ry": 397.355,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 397.36,
+        "arcLength": 176.96,
+        "tangentStart": {
+          "x": -0.9265,
+          "y": -0.3762
+        },
+        "tangentEnd": {
+          "x": -0.6741,
+          "y": -0.7386
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -507.619,
+        "y0": 1684.38,
+        "x1": -577.335,
+        "y1": 1543.414,
+        "rx": 284.062,
+        "ry": 284.062,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 284.06,
+        "arcLength": 159.34,
+        "tangentStart": {
+          "x": -0.6741,
+          "y": -0.7386
+        },
+        "tangentEnd": {
+          "x": -0.1779,
+          "y": -0.9841
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -577.335,
+        "y0": 1543.414,
+        "x1": -576.482,
+        "y1": 1281.511,
+        "rx": 723.257,
+        "ry": 723.257,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 723.26,
+        "arcLength": 263.36,
+        "tangentStart": {
+          "x": -0.1779,
+          "y": -0.9841
+        },
+        "tangentEnd": {
+          "x": 0.1843,
+          "y": -0.9829
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -576.482,
+        "y0": 1281.511,
+        "x1": -493.415,
+        "y1": 1036.228,
+        "rx": 919.97,
+        "ry": 919.97,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 919.97,
+        "arcLength": 259.83,
+        "tangentStart": {
+          "x": 0.1843,
+          "y": -0.9829
+        },
+        "tangentEnd": {
+          "x": 0.4509,
+          "y": -0.8926
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -493.415,
+        "y0": 1036.228,
+        "x1": -418.209,
+        "y1": 842.571,
+        "rx": 1068.927,
+        "ry": 1068.927,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 1068.93,
+        "arcLength": 208.07,
+        "tangentStart": {
+          "x": 0.4509,
+          "y": -0.8926
+        },
+        "tangentEnd": {
+          "x": 0.2697,
+          "y": -0.9629
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -418.209,
+        "y0": 842.571,
+        "x1": -412.12,
+        "y1": 639.115,
+        "rx": 422.67,
+        "ry": 422.67,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 422.67,
+        "arcLength": 205.57,
+        "tangentStart": {
+          "x": 0.2697,
+          "y": -0.9629
+        },
+        "tangentEnd": {
+          "x": -0.2116,
+          "y": -0.9773
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -412.12,
+        "y0": 639.115,
+        "x1": -429.959,
+        "y1": 576.293,
+        "rx": 515.307,
+        "ry": 515.307,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 515.31,
+        "arcLength": 65.35,
+        "tangentStart": {
+          "x": -0.2116,
+          "y": -0.9773
+        },
+        "tangentEnd": {
+          "x": -0.3336,
+          "y": -0.9427
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -429.959,
+        "y0": 576.293,
+        "x1": -485.011,
+        "y1": 315.008,
+        "rx": 1011.238,
+        "ry": 1011.238,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 1011.24,
+        "arcLength": 267.8,
+        "tangentStart": {
+          "x": -0.3336,
+          "y": -0.9427
+        },
+        "tangentEnd": {
+          "x": -0.0752,
+          "y": -0.9972
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -485.011,
+        "y0": 315.008,
+        "x1": -477.351,
+        "y1": 191.143,
+        "rx": 454.288,
+        "ry": 454.288,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 454.29,
+        "arcLength": 124.49,
+        "tangentStart": {
+          "x": -0.0752,
+          "y": -0.9972
+        },
+        "tangentEnd": {
+          "x": 0.1975,
+          "y": -0.9803
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -477.351,
+        "y0": 191.143,
+        "x1": -439.8,
+        "y1": 111.689,
+        "rx": 182.829,
+        "ry": 182.829,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 182.83,
+        "arcLength": 88.75,
+        "tangentStart": {
+          "x": 0.1975,
+          "y": -0.9803
+        },
+        "tangentEnd": {
+          "x": 0.6321,
+          "y": -0.7749
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -439.8,
+        "y0": 111.689,
+        "x1": -350.368,
+        "y1": 107.614,
+        "rx": 60.056,
+        "ry": 60.056,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 60.06,
+        "arcLength": 101.02,
+        "tangentStart": {
+          "x": 0.6321,
+          "y": -0.7749
+        },
+        "tangentEnd": {
+          "x": 0.6999,
+          "y": 0.7142
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -350.368,
+        "y0": 107.614,
+        "x1": -321.323,
+        "y1": 151.641,
+        "rx": 138.12,
+        "ry": 138.12,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 138.12,
+        "arcLength": 53.07,
+        "tangentStart": {
+          "x": 0.6999,
+          "y": 0.7142
+        },
+        "tangentEnd": {
+          "x": 0.3812,
+          "y": 0.9245
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -321.323,
+        "y0": 151.641,
+        "x1": -249.306,
+        "y1": 260.755,
+        "rx": 341.978,
+        "ry": 341.978,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 341.98,
+        "arcLength": 131.55,
+        "tangentStart": {
+          "x": 0.3812,
+          "y": 0.9245
+        },
+        "tangentEnd": {
+          "x": 0.7002,
+          "y": 0.7139
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -249.306,
+        "y0": 260.755,
+        "x1": -173.056,
+        "y1": 289.735,
+        "rx": 97.44,
+        "ry": 97.44,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 97.44,
+        "arcLength": 84.16,
+        "tangentStart": {
+          "x": 0.7002,
+          "y": 0.7139
+        },
+        "tangentEnd": {
+          "x": 0.9976,
+          "y": -0.0686
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -173.056,
+        "y0": 289.735,
+        "x1": -105.543,
+        "y1": 234.748,
+        "rx": 75.477,
+        "ry": 75.477,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 75.48,
+        "arcLength": 92.81,
+        "tangentStart": {
+          "x": 0.9976,
+          "y": -0.0686
+        },
+        "tangentEnd": {
+          "x": 0.2691,
+          "y": -0.9631
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 114.176,
+        "y0": 420.748,
+        "x1": 341.429,
+        "y1": 387.061,
+        "rx": 139.993,
+        "ry": 139.993,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 139.99,
+        "arcLength": 269.44,
+        "tangentStart": {
+          "x": 0.6857,
+          "y": 0.7278
+        },
+        "tangentEnd": {
+          "x": 0.4451,
+          "y": -0.8955
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 341.429,
+        "y0": 387.061,
+        "x1": 413.715,
+        "y1": 354.76,
+        "rx": 62.246,
+        "ry": 62.246,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 62.25,
+        "arcLength": 85.81,
+        "tangentStart": {
+          "x": 0.4451,
+          "y": -0.8955
+        },
+        "tangentEnd": {
+          "x": 0.964,
+          "y": 0.2658
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 413.715,
+        "y0": 354.76,
+        "x1": 449.059,
+        "y1": 381.233,
+        "rx": 60.465,
+        "ry": 60.465,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 60.47,
+        "arcLength": 45.2,
+        "tangentStart": {
+          "x": 0.964,
+          "y": 0.2658
+        },
+        "tangentEnd": {
+          "x": 0.5262,
+          "y": 0.8504
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 449.059,
+        "y0": 381.233,
+        "x1": 478.602,
+        "y1": 471.502,
+        "rx": 201.564,
+        "ry": 201.564,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 201.56,
+        "arcLength": 95.88,
+        "tangentStart": {
+          "x": 0.5262,
+          "y": 0.8504
+        },
+        "tangentEnd": {
+          "x": 0.0784,
+          "y": 0.9969
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 478.602,
+        "y0": 471.502,
+        "x1": 469.949,
+        "y1": 633.428,
+        "rx": 616.838,
+        "ry": 616.838,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 616.84,
+        "arcLength": 162.63,
+        "tangentStart": {
+          "x": 0.0784,
+          "y": 0.9969
+        },
+        "tangentEnd": {
+          "x": -0.1842,
+          "y": 0.9829
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 469.949,
+        "y0": 633.428,
+        "x1": 437.775,
+        "y1": 769.396,
+        "rx": 1482.124,
+        "ry": 1482.124,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 1482.12,
+        "arcLength": 139.78,
+        "tangentStart": {
+          "x": -0.1842,
+          "y": 0.9829
+        },
+        "tangentEnd": {
+          "x": -0.2759,
+          "y": 0.9612
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 437.775,
+        "y0": 769.396,
+        "x1": 398.131,
+        "y1": 908.646,
+        "rx": 33539.876,
+        "ry": 33539.876,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 33539.88,
+        "arcLength": 144.78,
+        "tangentStart": {
+          "x": -0.2759,
+          "y": 0.9612
+        },
+        "tangentEnd": {
+          "x": -0.2717,
+          "y": 0.9624
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 398.131,
+        "y0": 908.646,
+        "x1": 406.532,
+        "y1": 1056.781,
+        "rx": 227.711,
+        "ry": 227.711,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 227.71,
+        "arcLength": 151.13,
+        "tangentStart": {
+          "x": -0.2717,
+          "y": 0.9624
+        },
+        "tangentEnd": {
+          "x": 0.3788,
+          "y": 0.9255
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 406.532,
+        "y0": 1056.781,
+        "x1": 443.262,
+        "y1": 1124.287,
+        "rx": 350.669,
+        "ry": 350.669,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 350.67,
+        "arcLength": 77,
+        "tangentStart": {
+          "x": 0.3788,
+          "y": 0.9255
+        },
+        "tangentEnd": {
+          "x": 0.5713,
+          "y": 0.8207
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 443.262,
+        "y0": 1124.287,
+        "x1": 504.124,
+        "y1": 1226.787,
+        "rx": 825.454,
+        "ry": 825.454,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 825.45,
+        "arcLength": 119.31,
+        "tangentStart": {
+          "x": 0.5713,
+          "y": 0.8207
+        },
+        "tangentEnd": {
+          "x": 0.4471,
+          "y": 0.8945
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 504.124,
+        "y0": 1226.787,
+        "x1": 531.308,
+        "y1": 1289.707,
+        "rx": 615.188,
+        "ry": 615.188,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 615.19,
+        "arcLength": 68.58,
+        "tangentStart": {
+          "x": 0.4471,
+          "y": 0.8945
+        },
+        "tangentEnd": {
+          "x": 0.3449,
+          "y": 0.9387
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 531.308,
+        "y0": 1289.707,
+        "x1": 557.218,
+        "y1": 1546.744,
+        "rx": 518.808,
+        "ry": 518.808,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 518.81,
+        "arcLength": 261.08,
+        "tangentStart": {
+          "x": 0.3449,
+          "y": 0.9387
+        },
+        "tangentEnd": {
+          "x": -0.1506,
+          "y": 0.9886
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 557.218,
+        "y0": 1546.744,
+        "x1": 511.948,
+        "y1": 1656.723,
+        "rx": 250.853,
+        "ry": 250.853,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 250.85,
+        "arcLength": 120.08,
+        "tangentStart": {
+          "x": -0.1506,
+          "y": 0.9886
+        },
+        "tangentEnd": {
+          "x": -0.589,
+          "y": 0.8081
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 511.948,
+        "y0": 1656.723,
+        "x1": 189.975,
+        "y1": 1846.621,
+        "rx": 470.95,
+        "ry": 470.95,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 470.95,
+        "arcLength": 384.38,
+        "tangentStart": {
+          "x": -0.589,
+          "y": 0.8081
+        },
+        "tangentEnd": {
+          "x": -0.9922,
+          "y": 0.1245
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 189.975,
+        "y0": 1846.62,
+        "x1": 78.389,
+        "y1": 1853.592,
+        "rx": 896.524,
+        "ry": 896.524,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 896.52,
+        "arcLength": 111.88,
+        "tangentStart": {
+          "x": -0.9922,
+          "y": 0.1245
+        },
+        "tangentEnd": {
+          "x": -1,
+          "y": 0
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 78.389,
+        "y0": 1853.592,
+        "x1": -181.213,
+        "y1": 1834.459,
+        "rx": 1770.786,
+        "ry": 1770.786,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 1770.79,
+        "arcLength": 260.54,
+        "tangentStart": {
+          "x": -1,
+          "y": 0
+        },
+        "tangentEnd": {
+          "x": -0.9892,
+          "y": -0.1466
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -181.213,
+        "y0": 1834.459,
+        "x1": -363.605,
+        "y1": 1784.684,
+        "rx": 794.396,
+        "ry": 794.396,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 794.4,
+        "arcLength": 189.51,
+        "tangentStart": {
+          "x": -0.9892,
+          "y": -0.1466
+        },
+        "tangentEnd": {
+          "x": -0.9265,
+          "y": -0.3762
+        }
+      }
+    ]
+  },
+  "Fender Lead": {
+    "guitar": "Fender Lead",
+    "totalSegments": 29,
+    "sections": [
+      {
+        "name": "bass_side",
+        "segStart": 0,
+        "segEnd": 8,
+        "startPt": {
+          "x": -282.55,
+          "y": 1631.43
+        },
+        "endPt": {
+          "x": -452.01,
+          "y": 69.68
+        }
+      },
+      {
+        "name": "inner_bass_cutaway",
+        "segStart": 9,
+        "segEnd": 12,
+        "startPt": {
+          "x": -452.01,
+          "y": 69.68
+        },
+        "endPt": {
+          "x": -102.4,
+          "y": 261.59
+        }
+      },
+      {
+        "name": "inner_treble_cutaway",
+        "segStart": 13,
+        "segEnd": 16,
+        "startPt": {
+          "x": 107.54,
+          "y": 331.94
+        },
+        "endPt": {
+          "x": 403.7,
+          "y": 171.51
+        }
+      },
+      {
+        "name": "treble_side",
+        "segStart": 17,
+        "segEnd": 27,
+        "startPt": {
+          "x": 403.7,
+          "y": 171.51
+        },
+        "endPt": {
+          "x": 282.32,
+          "y": 1631.43
+        }
+      },
+      {
+        "name": "bottom",
+        "segStart": 28,
+        "segEnd": 28,
+        "startPt": {
+          "x": 282.32,
+          "y": 1631.43
+        },
+        "endPt": {
+          "x": -282.55,
+          "y": 1631.43
+        }
+      }
+    ],
+    "neckHeelIndex": 13,
+    "neckHeelBassEnd": {
+      "x": -102.4,
+      "y": 261.59
+    },
+    "neckHeelTrebleStart": {
+      "x": 107.54,
+      "y": 331.94
+    },
+    "neckHeelGap_px": 221.41,
+    "joins": [
+      {
+        "from": "bass_side",
+        "to": "inner_bass_cutaway",
+        "posGap": 0,
+        "kink_deg": 0.82,
+        "fromPt": {
+          "x": -452.01,
+          "y": 69.68
+        },
+        "toPt": {
+          "x": -452.01,
+          "y": 69.68
+        },
+        "isNeckHeel": false
+      },
+      {
+        "from": "inner_bass_cutaway",
+        "to": "inner_treble_cutaway",
+        "posGap": 221.421,
+        "kink_deg": 144.81,
+        "fromPt": {
+          "x": -102.4,
+          "y": 261.59
+        },
+        "toPt": {
+          "x": 107.54,
+          "y": 331.94
+        },
+        "isNeckHeel": true
+      },
+      {
+        "from": "inner_treble_cutaway",
+        "to": "treble_side",
+        "posGap": 0,
+        "kink_deg": 0,
+        "fromPt": {
+          "x": 403.7,
+          "y": 171.51
+        },
+        "toPt": {
+          "x": 403.7,
+          "y": 171.51
+        },
+        "isNeckHeel": false
+      },
+      {
+        "from": "treble_side",
+        "to": "bottom",
+        "posGap": 0,
+        "kink_deg": 0,
+        "fromPt": {
+          "x": 282.32,
+          "y": 1631.43
+        },
+        "toPt": {
+          "x": 282.32,
+          "y": 1631.43
+        },
+        "isNeckHeel": false
+      },
+      {
+        "from": "bottom",
+        "to": "bass_side",
+        "posGap": 0,
+        "kink_deg": 0,
+        "fromPt": {
+          "x": -282.55,
+          "y": 1631.43
+        },
+        "toPt": {
+          "x": -282.55,
+          "y": 1631.43
+        },
+        "isClose": true
+      }
+    ],
+    "segments": [
+      {
+        "type": "arc",
+        "x0": -282.553,
+        "y0": 1631.43,
+        "x1": -572.908,
+        "y1": 1330.022,
+        "rx": 351.873,
+        "ry": 351.873,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 351.87,
+        "arcLength": 448.2,
+        "tangentStart": {
+          "x": -0.9861,
+          "y": -0.1664
+        },
+        "tangentEnd": {
+          "x": -0.1295,
+          "y": -0.9916
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -572.908,
+        "y0": 1330.022,
+        "x1": -566.162,
+        "y1": 1180.462,
+        "rx": 430.154,
+        "ry": 430.154,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 430.15,
+        "arcLength": 150.48,
+        "tangentStart": {
+          "x": -0.1295,
+          "y": -0.9916
+        },
+        "tangentEnd": {
+          "x": 0.2182,
+          "y": -0.9759
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -566.162,
+        "y0": 1180.462,
+        "x1": -524.5,
+        "y1": 1041.395,
+        "rx": 1021.888,
+        "ry": 1021.888,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 1021.89,
+        "arcLength": 145.3,
+        "tangentStart": {
+          "x": 0.2182,
+          "y": -0.9759
+        },
+        "tangentEnd": {
+          "x": 0.3543,
+          "y": -0.9351
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -524.5,
+        "y0": 1041.395,
+        "x1": -456.156,
+        "y1": 879.33,
+        "rx": 2383.067,
+        "ry": 2383.067,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 2383.07,
+        "arcLength": 175.93,
+        "tangentStart": {
+          "x": 0.3543,
+          "y": -0.9351
+        },
+        "tangentEnd": {
+          "x": 0.4223,
+          "y": -0.9065
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -456.156,
+        "y0": 879.33,
+        "x1": -397.515,
+        "y1": 738.097,
+        "rx": 1801.891,
+        "ry": 1801.891,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 1801.89,
+        "arcLength": 152.97,
+        "tangentStart": {
+          "x": 0.4223,
+          "y": -0.9065
+        },
+        "tangentEnd": {
+          "x": 0.3439,
+          "y": -0.939
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -397.515,
+        "y0": 738.097,
+        "x1": -407.8,
+        "y1": 484.527,
+        "rx": 332.433,
+        "ry": 332.433,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 332.43,
+        "arcLength": 260.38,
+        "tangentStart": {
+          "x": 0.3439,
+          "y": -0.939
+        },
+        "tangentEnd": {
+          "x": -0.4188,
+          "y": -0.9081
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -407.8,
+        "y0": 484.527,
+        "x1": -473.498,
+        "y1": 309.094,
+        "rx": 1269.552,
+        "ry": 1269.552,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 1269.55,
+        "arcLength": 187.5,
+        "tangentStart": {
+          "x": -0.4188,
+          "y": -0.9081
+        },
+        "tangentEnd": {
+          "x": -0.2807,
+          "y": -0.9598
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -473.498,
+        "y0": 309.094,
+        "x1": -484.866,
+        "y1": 140.091,
+        "rx": 392.803,
+        "ry": 392.803,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 392.8,
+        "arcLength": 170.72,
+        "tangentStart": {
+          "x": -0.2807,
+          "y": -0.9598
+        },
+        "tangentEnd": {
+          "x": 0.1496,
+          "y": -0.9887
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -484.866,
+        "y0": 140.091,
+        "x1": -452.008,
+        "y1": 69.684,
+        "rx": 137.472,
+        "ry": 137.472,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 137.47,
+        "arcLength": 78.77,
+        "tangentStart": {
+          "x": 0.1496,
+          "y": -0.9887
+        },
+        "tangentEnd": {
+          "x": 0.6617,
+          "y": -0.7497
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -452.008,
+        "y0": 69.684,
+        "x1": -351.755,
+        "y1": 94.293,
+        "rx": 58.264,
+        "ry": 58.264,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 58.26,
+        "arcLength": 126.83,
+        "tangentStart": {
+          "x": 0.6617,
+          "y": -0.7497
+        },
+        "tangentEnd": {
+          "x": 0.2394,
+          "y": 0.9709
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -351.755,
+        "y0": 94.293,
+        "x1": -219.103,
+        "y1": 286.034,
+        "rx": 327.892,
+        "ry": 327.892,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 327.89,
+        "arcLength": 238.37,
+        "tangentStart": {
+          "x": 0.2394,
+          "y": 0.9709
+        },
+        "tangentEnd": {
+          "x": 0.8242,
+          "y": 0.5664
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -219.103,
+        "y0": 286.034,
+        "x1": -162.682,
+        "y1": 310.018,
+        "rx": 154.179,
+        "ry": 154.179,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 154.18,
+        "arcLength": 61.72,
+        "tangentStart": {
+          "x": 0.8242,
+          "y": 0.5664
+        },
+        "tangentEnd": {
+          "x": 0.9797,
+          "y": 0.2004
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -162.682,
+        "y0": 310.018,
+        "x1": -102.404,
+        "y1": 261.586,
+        "rx": 50.219,
+        "ry": 50.219,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 50.22,
+        "arcLength": 88.25,
+        "tangentStart": {
+          "x": 0.9797,
+          "y": 0.2004
+        },
+        "tangentEnd": {
+          "x": 0.0153,
+          "y": -0.9999
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 107.541,
+        "y0": 331.945,
+        "x1": 153.832,
+        "y1": 353.089,
+        "rx": 49.202,
+        "ry": 49.202,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 49.2,
+        "arcLength": 53.49,
+        "tangentStart": {
+          "x": 0.5636,
+          "y": 0.826
+        },
+        "tangentEnd": {
+          "x": 0.9934,
+          "y": -0.1148
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 153.832,
+        "y0": 353.089,
+        "x1": 232.071,
+        "y1": 330.428,
+        "rx": 245.223,
+        "ry": 245.223,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 245.22,
+        "arcLength": 81.83,
+        "tangentStart": {
+          "x": 0.9934,
+          "y": -0.1148
+        },
+        "tangentEnd": {
+          "x": 0.901,
+          "y": -0.4339
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 232.071,
+        "y0": 330.428,
+        "x1": 341.315,
+        "y1": 213.719,
+        "rx": 221.237,
+        "ry": 221.237,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 221.24,
+        "arcLength": 163.56,
+        "tangentStart": {
+          "x": 0.901,
+          "y": -0.4339
+        },
+        "tangentEnd": {
+          "x": 0.3735,
+          "y": -0.9277
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 341.315,
+        "y0": 213.719,
+        "x1": 403.701,
+        "y1": 171.506,
+        "rx": 67.374,
+        "ry": 67.374,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 67.37,
+        "arcLength": 79.93,
+        "tangentStart": {
+          "x": 0.3735,
+          "y": -0.9277
+        },
+        "tangentEnd": {
+          "x": 1,
+          "y": -0.0017
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 403.701,
+        "y0": 171.506,
+        "x1": 450.625,
+        "y1": 199.336,
+        "rx": 53.321,
+        "ry": 53.321,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 53.32,
+        "arcLength": 57.27,
+        "tangentStart": {
+          "x": 1,
+          "y": -0.0017
+        },
+        "tangentEnd": {
+          "x": 0.4781,
+          "y": 0.8783
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 450.625,
+        "y0": 199.336,
+        "x1": 463.492,
+        "y1": 237.27,
+        "rx": 117.416,
+        "ry": 117.416,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 117.42,
+        "arcLength": 40.25,
+        "tangentStart": {
+          "x": 0.4781,
+          "y": 0.8783
+        },
+        "tangentEnd": {
+          "x": 0.155,
+          "y": 0.9879
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 463.492,
+        "y0": 237.27,
+        "x1": 467.282,
+        "y1": 310.016,
+        "rx": 352.339,
+        "ry": 352.339,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 352.34,
+        "arcLength": 72.97,
+        "tangentStart": {
+          "x": 0.155,
+          "y": 0.9879
+        },
+        "tangentEnd": {
+          "x": -0.0515,
+          "y": 0.9987
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 467.282,
+        "y0": 310.016,
+        "x1": 444.748,
+        "y1": 410.579,
+        "rx": 306.463,
+        "ry": 306.463,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 306.46,
+        "arcLength": 103.55,
+        "tangentStart": {
+          "x": -0.0515,
+          "y": 0.9987
+        },
+        "tangentEnd": {
+          "x": -0.3796,
+          "y": 0.9251
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 444.748,
+        "y0": 410.579,
+        "x1": 406.115,
+        "y1": 498.036,
+        "rx": 1799.64,
+        "ry": 1799.64,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 1799.64,
+        "arcLength": 95.62,
+        "tangentStart": {
+          "x": -0.3796,
+          "y": 0.9251
+        },
+        "tangentEnd": {
+          "x": -0.4282,
+          "y": 0.9037
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 406.115,
+        "y0": 498.036,
+        "x1": 388.425,
+        "y1": 747.655,
+        "rx": 344.441,
+        "ry": 344.441,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 344.44,
+        "arcLength": 256.1,
+        "tangentStart": {
+          "x": -0.4282,
+          "y": 0.9037
+        },
+        "tangentEnd": {
+          "x": 0.2965,
+          "y": 0.955
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 388.425,
+        "y0": 747.655,
+        "x1": 452.156,
+        "y1": 889.628,
+        "rx": 645.038,
+        "ry": 645.038,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 645.04,
+        "arcLength": 156,
+        "tangentStart": {
+          "x": 0.2965,
+          "y": 0.955
+        },
+        "tangentEnd": {
+          "x": 0.5166,
+          "y": 0.8562
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 452.156,
+        "y0": 889.628,
+        "x1": 517.946,
+        "y1": 1020.531,
+        "rx": 950.448,
+        "ry": 950.448,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 950.45,
+        "arcLength": 146.65,
+        "tangentStart": {
+          "x": 0.5166,
+          "y": 0.8562
+        },
+        "tangentEnd": {
+          "x": 0.3789,
+          "y": 0.9255
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 517.946,
+        "y0": 1020.531,
+        "x1": 573.99,
+        "y1": 1251.286,
+        "rx": 792.916,
+        "ry": 792.916,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 792.92,
+        "arcLength": 238.36,
+        "tangentStart": {
+          "x": 0.3789,
+          "y": 0.9255
+        },
+        "tangentEnd": {
+          "x": 0.0878,
+          "y": 0.9961
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 573.99,
+        "y0": 1251.286,
+        "x1": 575.455,
+        "y1": 1281.421,
+        "rx": 383.313,
+        "ry": 383.313,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 383.31,
+        "arcLength": 30.18,
+        "tangentStart": {
+          "x": 0.0878,
+          "y": 0.9961
+        },
+        "tangentEnd": {
+          "x": 0.0092,
+          "y": 1
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 575.455,
+        "y0": 1281.421,
+        "x1": 282.324,
+        "y1": 1631.43,
+        "rx": 351.669,
+        "ry": 351.669,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 351.67,
+        "arcLength": 496.85,
+        "tangentStart": {
+          "x": 0.0092,
+          "y": 1
+        },
+        "tangentEnd": {
+          "x": -0.9861,
+          "y": 0.1664
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 282.324,
+        "y0": 1631.43,
+        "x1": -282.553,
+        "y1": 1631.43,
+        "rx": 1697.203,
+        "ry": 1697.203,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 1697.2,
+        "arcLength": 567.52,
+        "tangentStart": {
+          "x": -0.9861,
+          "y": 0.1664
+        },
+        "tangentEnd": {
+          "x": -0.9861,
+          "y": -0.1664
+        }
+      }
+    ]
+  },
+  "Akula": {
+    "guitar": "Akula",
+    "totalSegments": 22,
+    "sections": [
+      {
+        "name": "bass_side",
+        "segStart": 0,
+        "segEnd": 5,
+        "startPt": {
+          "x": -376.99,
+          "y": 1733.43
+        },
+        "endPt": {
+          "x": -525.9,
+          "y": 51.01
+        }
+      },
+      {
+        "name": "inner_bass_cutaway",
+        "segStart": 6,
+        "segEnd": 8,
+        "startPt": {
+          "x": -525.9,
+          "y": 51.01
+        },
+        "endPt": {
+          "x": -124.55,
+          "y": 193.77
+        }
+      },
+      {
+        "name": "inner_treble_cutaway",
+        "segStart": 9,
+        "segEnd": 11,
+        "startPt": {
+          "x": 103.09,
+          "y": 275.7
+        },
+        "endPt": {
+          "x": 544.62,
+          "y": 448.87
+        }
+      },
+      {
+        "name": "treble_side",
+        "segStart": 12,
+        "segEnd": 18,
+        "startPt": {
+          "x": 544.62,
+          "y": 448.87
+        },
+        "endPt": {
+          "x": 421.15,
+          "y": 1841.28
+        }
+      },
+      {
+        "name": "bottom",
+        "segStart": 19,
+        "segEnd": 21,
+        "startPt": {
+          "x": 421.15,
+          "y": 1841.28
+        },
+        "endPt": {
+          "x": -376.99,
+          "y": 1733.43
+        }
+      }
+    ],
+    "neckHeelIndex": 9,
+    "neckHeelBassEnd": {
+      "x": -124.55,
+      "y": 193.77
+    },
+    "neckHeelTrebleStart": {
+      "x": 103.09,
+      "y": 275.7
+    },
+    "neckHeelGap_px": 241.93,
+    "joins": [
+      {
+        "from": "bass_side",
+        "to": "inner_bass_cutaway",
+        "posGap": 0,
+        "kink_deg": 0.79,
+        "fromPt": {
+          "x": -525.9,
+          "y": 51.01
+        },
+        "toPt": {
+          "x": -525.9,
+          "y": 51.01
+        },
+        "isNeckHeel": false
+      },
+      {
+        "from": "inner_bass_cutaway",
+        "to": "inner_treble_cutaway",
+        "posGap": 241.931,
+        "kink_deg": 134.2,
+        "fromPt": {
+          "x": -124.55,
+          "y": 193.77
+        },
+        "toPt": {
+          "x": 103.09,
+          "y": 275.7
+        },
+        "isNeckHeel": true
+      },
+      {
+        "from": "inner_treble_cutaway",
+        "to": "treble_side",
+        "posGap": 0,
+        "kink_deg": 0.61,
+        "fromPt": {
+          "x": 544.62,
+          "y": 448.87
+        },
+        "toPt": {
+          "x": 544.62,
+          "y": 448.87
+        },
+        "isNeckHeel": false
+      },
+      {
+        "from": "treble_side",
+        "to": "bottom",
+        "posGap": 0,
+        "kink_deg": 0,
+        "fromPt": {
+          "x": 421.15,
+          "y": 1841.28
+        },
+        "toPt": {
+          "x": 421.15,
+          "y": 1841.28
+        },
+        "isNeckHeel": false
+      },
+      {
+        "from": "bottom",
+        "to": "bass_side",
+        "posGap": 0,
+        "kink_deg": 0.7,
+        "fromPt": {
+          "x": -376.99,
+          "y": 1733.43
+        },
+        "toPt": {
+          "x": -376.99,
+          "y": 1733.43
+        },
+        "isClose": true
+      }
+    ],
+    "segments": [
+      {
+        "type": "arc",
+        "x0": -376.989,
+        "y0": 1733.427,
+        "x1": -449.373,
+        "y1": 1696.402,
+        "rx": 668.856,
+        "ry": 668.856,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 668.86,
+        "arcLength": 81.35,
+        "tangentStart": {
+          "x": -0.9163,
+          "y": -0.4004
+        },
+        "tangentEnd": {
+          "x": -0.861,
+          "y": -0.5087
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -449.373,
+        "y0": 1696.402,
+        "x1": -515.888,
+        "y1": 1648.199,
+        "rx": 439.996,
+        "ry": 439.996,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 440,
+        "arcLength": 82.27,
+        "tangentStart": {
+          "x": -0.861,
+          "y": -0.5087
+        },
+        "tangentEnd": {
+          "x": -0.7514,
+          "y": -0.6598
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -515.888,
+        "y0": 1648.199,
+        "x1": -644.032,
+        "y1": 1166.864,
+        "rx": 447.631,
+        "ry": 447.631,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 447.63,
+        "arcLength": 528.22,
+        "tangentStart": {
+          "x": -0.7514,
+          "y": -0.6598
+        },
+        "tangentEnd": {
+          "x": 0.3239,
+          "y": -0.9461
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -644.032,
+        "y0": 1166.864,
+        "x1": -525.631,
+        "y1": 921.96,
+        "rx": 1131.425,
+        "ry": 1131.425,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 1131.42,
+        "arcLength": 272.68,
+        "tangentStart": {
+          "x": 0.3239,
+          "y": -0.9461
+        },
+        "tangentEnd": {
+          "x": 0.5403,
+          "y": -0.8415
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -525.631,
+        "y0": 921.96,
+        "x1": -453.634,
+        "y1": 599.948,
+        "rx": 480,
+        "ry": 480,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 480,
+        "arcLength": 336.83,
+        "tangentStart": {
+          "x": 0.5403,
+          "y": -0.8415
+        },
+        "tangentEnd": {
+          "x": -0.1305,
+          "y": -0.9914
+        }
+      },
+      {
+        "type": "line",
+        "x0": -453.634,
+        "y0": 599.948,
+        "x1": -525.903,
+        "y1": 51.013,
+        "length": 553.671,
+        "tangentStart": {
+          "x": -0.1305,
+          "y": -0.9914
+        },
+        "tangentEnd": {
+          "x": -0.1305,
+          "y": -0.9914
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -525.903,
+        "y0": 51.013,
+        "x1": -457.265,
+        "y1": 13.357,
+        "rx": 42,
+        "ry": 42,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 42,
+        "arcLength": 100.79,
+        "tangentStart": {
+          "x": -0.1305,
+          "y": -0.9914
+        },
+        "tangentEnd": {
+          "x": 0.766,
+          "y": 0.6428
+        }
+      },
+      {
+        "type": "line",
+        "x0": -457.265,
+        "y0": 13.357,
+        "x1": -233.099,
+        "y1": 201.455,
+        "length": 292.628,
+        "tangentStart": {
+          "x": 0.766,
+          "y": 0.6428
+        },
+        "tangentEnd": {
+          "x": 0.766,
+          "y": 0.6428
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -233.099,
+        "y0": 201.455,
+        "x1": -124.551,
+        "y1": 193.77,
+        "rx": 78.255,
+        "ry": 78.255,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 78.25,
+        "arcLength": 120.33,
+        "tangentStart": {
+          "x": 0.766,
+          "y": 0.6428
+        },
+        "tangentEnd": {
+          "x": 0.6678,
+          "y": -0.7443
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 103.086,
+        "y0": 275.698,
+        "x1": 279.145,
+        "y1": 406.213,
+        "rx": 144,
+        "ry": 144,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 144,
+        "arcLength": 249.06,
+        "tangentStart": {
+          "x": 0.068,
+          "y": 0.9977
+        },
+        "tangentEnd": {
+          "x": 0.9744,
+          "y": -0.225
+        }
+      },
+      {
+        "type": "line",
+        "x0": 279.145,
+        "y0": 406.213,
+        "x1": 457.741,
+        "y1": 364.98,
+        "length": 183.294,
+        "tangentStart": {
+          "x": 0.9744,
+          "y": -0.225
+        },
+        "tangentEnd": {
+          "x": 0.9744,
+          "y": -0.225
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 457.741,
+        "y0": 364.98,
+        "x1": 544.615,
+        "y1": 448.873,
+        "rx": 72,
+        "ry": 72,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 72,
+        "arcLength": 143.26,
+        "tangentStart": {
+          "x": 0.9744,
+          "y": -0.225
+        },
+        "tangentEnd": {
+          "x": -0.1908,
+          "y": 0.9816
+        }
+      },
+      {
+        "type": "line",
+        "x0": 544.615,
+        "y0": 448.873,
+        "x1": 451.69,
+        "y1": 926.931,
+        "length": 487.006,
+        "tangentStart": {
+          "x": -0.1908,
+          "y": 0.9816
+        },
+        "tangentEnd": {
+          "x": -0.1908,
+          "y": 0.9816
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 451.69,
+        "y0": 926.931,
+        "x1": 468.315,
+        "y1": 1103.851,
+        "rx": 315.286,
+        "ry": 315.286,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 315.29,
+        "arcLength": 180.14,
+        "tangentStart": {
+          "x": -0.1908,
+          "y": 0.9816
+        },
+        "tangentEnd": {
+          "x": 0.3703,
+          "y": 0.9289
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 468.315,
+        "y0": 1103.851,
+        "x1": 538.401,
+        "y1": 1233.44,
+        "rx": 634.191,
+        "ry": 634.191,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 634.19,
+        "arcLength": 147.66,
+        "tangentStart": {
+          "x": 0.3703,
+          "y": 0.9289
+        },
+        "tangentEnd": {
+          "x": 0.5747,
+          "y": 0.8184
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 538.401,
+        "y0": 1233.44,
+        "x1": 623.064,
+        "y1": 1375.701,
+        "rx": 1099.176,
+        "ry": 1099.176,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 1099.18,
+        "arcLength": 165.71,
+        "tangentStart": {
+          "x": 0.5747,
+          "y": 0.8184
+        },
+        "tangentEnd": {
+          "x": 0.4452,
+          "y": 0.8954
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 623.064,
+        "y0": 1375.701,
+        "x1": 635.912,
+        "y1": 1681.797,
+        "rx": 376.091,
+        "ry": 376.091,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 376.09,
+        "arcLength": 315.54,
+        "tangentStart": {
+          "x": 0.4452,
+          "y": 0.8954
+        },
+        "tangentEnd": {
+          "x": -0.3686,
+          "y": 0.9296
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 635.912,
+        "y0": 1681.797,
+        "x1": 538.401,
+        "y1": 1797.066,
+        "rx": 236.71,
+        "ry": 236.71,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 236.71,
+        "arcLength": 153.66,
+        "tangentStart": {
+          "x": -0.3686,
+          "y": 0.9296
+        },
+        "tangentEnd": {
+          "x": -0.8556,
+          "y": 0.5176
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 538.401,
+        "y0": 1797.066,
+        "x1": 421.147,
+        "y1": 1841.277,
+        "rx": 343.36,
+        "ry": 343.36,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 343.36,
+        "arcLength": 126.02,
+        "tangentStart": {
+          "x": -0.8556,
+          "y": 0.5176
+        },
+        "tangentEnd": {
+          "x": -0.9844,
+          "y": 0.1761
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 421.147,
+        "y0": 1841.277,
+        "x1": 160.209,
+        "y1": 1854.592,
+        "rx": 1038.912,
+        "ry": 1038.912,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 1038.91,
+        "arcLength": 261.97,
+        "tangentStart": {
+          "x": -0.9844,
+          "y": 0.1761
+        },
+        "tangentEnd": {
+          "x": -0.9972,
+          "y": -0.075
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 160.209,
+        "y0": 1854.592,
+        "x1": -197.671,
+        "y1": 1795.349,
+        "rx": 2041.668,
+        "ry": 2041.668,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 2041.67,
+        "arcLength": 363.23,
+        "tangentStart": {
+          "x": -0.9972,
+          "y": -0.075
+        },
+        "tangentEnd": {
+          "x": -0.9682,
+          "y": -0.2503
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -197.671,
+        "y0": 1795.349,
+        "x1": -376.989,
+        "y1": 1733.427,
+        "rx": 1194.497,
+        "ry": 1194.497,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 1194.5,
+        "arcLength": 189.91,
+        "tangentStart": {
+          "x": -0.9682,
+          "y": -0.2503
+        },
+        "tangentEnd": {
+          "x": -0.9163,
+          "y": -0.4004
+        }
+      }
+    ]
+  },
+  "Wolfgang": {
+    "guitar": "Wolfgang",
+    "totalSegments": 40,
+    "sections": [
+      {
+        "name": "bass_side",
+        "segStart": 0,
+        "segEnd": 12,
+        "startPt": {
+          "x": -350.64,
+          "y": 1471.78
+        },
+        "endPt": {
+          "x": -405.13,
+          "y": -34.33
+        }
+      },
+      {
+        "name": "inner_bass_cutaway",
+        "segStart": 13,
+        "segEnd": 18,
+        "startPt": {
+          "x": -405.13,
+          "y": -34.33
+        },
+        "endPt": {
+          "x": -79.02,
+          "y": 152.61
+        }
+      },
+      {
+        "name": "inner_treble_cutaway",
+        "segStart": 19,
+        "segEnd": 24,
+        "startPt": {
+          "x": 101.3,
+          "y": 333.79
+        },
+        "endPt": {
+          "x": 439.27,
+          "y": 326.78
+        }
+      },
+      {
+        "name": "treble_side",
+        "segStart": 25,
+        "segEnd": 36,
+        "startPt": {
+          "x": 439.27,
+          "y": 326.78
+        },
+        "endPt": {
+          "x": 429.67,
+          "y": 1505.34
+        }
+      },
+      {
+        "name": "bottom",
+        "segStart": 37,
+        "segEnd": 39,
+        "startPt": {
+          "x": 429.67,
+          "y": 1505.34
+        },
+        "endPt": {
+          "x": -350.64,
+          "y": 1471.78
+        }
+      }
+    ],
+    "neckHeelIndex": 19,
+    "neckHeelBassEnd": {
+      "x": -79.02,
+      "y": 152.61
+    },
+    "neckHeelTrebleStart": {
+      "x": 101.3,
+      "y": 333.79
+    },
+    "neckHeelGap_px": 255.62,
+    "joins": [
+      {
+        "from": "bass_side",
+        "to": "inner_bass_cutaway",
+        "posGap": 0,
+        "kink_deg": 1.55,
+        "fromPt": {
+          "x": -405.13,
+          "y": -34.33
+        },
+        "toPt": {
+          "x": -405.13,
+          "y": -34.33
+        },
+        "isNeckHeel": false
+      },
+      {
+        "from": "inner_bass_cutaway",
+        "to": "inner_treble_cutaway",
+        "posGap": 255.621,
+        "kink_deg": 89.12,
+        "fromPt": {
+          "x": -79.02,
+          "y": 152.61
+        },
+        "toPt": {
+          "x": 101.3,
+          "y": 333.79
+        },
+        "isNeckHeel": true
+      },
+      {
+        "from": "inner_treble_cutaway",
+        "to": "treble_side",
+        "posGap": 0,
+        "kink_deg": 1.74,
+        "fromPt": {
+          "x": 439.27,
+          "y": 326.78
+        },
+        "toPt": {
+          "x": 439.27,
+          "y": 326.78
+        },
+        "isNeckHeel": false
+      },
+      {
+        "from": "treble_side",
+        "to": "bottom",
+        "posGap": 0,
+        "kink_deg": 1.2,
+        "fromPt": {
+          "x": 429.67,
+          "y": 1505.34
+        },
+        "toPt": {
+          "x": 429.67,
+          "y": 1505.34
+        },
+        "isNeckHeel": false
+      },
+      {
+        "from": "bottom",
+        "to": "bass_side",
+        "posGap": 0.001,
+        "kink_deg": 0.4,
+        "fromPt": {
+          "x": -350.64,
+          "y": 1471.78
+        },
+        "toPt": {
+          "x": -350.64,
+          "y": 1471.78
+        },
+        "isClose": true
+      }
+    ],
+    "segments": [
+      {
+        "type": "arc",
+        "x0": -350.636,
+        "y0": 1471.78,
+        "x1": -445.908,
+        "y1": 1402.135,
+        "rx": 512.595,
+        "ry": 512.595,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 512.6,
+        "arcLength": 118.28,
+        "tangentStart": {
+          "x": -0.8699,
+          "y": -0.4933
+        },
+        "tangentEnd": {
+          "x": -0.734,
+          "y": -0.6792
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -445.908,
+        "y0": 1402.135,
+        "x1": -586.495,
+        "y1": 1180.687,
+        "rx": 503.017,
+        "ry": 503.017,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 503.02,
+        "arcLength": 265.37,
+        "tangentStart": {
+          "x": -0.7375,
+          "y": -0.6753
+        },
+        "tangentEnd": {
+          "x": -0.2973,
+          "y": -0.9548
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -586.495,
+        "y0": 1180.687,
+        "x1": -593.303,
+        "y1": 946.597,
+        "rx": 442.1,
+        "ry": 442.1,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 442.1,
+        "arcLength": 237.02,
+        "tangentStart": {
+          "x": -0.2928,
+          "y": -0.9562
+        },
+        "tangentEnd": {
+          "x": 0.2367,
+          "y": -0.9716
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -593.303,
+        "y0": 946.597,
+        "x1": -544.188,
+        "y1": 813.66,
+        "rx": 637.376,
+        "ry": 637.376,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 637.38,
+        "arcLength": 142.01,
+        "tangentStart": {
+          "x": 0.2401,
+          "y": -0.9707
+        },
+        "tangentEnd": {
+          "x": 0.4487,
+          "y": -0.8937
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -544.188,
+        "y0": 813.66,
+        "x1": -486.476,
+        "y1": 713.502,
+        "rx": 1314.091,
+        "ry": 1314.091,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 1314.09,
+        "arcLength": 115.63,
+        "tangentStart": {
+          "x": 0.4607,
+          "y": -0.8876
+        },
+        "tangentEnd": {
+          "x": 0.5369,
+          "y": -0.8437
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -486.476,
+        "y0": 713.502,
+        "x1": -433.088,
+        "y1": 619.755,
+        "rx": 1129.69,
+        "ry": 1129.69,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 1129.69,
+        "arcLength": 107.92,
+        "tangentStart": {
+          "x": 0.5358,
+          "y": -0.8443
+        },
+        "tangentEnd": {
+          "x": 0.4528,
+          "y": -0.8916
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -433.088,
+        "y0": 619.755,
+        "x1": -405.714,
+        "y1": 535.836,
+        "rx": 271.389,
+        "ry": 271.389,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 271.39,
+        "arcLength": 88.66,
+        "tangentStart": {
+          "x": 0.4606,
+          "y": -0.8876
+        },
+        "tangentEnd": {
+          "x": 0.1514,
+          "y": -0.9885
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -405.714,
+        "y0": 535.836,
+        "x1": -412.089,
+        "y1": 441.371,
+        "rx": 260.076,
+        "ry": 260.076,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 260.08,
+        "arcLength": 95.21,
+        "tangentStart": {
+          "x": 0.1154,
+          "y": -0.9933
+        },
+        "tangentEnd": {
+          "x": -0.2478,
+          "y": -0.9688
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -412.089,
+        "y0": 441.371,
+        "x1": -446.762,
+        "y1": 335.481,
+        "rx": 1006.337,
+        "ry": 1006.337,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 1006.34,
+        "arcLength": 111.48,
+        "tangentStart": {
+          "x": -0.2581,
+          "y": -0.9661
+        },
+        "tangentEnd": {
+          "x": -0.3633,
+          "y": -0.9317
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -446.762,
+        "y0": 335.481,
+        "x1": -478.489,
+        "y1": 240.731,
+        "rx": 1226.643,
+        "ry": 1226.643,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 1226.64,
+        "arcLength": 99.95,
+        "tangentStart": {
+          "x": -0.3559,
+          "y": -0.9345
+        },
+        "tangentEnd": {
+          "x": -0.2786,
+          "y": -0.9604
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -478.489,
+        "y0": 240.731,
+        "x1": -491.402,
+        "y1": 145.932,
+        "rx": 330.496,
+        "ry": 330.496,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 330.5,
+        "arcLength": 96.01,
+        "tangentStart": {
+          "x": -0.277,
+          "y": -0.9609
+        },
+        "tangentEnd": {
+          "x": 0.0099,
+          "y": -1
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -491.402,
+        "y0": 145.932,
+        "x1": -441.415,
+        "y1": -3.948,
+        "rx": 252.516,
+        "ry": 252.516,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 252.52,
+        "arcLength": 160.69,
+        "tangentStart": {
+          "x": 0.0037,
+          "y": -1
+        },
+        "tangentEnd": {
+          "x": 0.5973,
+          "y": -0.802
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -441.415,
+        "y0": -3.948,
+        "x1": -405.135,
+        "y1": -34.328,
+        "rx": 97.665,
+        "ry": 97.665,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 97.67,
+        "arcLength": 47.8,
+        "tangentStart": {
+          "x": 0.5883,
+          "y": -0.8086
+        },
+        "tangentEnd": {
+          "x": 0.8994,
+          "y": -0.4371
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -405.135,
+        "y0": -34.328,
+        "x1": -355.364,
+        "y1": -37.793,
+        "rx": 71.247,
+        "ry": 71.247,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 71.25,
+        "arcLength": 50.97,
+        "tangentStart": {
+          "x": 0.9101,
+          "y": -0.4143
+        },
+        "tangentEnd": {
+          "x": 0.9588,
+          "y": 0.2842
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -355.364,
+        "y0": -37.793,
+        "x1": -312.107,
+        "y1": -6.201,
+        "rx": 93.623,
+        "ry": 93.623,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 93.62,
+        "arcLength": 54.32,
+        "tangentStart": {
+          "x": 0.9425,
+          "y": 0.3341
+        },
+        "tangentEnd": {
+          "x": 0.6051,
+          "y": 0.7961
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -312.107,
+        "y0": -6.201,
+        "x1": -273.65,
+        "y1": 52.353,
+        "rx": 415.561,
+        "ry": 415.561,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 415.56,
+        "arcLength": 70.14,
+        "tangentStart": {
+          "x": 0.6175,
+          "y": 0.7866
+        },
+        "tangentEnd": {
+          "x": 0.4766,
+          "y": 0.8791
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -273.65,
+        "y0": 52.353,
+        "x1": -239.933,
+        "y1": 104.276,
+        "rx": 391.225,
+        "ry": 391.225,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 391.23,
+        "arcLength": 61.97,
+        "tangentStart": {
+          "x": 0.4766,
+          "y": 0.8791
+        },
+        "tangentEnd": {
+          "x": 0.6093,
+          "y": 0.793
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -239.933,
+        "y0": 104.276,
+        "x1": -144.424,
+        "y1": 151.802,
+        "rx": 126.001,
+        "ry": 126.001,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 126,
+        "arcLength": 110.16,
+        "tangentStart": {
+          "x": 0.6225,
+          "y": 0.7826
+        },
+        "tangentEnd": {
+          "x": 0.9997,
+          "y": 0.0246
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -144.424,
+        "y0": 151.802,
+        "x1": -79.024,
+        "y1": 152.607,
+        "rx": 2657.475,
+        "ry": 2657.475,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 2657.47,
+        "arcLength": 65.41,
+        "tangentStart": {
+          "x": 0.9997,
+          "y": 0.0246
+        },
+        "tangentEnd": {
+          "x": 1,
+          "y": 0
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 101.298,
+        "y0": 333.787,
+        "x1": 168.297,
+        "y1": 432.054,
+        "rx": 108,
+        "ry": 108,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 108,
+        "arcLength": 125.95,
+        "tangentStart": {
+          "x": 0.0153,
+          "y": 0.9999
+        },
+        "tangentEnd": {
+          "x": 0.9252,
+          "y": 0.3795
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 168.297,
+        "y0": 432.054,
+        "x1": 228.046,
+        "y1": 443.657,
+        "rx": 155.125,
+        "ry": 155.125,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 155.13,
+        "arcLength": 61.26,
+        "tangentStart": {
+          "x": 0.9252,
+          "y": 0.3795
+        },
+        "tangentEnd": {
+          "x": 1,
+          "y": -0.0057
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 228.046,
+        "y0": 443.657,
+        "x1": 372.724,
+        "y1": 355.165,
+        "rx": 166.783,
+        "ry": 166.783,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 166.78,
+        "arcLength": 177.91,
+        "tangentStart": {
+          "x": 0.9999,
+          "y": -0.0156
+        },
+        "tangentEnd": {
+          "x": 0.4693,
+          "y": -0.883
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 372.724,
+        "y0": 355.165,
+        "x1": 386.258,
+        "y1": 334.318,
+        "rx": 122.316,
+        "ry": 122.316,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 122.32,
+        "arcLength": 24.9,
+        "tangentStart": {
+          "x": 0.4565,
+          "y": -0.8897
+        },
+        "tangentEnd": {
+          "x": 0.6269,
+          "y": -0.7791
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 386.258,
+        "y0": 334.318,
+        "x1": 408.899,
+        "y1": 320.67,
+        "rx": 39.528,
+        "ry": 39.528,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 39.53,
+        "arcLength": 26.96,
+        "tangentStart": {
+          "x": 0.6345,
+          "y": -0.7729
+        },
+        "tangentEnd": {
+          "x": 0.9798,
+          "y": -0.2001
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 408.899,
+        "y0": 320.67,
+        "x1": 439.274,
+        "y1": 326.782,
+        "rx": 46.995,
+        "ry": 46.995,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 46.99,
+        "arcLength": 31.57,
+        "tangentStart": {
+          "x": 0.9906,
+          "y": -0.1369
+        },
+        "tangentEnd": {
+          "x": 0.8605,
+          "y": 0.5094
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 439.274,
+        "y0": 326.782,
+        "x1": 468.58,
+        "y1": 354.691,
+        "rx": 80.027,
+        "ry": 80.027,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 80.03,
+        "arcLength": 40.91,
+        "tangentStart": {
+          "x": 0.875,
+          "y": 0.4841
+        },
+        "tangentEnd": {
+          "x": 0.5262,
+          "y": 0.8503
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 468.58,
+        "y0": 354.691,
+        "x1": 484.078,
+        "y1": 402.325,
+        "rx": 110.267,
+        "ry": 110.267,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 110.27,
+        "arcLength": 50.53,
+        "tangentStart": {
+          "x": 0.5173,
+          "y": 0.8558
+        },
+        "tangentEnd": {
+          "x": 0.0853,
+          "y": 0.9964
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 484.078,
+        "y0": 402.325,
+        "x1": 481.649,
+        "y1": 452.541,
+        "rx": 175.206,
+        "ry": 175.206,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 175.21,
+        "arcLength": 50.45,
+        "tangentStart": {
+          "x": 0.0955,
+          "y": 0.9954
+        },
+        "tangentEnd": {
+          "x": -0.1911,
+          "y": 0.9816
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 481.649,
+        "y0": 452.541,
+        "x1": 450.447,
+        "y1": 539.213,
+        "rx": 358.972,
+        "ry": 358.972,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 358.97,
+        "arcLength": 92.37,
+        "tangentStart": {
+          "x": -0.2152,
+          "y": 0.9766
+        },
+        "tangentEnd": {
+          "x": -0.4566,
+          "y": 0.8897
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 450.447,
+        "y0": 539.213,
+        "x1": 427.346,
+        "y1": 595.027,
+        "rx": 411.714,
+        "ry": 411.714,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 411.71,
+        "arcLength": 60.46,
+        "tangentStart": {
+          "x": -0.4492,
+          "y": 0.8934
+        },
+        "tangentEnd": {
+          "x": -0.3136,
+          "y": 0.9495
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 427.346,
+        "y0": 595.027,
+        "x1": 419.175,
+        "y1": 649.615,
+        "rx": 184.693,
+        "ry": 184.693,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 184.69,
+        "arcLength": 55.4,
+        "tangentStart": {
+          "x": -0.2941,
+          "y": 0.9558
+        },
+        "tangentEnd": {
+          "x": 0.0014,
+          "y": 1
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 419.175,
+        "y0": 649.615,
+        "x1": 434.571,
+        "y1": 723.417,
+        "rx": 217.885,
+        "ry": 217.885,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 217.88,
+        "arcLength": 75.77,
+        "tangentStart": {
+          "x": 0.0318,
+          "y": 0.9995
+        },
+        "tangentEnd": {
+          "x": 0.3705,
+          "y": 0.9288
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 434.571,
+        "y0": 723.417,
+        "x1": 488.054,
+        "y1": 836.916,
+        "rx": 980.224,
+        "ry": 980.224,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 980.22,
+        "arcLength": 125.55,
+        "tangentStart": {
+          "x": 0.3675,
+          "y": 0.93
+        },
+        "tangentEnd": {
+          "x": 0.4833,
+          "y": 0.8755
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 488.054,
+        "y0": 836.916,
+        "x1": 558.152,
+        "y1": 993.07,
+        "rx": 1204.483,
+        "ry": 1204.483,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 1204.48,
+        "arcLength": 171.31,
+        "tangentStart": {
+          "x": 0.4733,
+          "y": 0.8809
+        },
+        "tangentEnd": {
+          "x": 0.3437,
+          "y": 0.9391
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 558.152,
+        "y0": 993.07,
+        "x1": 594.297,
+        "y1": 1120.242,
+        "rx": 841.37,
+        "ry": 841.37,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 841.37,
+        "arcLength": 132.34,
+        "tangentStart": {
+          "x": 0.3481,
+          "y": 0.9374
+        },
+        "tangentEnd": {
+          "x": 0.197,
+          "y": 0.9804
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 594.297,
+        "y0": 1120.242,
+        "x1": 556.167,
+        "y1": 1370.547,
+        "rx": 390.235,
+        "ry": 390.235,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 390.24,
+        "arcLength": 257.86,
+        "tangentStart": {
+          "x": 0.1783,
+          "y": 0.984
+        },
+        "tangentEnd": {
+          "x": -0.4632,
+          "y": 0.8863
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 556.167,
+        "y0": 1370.547,
+        "x1": 429.668,
+        "y1": 1505.34,
+        "rx": 347.321,
+        "ry": 347.321,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 347.32,
+        "arcLength": 187.11,
+        "tangentStart": {
+          "x": -0.4656,
+          "y": 0.885
+        },
+        "tangentEnd": {
+          "x": -0.8537,
+          "y": 0.5208
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 429.668,
+        "y0": 1505.34,
+        "x1": 207.579,
+        "y1": 1573.072,
+        "rx": 506.623,
+        "ry": 506.623,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 506.62,
+        "arcLength": 234.27,
+        "tangentStart": {
+          "x": -0.8642,
+          "y": 0.5031
+        },
+        "tangentEnd": {
+          "x": -0.9979,
+          "y": 0.0648
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 207.579,
+        "y0": 1573.072,
+        "x1": -185.471,
+        "y1": 1538.221,
+        "rx": 1103.882,
+        "ry": 1103.882,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 1103.88,
+        "arcLength": 396.72,
+        "tangentStart": {
+          "x": -0.9958,
+          "y": 0.0911
+        },
+        "tangentEnd": {
+          "x": -0.9643,
+          "y": -0.2649
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -185.471,
+        "y0": 1538.221,
+        "x1": -350.636,
+        "y1": 1471.779,
+        "rx": 715.388,
+        "ry": 715.388,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 715.39,
+        "arcLength": 178.49,
+        "tangentStart": {
+          "x": -0.967,
+          "y": -0.2549
+        },
+        "tangentEnd": {
+          "x": -0.8741,
+          "y": -0.4857
+        }
+      }
+    ]
+  },
+  "Les Paul": {
+    "guitar": "Les Paul",
+    "totalSegments": 33,
+    "sections": [
+      {
+        "name": "bass_side",
+        "segStart": 0,
+        "segEnd": 13,
+        "startPt": {
+          "x": -161.15,
+          "y": 1800.82
+        },
+        "endPt": {
+          "x": -134.49,
+          "y": 150.88
+        }
+      },
+      {
+        "name": "inner_treble_cutaway",
+        "segStart": 14,
+        "segEnd": 18,
+        "startPt": {
+          "x": 103.72,
+          "y": 332.06
+        },
+        "endPt": {
+          "x": 436.6,
+          "y": 352.88
+        }
+      },
+      {
+        "name": "treble_side",
+        "segStart": 19,
+        "segEnd": 31,
+        "startPt": {
+          "x": 436.6,
+          "y": 352.88
+        },
+        "endPt": {
+          "x": 161.87,
+          "y": 1800.82
+        }
+      },
+      {
+        "name": "bottom",
+        "segStart": 32,
+        "segEnd": 32,
+        "startPt": {
+          "x": 161.87,
+          "y": 1800.82
+        },
+        "endPt": {
+          "x": -161.15,
+          "y": 1800.82
+        }
+      }
+    ],
+    "neckHeelIndex": 14,
+    "neckHeelBassEnd": {
+      "x": -134.49,
+      "y": 150.88
+    },
+    "neckHeelTrebleStart": {
+      "x": 103.72,
+      "y": 332.06
+    },
+    "neckHeelGap_px": 299.28,
+    "joins": [
+      {
+        "from": "bass_side",
+        "to": "inner_treble_cutaway",
+        "posGap": 299.283,
+        "kink_deg": 89.12,
+        "fromPt": {
+          "x": -134.49,
+          "y": 150.88
+        },
+        "toPt": {
+          "x": 103.72,
+          "y": 332.06
+        },
+        "isNeckHeel": true
+      },
+      {
+        "from": "inner_treble_cutaway",
+        "to": "treble_side",
+        "posGap": 0,
+        "kink_deg": 0.79,
+        "fromPt": {
+          "x": 436.6,
+          "y": 352.88
+        },
+        "toPt": {
+          "x": 436.6,
+          "y": 352.88
+        },
+        "isNeckHeel": false
+      },
+      {
+        "from": "treble_side",
+        "to": "bottom",
+        "posGap": 0,
+        "kink_deg": 0,
+        "fromPt": {
+          "x": 161.87,
+          "y": 1800.82
+        },
+        "toPt": {
+          "x": 161.87,
+          "y": 1800.82
+        },
+        "isNeckHeel": false
+      },
+      {
+        "from": "bottom",
+        "to": "bass_side",
+        "posGap": 0,
+        "kink_deg": 0,
+        "fromPt": {
+          "x": -161.15,
+          "y": 1800.82
+        },
+        "toPt": {
+          "x": -161.15,
+          "y": 1800.82
+        },
+        "isClose": true
+      }
+    ],
+    "segments": [
+      {
+        "type": "arc",
+        "x0": -161.15,
+        "y0": 1800.819,
+        "x1": -427.694,
+        "y1": 1689.905,
+        "rx": 616.32,
+        "ry": 616.32,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 616.32,
+        "arcLength": 291.41,
+        "tangentStart": {
+          "x": -0.9876,
+          "y": -0.1573
+        },
+        "tangentEnd": {
+          "x": -0.8076,
+          "y": -0.5897
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -427.694,
+        "y0": 1689.905,
+        "x1": -627.585,
+        "y1": 1344.487,
+        "rx": 494.4,
+        "ry": 494.4,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 494.4,
+        "arcLength": 410.8,
+        "tangentStart": {
+          "x": -0.8076,
+          "y": -0.5897
+        },
+        "tangentEnd": {
+          "x": -0.1089,
+          "y": -0.994
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -627.585,
+        "y0": 1344.487,
+        "x1": -627.585,
+        "y1": 1225.27,
+        "rx": 547.2,
+        "ry": 547.2,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 547.2,
+        "arcLength": 119.45,
+        "tangentStart": {
+          "x": -0.1089,
+          "y": -0.994
+        },
+        "tangentEnd": {
+          "x": 0.1089,
+          "y": -0.994
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -627.585,
+        "y0": 1225.27,
+        "x1": -538.768,
+        "y1": 996.528,
+        "rx": 475.07,
+        "ry": 475.07,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 475.07,
+        "arcLength": 248.19,
+        "tangentStart": {
+          "x": 0.1089,
+          "y": -0.994
+        },
+        "tangentEnd": {
+          "x": 0.5904,
+          "y": -0.8071
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -538.768,
+        "y0": 996.528,
+        "x1": -447.176,
+        "y1": 883.091,
+        "rx": 1529.965,
+        "ry": 1529.965,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 1529.96,
+        "arcLength": 145.85,
+        "tangentStart": {
+          "x": 0.5904,
+          "y": -0.8071
+        },
+        "tangentEnd": {
+          "x": 0.6646,
+          "y": -0.7472
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -447.176,
+        "y0": 883.091,
+        "x1": -402.777,
+        "y1": 835.101,
+        "rx": 1664.972,
+        "ry": 1664.972,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 1664.97,
+        "arcLength": 65.38,
+        "tangentStart": {
+          "x": 0.6646,
+          "y": -0.7472
+        },
+        "tangentEnd": {
+          "x": 0.6934,
+          "y": -0.7206
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -402.777,
+        "y0": 835.101,
+        "x1": -355.254,
+        "y1": 769.313,
+        "rx": 289.554,
+        "ry": 289.554,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 289.55,
+        "arcLength": 81.42,
+        "tangentStart": {
+          "x": 0.6934,
+          "y": -0.7206
+        },
+        "tangentEnd": {
+          "x": 0.4662,
+          "y": -0.8847
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -355.254,
+        "y0": 769.313,
+        "x1": -343.387,
+        "y1": 723.335,
+        "rx": 103.086,
+        "ry": 103.086,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 103.09,
+        "arcLength": 47.91,
+        "tangentStart": {
+          "x": 0.4662,
+          "y": -0.8847
+        },
+        "tangentEnd": {
+          "x": 0.0202,
+          "y": -0.9998
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -343.387,
+        "y0": 723.335,
+        "x1": -343.387,
+        "y1": 710.261,
+        "rx": 324,
+        "ry": 324,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 324,
+        "arcLength": 13.07,
+        "tangentStart": {
+          "x": 0.0202,
+          "y": -0.9998
+        },
+        "tangentEnd": {
+          "x": -0.0202,
+          "y": -0.9998
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -343.387,
+        "y0": 710.261,
+        "x1": -351.47,
+        "y1": 666.012,
+        "rx": 140.735,
+        "ry": 140.735,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 140.74,
+        "arcLength": 45.17,
+        "tangentStart": {
+          "x": -0.0202,
+          "y": -0.9998
+        },
+        "tangentEnd": {
+          "x": -0.3346,
+          "y": -0.9424
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -351.47,
+        "y0": 666.012,
+        "x1": -392.403,
+        "y1": 573.468,
+        "rx": 672.883,
+        "ry": 672.883,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 672.88,
+        "arcLength": 101.29,
+        "tangentStart": {
+          "x": -0.3346,
+          "y": -0.9424
+        },
+        "tangentEnd": {
+          "x": -0.4721,
+          "y": -0.8815
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -392.403,
+        "y0": 573.468,
+        "x1": -433.532,
+        "y1": 474.187,
+        "rx": 543.841,
+        "ry": 543.841,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 543.84,
+        "arcLength": 107.64,
+        "tangentStart": {
+          "x": -0.4721,
+          "y": -0.8815
+        },
+        "tangentEnd": {
+          "x": -0.2896,
+          "y": -0.9572
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -433.532,
+        "y0": 474.187,
+        "x1": -376.011,
+        "y1": 249.548,
+        "rx": 223.85,
+        "ry": 223.85,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 223.85,
+        "arcLength": 243.75,
+        "tangentStart": {
+          "x": -0.2896,
+          "y": -0.9572
+        },
+        "tangentEnd": {
+          "x": 0.714,
+          "y": -0.7002
+        }
+      },
+      {
+        "type": "arc",
+        "x0": -376.011,
+        "y0": 249.548,
+        "x1": -134.485,
+        "y1": 150.878,
+        "rx": 344.941,
+        "ry": 344.941,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 344.94,
+        "arcLength": 267.56,
+        "tangentStart": {
+          "x": 0.714,
+          "y": -0.7002
+        },
+        "tangentEnd": {
+          "x": 1,
+          "y": 0
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 103.724,
+        "y0": 332.059,
+        "x1": 221.468,
+        "y1": 437.964,
+        "rx": 108,
+        "ry": 108,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 108,
+        "arcLength": 177.76,
+        "tangentStart": {
+          "x": 0.0153,
+          "y": 0.9999
+        },
+        "tangentEnd": {
+          "x": 0.9959,
+          "y": -0.0903
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 221.468,
+        "y0": 437.964,
+        "x1": 312.843,
+        "y1": 402.513,
+        "rx": 177.555,
+        "ry": 177.555,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 177.56,
+        "arcLength": 99.3,
+        "tangentStart": {
+          "x": 0.9959,
+          "y": -0.0903
+        },
+        "tangentEnd": {
+          "x": 0.7962,
+          "y": -0.605
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 312.843,
+        "y0": 402.513,
+        "x1": 372.292,
+        "y1": 337.642,
+        "rx": 246.762,
+        "ry": 246.762,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 246.76,
+        "arcLength": 88.46,
+        "tangentStart": {
+          "x": 0.7962,
+          "y": -0.605
+        },
+        "tangentEnd": {
+          "x": 0.5334,
+          "y": -0.8459
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 372.292,
+        "y0": 337.642,
+        "x1": 415.155,
+        "y1": 326.019,
+        "rx": 32.809,
+        "ry": 32.809,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 32.81,
+        "arcLength": 48.78,
+        "tangentStart": {
+          "x": 0.5334,
+          "y": -0.8459
+        },
+        "tangentEnd": {
+          "x": 0.8876,
+          "y": 0.4605
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 415.155,
+        "y0": 326.019,
+        "x1": 436.595,
+        "y1": 352.88,
+        "rx": 42.28,
+        "ry": 42.28,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 42.28,
+        "arcLength": 35.39,
+        "tangentStart": {
+          "x": 0.8876,
+          "y": 0.4605
+        },
+        "tangentEnd": {
+          "x": 0.2523,
+          "y": 0.9676
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 436.595,
+        "y0": 352.88,
+        "x1": 434.249,
+        "y1": 474.187,
+        "rx": 223.85,
+        "ry": 223.85,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 223.85,
+        "arcLength": 122.87,
+        "tangentStart": {
+          "x": 0.2523,
+          "y": 0.9676
+        },
+        "tangentEnd": {
+          "x": -0.2896,
+          "y": 0.9572
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 434.249,
+        "y0": 474.187,
+        "x1": 393.121,
+        "y1": 573.468,
+        "rx": 543.841,
+        "ry": 543.841,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 543.84,
+        "arcLength": 107.64,
+        "tangentStart": {
+          "x": -0.2896,
+          "y": 0.9572
+        },
+        "tangentEnd": {
+          "x": -0.4721,
+          "y": 0.8815
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 393.121,
+        "y0": 573.468,
+        "x1": 352.188,
+        "y1": 666.012,
+        "rx": 672.883,
+        "ry": 672.883,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 672.88,
+        "arcLength": 101.29,
+        "tangentStart": {
+          "x": -0.4721,
+          "y": 0.8815
+        },
+        "tangentEnd": {
+          "x": -0.3346,
+          "y": 0.9424
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 352.188,
+        "y0": 666.012,
+        "x1": 344.105,
+        "y1": 710.261,
+        "rx": 140.735,
+        "ry": 140.735,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 140.74,
+        "arcLength": 45.17,
+        "tangentStart": {
+          "x": -0.3346,
+          "y": 0.9424
+        },
+        "tangentEnd": {
+          "x": -0.0202,
+          "y": 0.9998
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 344.105,
+        "y0": 710.261,
+        "x1": 344.105,
+        "y1": 723.335,
+        "rx": 324,
+        "ry": 324,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 324,
+        "arcLength": 13.07,
+        "tangentStart": {
+          "x": -0.0202,
+          "y": 0.9998
+        },
+        "tangentEnd": {
+          "x": 0.0202,
+          "y": 0.9998
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 344.105,
+        "y0": 723.335,
+        "x1": 355.971,
+        "y1": 769.313,
+        "rx": 103.086,
+        "ry": 103.086,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 103.09,
+        "arcLength": 47.91,
+        "tangentStart": {
+          "x": 0.0202,
+          "y": 0.9998
+        },
+        "tangentEnd": {
+          "x": 0.4662,
+          "y": 0.8847
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 355.971,
+        "y0": 769.313,
+        "x1": 403.494,
+        "y1": 835.101,
+        "rx": 289.554,
+        "ry": 289.554,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": false,
+        "effectiveRadius": 289.55,
+        "arcLength": 81.42,
+        "tangentStart": {
+          "x": 0.4662,
+          "y": 0.8847
+        },
+        "tangentEnd": {
+          "x": 0.6934,
+          "y": 0.7206
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 403.494,
+        "y0": 835.101,
+        "x1": 447.894,
+        "y1": 883.091,
+        "rx": 1664.972,
+        "ry": 1664.972,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 1664.97,
+        "arcLength": 65.38,
+        "tangentStart": {
+          "x": 0.6934,
+          "y": 0.7206
+        },
+        "tangentEnd": {
+          "x": 0.6646,
+          "y": 0.7472
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 447.894,
+        "y0": 883.091,
+        "x1": 539.485,
+        "y1": 996.528,
+        "rx": 1529.965,
+        "ry": 1529.965,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 1529.96,
+        "arcLength": 145.85,
+        "tangentStart": {
+          "x": 0.6646,
+          "y": 0.7472
+        },
+        "tangentEnd": {
+          "x": 0.5904,
+          "y": 0.8071
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 539.485,
+        "y0": 996.528,
+        "x1": 628.302,
+        "y1": 1225.27,
+        "rx": 475.07,
+        "ry": 475.07,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 475.07,
+        "arcLength": 248.19,
+        "tangentStart": {
+          "x": 0.5904,
+          "y": 0.8071
+        },
+        "tangentEnd": {
+          "x": 0.1089,
+          "y": 0.994
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 628.302,
+        "y0": 1225.27,
+        "x1": 628.302,
+        "y1": 1344.487,
+        "rx": 547.2,
+        "ry": 547.2,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 547.2,
+        "arcLength": 119.45,
+        "tangentStart": {
+          "x": 0.1089,
+          "y": 0.994
+        },
+        "tangentEnd": {
+          "x": -0.1089,
+          "y": 0.994
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 628.302,
+        "y0": 1344.487,
+        "x1": 428.411,
+        "y1": 1689.904,
+        "rx": 494.4,
+        "ry": 494.4,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 494.4,
+        "arcLength": 410.8,
+        "tangentStart": {
+          "x": -0.1089,
+          "y": 0.994
+        },
+        "tangentEnd": {
+          "x": -0.8076,
+          "y": 0.5897
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 428.411,
+        "y0": 1689.904,
+        "x1": 161.867,
+        "y1": 1800.819,
+        "rx": 616.32,
+        "ry": 616.32,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 616.32,
+        "arcLength": 291.41,
+        "tangentStart": {
+          "x": -0.8076,
+          "y": 0.5897
+        },
+        "tangentEnd": {
+          "x": -0.9876,
+          "y": 0.1573
+        }
+      },
+      {
+        "type": "arc",
+        "x0": 161.867,
+        "y0": 1800.819,
+        "x1": -161.15,
+        "y1": 1800.819,
+        "rx": 1027.003,
+        "ry": 1027.003,
+        "rot": 0,
+        "largeArc": false,
+        "sweep": true,
+        "effectiveRadius": 1027,
+        "arcLength": 324.36,
+        "tangentStart": {
+          "x": -0.9876,
+          "y": 0.1573
+        },
+        "tangentEnd": {
+          "x": -0.9876,
+          "y": -0.1573
+        }
+      }
+    ]
+  }
+}
