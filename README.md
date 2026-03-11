@@ -10,7 +10,7 @@ This app morphs classic guitar outlines by blending how the shapes **bend** (the
 1. [Quick Start](#quick-start)
 2. [Project File Structure](#project-file-structure)
 3. [How the Morphing Engine Works](#how-the-morphing-engine-works)
-   - [ELI5: The Big Idea](#eli5-the-big-idea)
+   - [ELI5](#eli5)
    - [The Curvature Integration Approach](#the-curvature-integration-approach)
    - [The Endpoint Correction (Scale + Rotate)](#the-endpoint-correction-scale--rotate)
    - [Cross-Section Tangent Carry](#cross-section-tangent-carry)
