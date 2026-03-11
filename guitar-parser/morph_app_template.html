@@ -54,9 +54,10 @@ header h1 span{color:var(--accent);}
 .tag-a{background:#0d1535;color:var(--accent);border:1px solid var(--accent);}
 .tag-b{background:#1a0d35;color:var(--accent2);border:1px solid var(--accent2);}
 
-#morph-section{padding:16px 14px;flex-shrink:0;}
+#morph-section{padding:16px 14px;flex-shrink:0;border-top:1px solid var(--border);}
 #morph-section h2{font-family:var(--display);font-size:10px;font-weight:700;
   letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+.hidden{display:none!important;}
 .mlrow{display:flex;justify-content:space-between;margin-bottom:8px;font-size:10px;}
 .ml-a{color:var(--accent);}.ml-b{color:var(--accent2);}
 #morph-slider{
@@ -191,20 +192,11 @@ svg#canvas:active{cursor:grabbing;}
     <button class="mtab" id="tab-mix" onclick="setMode('mix')">SECTION MIX</button>
   </div>
 
-  <!-- Global mode: guitar list + morph slider -->
+  <!-- Global mode: guitar list -->
   <div id="global-mode">
     <div class="psec">
       <h2>Shape A → Shape B</h2>
       <div id="guitar-list"></div>
-    </div>
-    <div id="morph-section">
-      <h2>Morph</h2>
-      <div class="mlrow">
-        <span class="ml-a" id="label-a">Strat</span>
-        <span class="ml-b" id="label-b">Jazzmaster</span>
-      </div>
-      <input type="range" id="morph-slider" min="0" max="1000" value="0">
-      <div id="morph-t">t = 0.000</div>
     </div>
   </div>
 
@@ -212,6 +204,17 @@ svg#canvas:active{cursor:grabbing;}
   <div id="section-mixer">
     <div class="smix-header">Per-Section Control</div>
     <div id="smix-rows"></div>
+  </div>
+
+  <!-- Global morph slider - always visible in both modes -->
+  <div id="morph-section">
+    <h2 id="morph-section-label">Morph</h2>
+    <div class="mlrow" id="morph-ab-row">
+      <span class="ml-a" id="label-a">Strat</span>
+      <span class="ml-b" id="label-b">Jazzmaster</span>
+    </div>
+    <input type="range" id="morph-slider" min="0" max="1000" value="0">
+    <div id="morph-t">t = 0.000 → Strat</div>
   </div>
 
   <div id="view-section">
@@ -772,7 +775,10 @@ function renderMorph(t){
   // Parameter panel
   const lmi=lerpLM(LANDMARKS[lmAname],LANDMARKS[lmBname],lmT);
   updateParams(lmi.params);
-  if(!mixMode){
+  // Always update the global t readout
+  if(mixMode){
+    document.getElementById('morph-t').textContent='t = '+morphT.toFixed(3)+'  (linked sections)';
+  } else {
     const tLabel=t<.01?'→ '+shapeA:t>.99?'→ '+shapeB:'';
     document.getElementById('morph-t').textContent='t = '+t.toFixed(3)+'  '+tLabel;
   }
@@ -854,6 +860,9 @@ function setMode(mode){
   document.getElementById('tab-mix').classList.toggle('active',mixMode);
   document.getElementById('global-mode').style.display = mixMode ? 'none' : '';
   document.getElementById('section-mixer').classList.toggle('visible', mixMode);
+  // Morph slider is always visible; adapt its label for the current mode
+  document.getElementById('morph-section-label').textContent = mixMode ? 'Global t (linked sections)' : 'Morph';
+  document.getElementById('morph-ab-row').classList.toggle('hidden', mixMode);
   document.getElementById('help-text').innerHTML = mixMode
     ? '<b>Click A/B slot</b> → pick guitar<br><b>Slider</b> → morph that section<br><b>🔗</b> link to global slider<br>Scroll → zoom · Drag → pan'
     : '<b>Click</b> → set shape A<br><b>Shift+click</b> → set shape B<br><kbd>←</kbd><kbd>→</kbd> step t by 0.01<br><kbd>Space</kbd> jump A↔B<br>Scroll → zoom · Drag → pan';
