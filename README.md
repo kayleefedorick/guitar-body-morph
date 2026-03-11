@@ -1,6 +1,7 @@
 # Guitar Body Morphing App
 
-An interactive web app that generates smooth, manufacturable guitar body outlines and morphs between any two of eight classic body shapes in real time. The app runs entirely in-browser.
+This app morphs classic guitar outlines by blending how the shapes **bend** (their curvature) rather than blending points, then rebuilding the final outline by integrating that blended curvature - the result is smooth, tangent-continuous (G1) and ready for CNC/CAD. (Under the hood this uses ideas from differential geometry - the math of curves - but you don’t need to understand that to use it.) It’s a lot like highway design: road engineers control how sharply a road turns by shaping curvature and adding gentle transition curves so the driving feel is smooth; the morph engine does the same thing for guitar bodies, producing visually pleasing, manufacturable shapes in real time.
+
 
 ---
 
