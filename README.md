@@ -254,7 +254,7 @@ At the gap, the tangent carry is **reset**: `inner_treble_cutaway` restarts its 
 ### Coordinate System
 
 ```
-Origin (0, 0) = string endpoint / nut end of neck centerline
+Origin (0, 0) = string endpoint / neck centerline
 +X = treble side (right when facing the front of the guitar)
 −X = bass side
 +Y = toward strap button (the body extends in the +Y direction)
