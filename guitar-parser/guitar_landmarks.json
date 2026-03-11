@@ -1,0 +1,889 @@
+{
+  "Strat": {
+    "landmarks": {
+      "bassHornTip": {
+        "x": -612,
+        "y": 1287.228
+      },
+      "trebHornTip": {
+        "x": 599.315,
+        "y": 1334.005
+      },
+      "bottomPt": {
+        "x": 50.817,
+        "y": 1654.36
+      },
+      "bottomLeft": {
+        "x": -459.446,
+        "y": 1570.499
+      },
+      "bottomRight": {
+        "x": 459.446,
+        "y": 1570.499
+      },
+      "heelBass": {
+        "x": -109.05,
+        "y": 167
+      },
+      "heelTreble": {
+        "x": 119.39,
+        "y": 370.84
+      },
+      "bassCWDeep": {
+        "x": -109.05,
+        "y": 167.003
+      },
+      "trebCWDeep": {
+        "x": 119.393,
+        "y": 370.843
+      },
+      "waistBass": {
+        "x": -499.326,
+        "y": 647.171
+      },
+      "waistTreble": {
+        "x": 468.641,
+        "y": 700.172
+      }
+    },
+    "heelTangents": {
+      "bass": {
+        "x": 0.3132,
+        "y": -0.9497
+      },
+      "treble": {
+        "x": 0.8748,
+        "y": 0.4845
+      }
+    },
+    "params": {
+      "bodyHeight": 1654.36,
+      "bodyWidth": 918.892,
+      "waistAngleDeg": -3.1340988286033538,
+      "waistBassY": 647.171,
+      "waistTrebleY": 700.172,
+      "waistOffsetDy": 53.000999999999976,
+      "bassHornY": 1287.228,
+      "trebHornY": 1334.005,
+      "bassHornX": -612,
+      "trebHornX": 599.315,
+      "heelBassX": -109.05,
+      "heelBassY": 167,
+      "heelTrebleX": 119.39,
+      "heelTrebleY": 370.84,
+      "neckHeelWidth": 228.44,
+      "bassHornRadius": 339.27,
+      "trebHornRadius": 313.3,
+      "bassCWRadius": 75.48,
+      "trebCWRadius": 126.64,
+      "bottomRadius": 1980.87
+    },
+    "sectionErrors": {
+      "bass_side": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 121
+      },
+      "inner_bass_cutaway": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 66
+      },
+      "inner_treble_cutaway": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 55
+      },
+      "treble_side": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 88
+      },
+      "bottom": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 44
+      }
+    }
+  },
+  "Tele": {
+    "landmarks": {
+      "bassHornTip": {
+        "x": -611.543,
+        "y": 1305.998
+      },
+      "trebHornTip": {
+        "x": 611.96,
+        "y": 1314.548
+      },
+      "bottomPt": {
+        "x": 126.829,
+        "y": 1670.137
+      },
+      "bottomLeft": {
+        "x": -428.736,
+        "y": 1612.975
+      },
+      "bottomRight": {
+        "x": 411.374,
+        "y": 1620.736
+      },
+      "heelBass": {
+        "x": -98.73,
+        "y": 164.58
+      },
+      "heelTreble": {
+        "x": 104.88,
+        "y": 317.37
+      },
+      "bassCWDeep": {
+        "x": -98.735,
+        "y": 164.582
+      },
+      "trebCWDeep": {
+        "x": 104.883,
+        "y": 317.366
+      },
+      "waistBass": {
+        "x": -479.799,
+        "y": 702.962
+      },
+      "waistTreble": {
+        "x": 463.062,
+        "y": 728.067
+      }
+    },
+    "heelTangents": {
+      "bass": {
+        "x": 0.2095,
+        "y": -0.9778
+      },
+      "treble": {
+        "x": 0.0153,
+        "y": 0.9999
+      }
+    },
+    "params": {
+      "bodyHeight": 1670.137,
+      "bodyWidth": 840.11,
+      "waistAngleDeg": -1.525220325562242,
+      "waistBassY": 702.962,
+      "waistTrebleY": 728.067,
+      "waistOffsetDy": 25.105000000000018,
+      "bassHornY": 1305.998,
+      "trebHornY": 1314.548,
+      "bassHornX": -611.543,
+      "trebHornX": 611.96,
+      "heelBassX": -98.73,
+      "heelBassY": 164.58,
+      "heelTrebleX": 104.88,
+      "heelTrebleY": 317.37,
+      "neckHeelWidth": 203.61,
+      "bassHornRadius": 360.02,
+      "trebHornRadius": 347.8,
+      "bassCWRadius": 36,
+      "trebCWRadius": 59.47,
+      "bottomRadius": 4800.05
+    },
+    "sectionErrors": {
+      "bass_side": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 132
+      },
+      "inner_bass_cutaway": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 44
+      },
+      "inner_treble_cutaway": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 99
+      },
+      "treble_side": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 154
+      },
+      "bottom": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 55
+      }
+    }
+  },
+  "Jazzmaster": {
+    "landmarks": {
+      "bassHornTip": {
+        "x": -644.032,
+        "y": 1166.864
+      },
+      "trebHornTip": {
+        "x": 635.912,
+        "y": 1681.797
+      },
+      "bottomPt": {
+        "x": 160.209,
+        "y": 1854.592
+      },
+      "bottomLeft": {
+        "x": -376.989,
+        "y": 1733.427
+      },
+      "bottomRight": {
+        "x": 421.147,
+        "y": 1841.277
+      },
+      "heelBass": {
+        "x": -119.47,
+        "y": 187.45
+      },
+      "heelTreble": {
+        "x": 110.35,
+        "y": 348.17
+      },
+      "bassCWDeep": {
+        "x": -119.469,
+        "y": 187.454
+      },
+      "trebCWDeep": {
+        "x": 110.351,
+        "y": 348.167
+      },
+      "waistBass": {
+        "x": -463.062,
+        "y": 649.961
+      },
+      "waistTreble": {
+        "x": 477.01,
+        "y": 995.862
+      }
+    },
+    "heelTangents": {
+      "bass": {
+        "x": 0.5842,
+        "y": -0.8116
+      },
+      "treble": {
+        "x": 0.6366,
+        "y": 0.7712
+      }
+    },
+    "params": {
+      "bodyHeight": 1854.592,
+      "bodyWidth": 798.136,
+      "waistAngleDeg": -20.201172955698343,
+      "waistBassY": 649.961,
+      "waistTrebleY": 995.862,
+      "waistOffsetDy": 345.90099999999995,
+      "bassHornY": 1166.864,
+      "trebHornY": 1681.797,
+      "bassHornX": -644.032,
+      "trebHornX": 635.912,
+      "heelBassX": -119.47,
+      "heelBassY": 187.45,
+      "heelTrebleX": 110.35,
+      "heelTrebleY": 348.17,
+      "neckHeelWidth": 229.82,
+      "bassHornRadius": 447.63,
+      "trebHornRadius": 236.71,
+      "bassCWRadius": 50.88,
+      "trebCWRadius": 160.57,
+      "bottomRadius": 2329.06
+    },
+    "sectionErrors": {
+      "bass_side": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 121
+      },
+      "inner_bass_cutaway": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 66
+      },
+      "inner_treble_cutaway": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 22
+      },
+      "treble_side": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 132
+      },
+      "bottom": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 33
+      }
+    }
+  },
+  "Mustang": {
+    "landmarks": {
+      "bassHornTip": {
+        "x": -577.335,
+        "y": 1543.414
+      },
+      "trebHornTip": {
+        "x": 557.218,
+        "y": 1546.744
+      },
+      "bottomPt": {
+        "x": 78.389,
+        "y": 1853.592
+      },
+      "bottomLeft": {
+        "x": -363.605,
+        "y": 1784.684
+      },
+      "bottomRight": {
+        "x": 189.975,
+        "y": 1846.62
+      },
+      "heelBass": {
+        "x": -105.54,
+        "y": 234.75
+      },
+      "heelTreble": {
+        "x": 114.18,
+        "y": 420.75
+      },
+      "bassCWDeep": {
+        "x": -105.543,
+        "y": 234.748
+      },
+      "trebCWDeep": {
+        "x": 114.176,
+        "y": 420.748
+      },
+      "waistBass": {
+        "x": -440.746,
+        "y": 700.172
+      },
+      "waistTreble": {
+        "x": 412.85,
+        "y": 967.967
+      }
+    },
+    "heelTangents": {
+      "bass": {
+        "x": 0.2691,
+        "y": -0.9631
+      },
+      "treble": {
+        "x": 0.6857,
+        "y": 0.7278
+      }
+    },
+    "params": {
+      "bodyHeight": 1853.592,
+      "bodyWidth": 553.58,
+      "waistAngleDeg": -17.41798157602409,
+      "waistBassY": 700.172,
+      "waistTrebleY": 967.967,
+      "waistOffsetDy": 267.79499999999996,
+      "bassHornY": 1543.414,
+      "trebHornY": 1546.744,
+      "bassHornX": -577.335,
+      "trebHornX": 557.218,
+      "heelBassX": -105.54,
+      "heelBassY": 234.75,
+      "heelTrebleX": 114.18,
+      "heelTrebleY": 420.75,
+      "neckHeelWidth": 219.72000000000003,
+      "bassHornRadius": 284.06,
+      "trebHornRadius": 250.85,
+      "bassCWRadius": 60.06,
+      "trebCWRadius": 62.25,
+      "bottomRadius": 1770.79
+    },
+    "sectionErrors": {
+      "bass_side": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 110
+      },
+      "inner_bass_cutaway": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 55
+      },
+      "inner_treble_cutaway": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 33
+      },
+      "treble_side": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 121
+      },
+      "bottom": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 33
+      }
+    }
+  },
+  "Fender Lead": {
+    "landmarks": {
+      "bassHornTip": {
+        "x": -572.908,
+        "y": 1330.022
+      },
+      "trebHornTip": {
+        "x": 575.455,
+        "y": 1281.421
+      },
+      "bottomPt": {
+        "x": 282.324,
+        "y": 1631.43
+      },
+      "bottomLeft": {
+        "x": -282.553,
+        "y": 1631.43
+      },
+      "bottomRight": {
+        "x": 282.324,
+        "y": 1631.43
+      },
+      "heelBass": {
+        "x": -102.4,
+        "y": 261.59
+      },
+      "heelTreble": {
+        "x": 107.54,
+        "y": 331.94
+      },
+      "bassCWDeep": {
+        "x": -102.404,
+        "y": 261.586
+      },
+      "trebCWDeep": {
+        "x": 107.541,
+        "y": 331.945
+      },
+      "waistBass": {
+        "x": -407.271,
+        "y": 636.013
+      },
+      "waistTreble": {
+        "x": 410.061,
+        "y": 641.592
+      }
+    },
+    "heelTangents": {
+      "bass": {
+        "x": 0.0153,
+        "y": -0.9999
+      },
+      "treble": {
+        "x": 0.5636,
+        "y": 0.826
+      }
+    },
+    "params": {
+      "bodyHeight": 1631.43,
+      "bodyWidth": 564.877,
+      "waistAngleDeg": -0.39108732995379264,
+      "waistBassY": 636.013,
+      "waistTrebleY": 641.592,
+      "waistOffsetDy": 5.578999999999951,
+      "bassHornY": 1330.022,
+      "trebHornY": 1281.421,
+      "bassHornX": -572.908,
+      "trebHornX": 575.455,
+      "heelBassX": -102.4,
+      "heelBassY": 261.59,
+      "heelTrebleX": 107.54,
+      "heelTrebleY": 331.94,
+      "neckHeelWidth": 209.94,
+      "bassHornRadius": 351.87,
+      "trebHornRadius": 351.67,
+      "bassCWRadius": 50.22,
+      "trebCWRadius": 49.2,
+      "bottomRadius": 1697.2
+    },
+    "sectionErrors": {
+      "bass_side": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 99
+      },
+      "inner_bass_cutaway": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 44
+      },
+      "inner_treble_cutaway": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 44
+      },
+      "treble_side": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 121
+      },
+      "bottom": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 11
+      }
+    }
+  },
+  "Akula": {
+    "landmarks": {
+      "bassHornTip": {
+        "x": -644.032,
+        "y": 1166.864
+      },
+      "trebHornTip": {
+        "x": 635.912,
+        "y": 1681.797
+      },
+      "bottomPt": {
+        "x": 160.209,
+        "y": 1854.592
+      },
+      "bottomLeft": {
+        "x": -376.989,
+        "y": 1733.427
+      },
+      "bottomRight": {
+        "x": 421.147,
+        "y": 1841.277
+      },
+      "heelBass": {
+        "x": -124.55,
+        "y": 193.77
+      },
+      "heelTreble": {
+        "x": 103.09,
+        "y": 275.7
+      },
+      "bassCWDeep": {
+        "x": -124.551,
+        "y": 193.77
+      },
+      "trebCWDeep": {
+        "x": 103.086,
+        "y": 275.698
+      },
+      "waistBass": {
+        "x": -463.062,
+        "y": 649.961
+      },
+      "waistTreble": {
+        "x": 477.01,
+        "y": 995.862
+      }
+    },
+    "heelTangents": {
+      "bass": {
+        "x": 0.6678,
+        "y": -0.7443
+      },
+      "treble": {
+        "x": 0.068,
+        "y": 0.9977
+      }
+    },
+    "params": {
+      "bodyHeight": 1854.592,
+      "bodyWidth": 798.136,
+      "waistAngleDeg": -20.201172955698343,
+      "waistBassY": 649.961,
+      "waistTrebleY": 995.862,
+      "waistOffsetDy": 345.90099999999995,
+      "bassHornY": 1166.864,
+      "trebHornY": 1681.797,
+      "bassHornX": -644.032,
+      "trebHornX": 635.912,
+      "heelBassX": -124.55,
+      "heelBassY": 193.77,
+      "heelTrebleX": 103.09,
+      "heelTrebleY": 275.7,
+      "neckHeelWidth": 227.64,
+      "bassHornRadius": 447.63,
+      "trebHornRadius": 236.71,
+      "bassCWRadius": 78.25,
+      "trebCWRadius": 144,
+      "bottomRadius": 2041.67
+    },
+    "sectionErrors": {
+      "bass_side": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 55
+      },
+      "inner_bass_cutaway": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 22
+      },
+      "inner_treble_cutaway": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 22
+      },
+      "treble_side": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 66
+      },
+      "bottom": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 33
+      }
+    }
+  },
+  "Wolfgang": {
+    "landmarks": {
+      "bassHornTip": {
+        "x": -593.303,
+        "y": 946.597
+      },
+      "trebHornTip": {
+        "x": 594.297,
+        "y": 1120.242
+      },
+      "bottomPt": {
+        "x": 207.579,
+        "y": 1573.072
+      },
+      "bottomLeft": {
+        "x": -350.636,
+        "y": 1471.779
+      },
+      "bottomRight": {
+        "x": 429.668,
+        "y": 1505.34
+      },
+      "heelBass": {
+        "x": -79.02,
+        "y": 152.61
+      },
+      "heelTreble": {
+        "x": 101.3,
+        "y": 333.79
+      },
+      "bassCWDeep": {
+        "x": -79.024,
+        "y": 152.607
+      },
+      "trebCWDeep": {
+        "x": 101.298,
+        "y": 333.787
+      },
+      "waistBass": {
+        "x": -451.904,
+        "y": 513.274
+      },
+      "waistTreble": {
+        "x": 463.062,
+        "y": 658.329
+      }
+    },
+    "heelTangents": {
+      "bass": {
+        "x": 1,
+        "y": 0
+      },
+      "treble": {
+        "x": 0.0153,
+        "y": 0.9999
+      }
+    },
+    "params": {
+      "bodyHeight": 1573.072,
+      "bodyWidth": 780.3040000000001,
+      "waistAngleDeg": -9.008467984740605,
+      "waistBassY": 513.274,
+      "waistTrebleY": 658.329,
+      "waistOffsetDy": 145.05499999999995,
+      "bassHornY": 946.597,
+      "trebHornY": 1120.242,
+      "bassHornX": -593.303,
+      "trebHornX": 594.297,
+      "heelBassX": -79.02,
+      "heelBassY": 152.61,
+      "heelTrebleX": 101.3,
+      "heelTrebleY": 333.79,
+      "neckHeelWidth": 180.32,
+      "bassHornRadius": 442.1,
+      "trebHornRadius": 390.24,
+      "bassCWRadius": 126,
+      "trebCWRadius": 108,
+      "bottomRadius": 1103.88
+    },
+    "sectionErrors": {
+      "bass_side": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 143
+      },
+      "inner_bass_cutaway": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 66
+      },
+      "inner_treble_cutaway": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 66
+      },
+      "treble_side": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 132
+      },
+      "bottom": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 33
+      }
+    }
+  },
+  "Les Paul": {
+    "landmarks": {
+      "bassHornTip": {
+        "x": -627.585,
+        "y": 1344.487
+      },
+      "trebHornTip": {
+        "x": 628.302,
+        "y": 1225.27
+      },
+      "bottomPt": {
+        "x": 161.867,
+        "y": 1800.819
+      },
+      "bottomLeft": {
+        "x": -161.15,
+        "y": 1800.819
+      },
+      "bottomRight": {
+        "x": 161.867,
+        "y": 1800.819
+      },
+      "heelBass": {
+        "x": -134.49,
+        "y": 150.88
+      },
+      "heelTreble": {
+        "x": 103.72,
+        "y": 332.06
+      },
+      "bassCWDeep": null,
+      "trebCWDeep": {
+        "x": 103.724,
+        "y": 332.059
+      },
+      "waistBass": {
+        "x": -412.85,
+        "y": 730.857
+      },
+      "waistTreble": {
+        "x": 396.113,
+        "y": 733.646
+      }
+    },
+    "heelTangents": {
+      "bass": {
+        "x": 1,
+        "y": 0
+      },
+      "treble": {
+        "x": 0.0153,
+        "y": 0.9999
+      }
+    },
+    "params": {
+      "bodyHeight": 1800.819,
+      "bodyWidth": 323.017,
+      "waistAngleDeg": -0.19753350393194227,
+      "waistBassY": 730.857,
+      "waistTrebleY": 733.646,
+      "waistOffsetDy": 2.7889999999999873,
+      "bassHornY": 1344.487,
+      "trebHornY": 1225.27,
+      "bassHornX": -627.585,
+      "trebHornX": 628.302,
+      "heelBassX": -134.49,
+      "heelBassY": 150.88,
+      "heelTrebleX": 103.72,
+      "heelTrebleY": 332.06,
+      "neckHeelWidth": 238.21,
+      "bassHornRadius": 494.4,
+      "trebHornRadius": 475.07,
+      "bassCWRadius": null,
+      "trebCWRadius": 32.81,
+      "bottomRadius": 1027
+    },
+    "sectionErrors": {
+      "bass_side": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 154
+      },
+      "inner_treble_cutaway": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 55
+      },
+      "treble_side": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 143
+      },
+      "bottom": {
+        "max": 0,
+        "rms": 0,
+        "mean": 0,
+        "nPts": 11
+      }
+    }
+  }
+}

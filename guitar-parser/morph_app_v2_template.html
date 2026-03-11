@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guitar Body Morphing Studio</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap');
+:root{
+  --bg0:#07070e;--bg1:#0d0d18;--bg2:#121220;--bg3:#181830;
+  --border:#1e1e35;--border2:#282845;
+  --text:#d0d4f0;--muted:#5060a0;
+  --accent:#5577ff;--accent2:#8855ff;
+  --gold:#ffcc44;--green:#44ee99;--red:#ff5566;
+  --mono:'Space Mono',monospace;--display:'Syne',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  background:var(--bg0);color:var(--text);font-family:var(--mono);font-size:12px;
+  height:100vh;display:grid;
+  grid-template-rows:48px 1fr;
+  grid-template-columns:240px 1fr 260px;
+  overflow:hidden;
+}
+header{
+  grid-column:1/-1;background:var(--bg1);border-bottom:1px solid var(--border);
+  display:flex;align-items:center;padding:0 20px;gap:16px;
+}
+header h1{font-family:var(--display);font-size:15px;font-weight:800;letter-spacing:.05em;}
+header h1 span{color:var(--accent);}
+.htag{font-size:10px;color:var(--muted);letter-spacing:.1em;padding:2px 8px;
+  border:1px solid var(--border2);border-radius:3px;}
+#hinfo{margin-left:auto;font-size:10px;color:var(--muted);}
+
+#panel-left{
+  background:var(--bg1);border-right:1px solid var(--border);
+  display:flex;flex-direction:column;overflow:hidden;
+}
+.psec{padding:12px 14px;border-bottom:1px solid var(--border);flex-shrink:0;}
+.psec h2{font-family:var(--display);font-size:10px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+
+.gbtn{
+  display:flex;align-items:center;gap:8px;width:100%;padding:7px 9px;margin:2px 0;
+  background:transparent;border:1px solid transparent;border-radius:4px;
+  cursor:pointer;text-align:left;font-family:var(--mono);font-size:11px;color:var(--muted);
+  transition:all .1s;
+}
+.gbtn:hover{background:var(--bg2);color:var(--text);border-color:var(--border2);}
+.gbtn.sel-a{background:#0d1535;border-color:var(--accent);color:#8aadff;}
+.gbtn.sel-b{background:#1a0d35;border-color:var(--accent2);color:#cc99ff;}
+.gbtn .dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.gbtn .tag{margin-left:auto;font-size:9px;padding:1px 5px;border-radius:2px;letter-spacing:.05em;}
+.tag-a{background:#0d1535;color:var(--accent);border:1px solid var(--accent);}
+.tag-b{background:#1a0d35;color:var(--accent2);border:1px solid var(--accent2);}
+
+#morph-section{padding:16px 14px;flex-shrink:0;}
+#morph-section h2{font-family:var(--display);font-size:10px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+.mlrow{display:flex;justify-content:space-between;margin-bottom:8px;font-size:10px;}
+.ml-a{color:var(--accent);}.ml-b{color:var(--accent2);}
+#morph-slider{
+  width:100%;height:4px;appearance:none;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  border-radius:2px;outline:none;cursor:pointer;
+}
+#morph-slider::-webkit-slider-thumb{
+  appearance:none;width:16px;height:16px;border-radius:50%;
+  background:var(--text);border:2px solid var(--bg0);
+  box-shadow:0 0 8px var(--accent);cursor:grab;
+}
+#morph-slider:active{cursor:grabbing;}
+#morph-t{text-align:center;margin-top:8px;font-size:11px;color:var(--text);font-weight:700;}
+
+#view-section{padding:12px 14px;flex-shrink:0;}
+#view-section h2{font-family:var(--display);font-size:10px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.trow{display:flex;align-items:center;gap:8px;padding:4px 0;cursor:pointer;user-select:none;}
+.trow:hover .tlabel{color:var(--text);}
+.tbox{width:28px;height:14px;border-radius:7px;border:1px solid var(--border2);
+  background:var(--bg0);position:relative;flex-shrink:0;transition:all .15s;}
+.tbox::after{content:'';position:absolute;top:2px;left:2px;width:8px;height:8px;
+  border-radius:50%;background:var(--muted);transition:all .15s;}
+.trow.on .tbox{background:var(--accent);border-color:var(--accent);}
+.trow.on .tbox::after{left:16px;background:white;}
+.tlabel{font-size:11px;color:var(--muted);}
+
+#canvas-wrap{
+  position:relative;overflow:hidden;
+  background:radial-gradient(ellipse 60% 50% at 50% 45%,#0f0f22 0%,var(--bg0) 100%);
+}
+svg#canvas{position:absolute;top:0;left:0;width:100%;height:100%;cursor:grab;}
+svg#canvas:active{cursor:grabbing;}
+
+#panel-right{
+  background:var(--bg1);border-left:1px solid var(--border);
+  overflow-y:auto;display:flex;flex-direction:column;
+}
+#panel-right .psec{border-bottom:1px solid var(--border);}
+.prow{
+  display:flex;justify-content:space-between;align-items:baseline;
+  padding:3px 0;border-bottom:1px solid #111125;font-size:11px;
+}
+.prow:last-child{border-bottom:none;}
+.pkey{color:var(--muted);}
+.pval{font-weight:700;}
+.pval.blue{color:#6699ff;}.pval.green{color:var(--green);}.pval.gold{color:var(--gold);}
+.cgrid{display:grid;grid-template-columns:1fr auto 1fr;gap:2px 6px;align-items:center;font-size:10px;}
+.cg-a{color:#8aadff;text-align:right;}.cg-l{color:var(--muted);text-align:center;font-size:9px;padding:0 4px;}
+.cg-b{color:#cc99ff;}
+.cg-sep{grid-column:1/-1;border-top:1px solid var(--border);margin:3px 0;}
+
+.help{padding:10px 14px;font-size:10px;color:var(--muted);line-height:1.6;flex:1;}
+.help kbd{background:var(--bg2);border:1px solid var(--border2);
+  border-radius:3px;padding:1px 4px;font-family:var(--mono);}
+
+/* ── Mode toggle ── */
+#mode-toggle{display:flex;gap:0;padding:10px 14px 0;}
+.mtab{flex:1;padding:5px 0;font-family:var(--mono);font-size:10px;letter-spacing:.08em;
+  border:1px solid var(--border2);background:transparent;color:var(--muted);cursor:pointer;transition:all .15s;}
+.mtab:first-child{border-radius:4px 0 0 4px;}
+.mtab:last-child{border-radius:0 4px 4px 0;border-left:none;}
+.mtab.active{background:var(--accent);border-color:var(--accent);color:#fff;}
+
+/* ── Section mixer panel ── */
+#section-mixer{display:none;flex-direction:column;overflow:hidden;}
+#section-mixer.visible{display:flex;}
+.smix-header{padding:10px 14px 6px;font-family:var(--display);font-size:10px;
+  font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+
+.srow{padding:6px 10px;border-bottom:1px solid var(--border);display:flex;
+  flex-direction:column;gap:5px;position:relative;}
+.srow:last-child{border-bottom:none;}
+.srow-label{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+  display:flex;align-items:center;gap:6px;}
+.srow-label .sec-pip{width:8px;height:8px;border-radius:2px;flex-shrink:0;}
+.srow-slots{display:flex;gap:5px;align-items:center;}
+
+/* Guitar slot button inside a section row */
+.gslot{flex:1;display:flex;align-items:center;gap:5px;padding:4px 7px;
+  background:var(--bg2);border:1px solid var(--border2);border-radius:4px;
+  cursor:pointer;font-family:var(--mono);font-size:10px;color:var(--text);
+  transition:all .12s;position:relative;min-width:0;}
+.gslot:hover{border-color:var(--accent);background:var(--bg3);}
+.gslot.slot-a{border-left:2px solid var(--accent);}
+.gslot.slot-b{border-left:2px solid var(--accent2);}
+.gslot .gdot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+.gslot .gname{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:9px;}
+.slot-label{font-size:8px;color:var(--muted);letter-spacing:.05em;}
+
+/* t-slider per section */
+.srow-t{display:flex;align-items:center;gap:6px;}
+.srow-t input[type=range]{flex:1;height:3px;appearance:none;
+  border-radius:2px;outline:none;cursor:pointer;}
+.srow-t input[type=range]::-webkit-slider-thumb{
+  appearance:none;width:12px;height:12px;border-radius:50%;
+  background:var(--text);border:1.5px solid var(--bg0);cursor:grab;}
+.st-val{font-size:9px;color:var(--muted);width:30px;text-align:right;flex-shrink:0;}
+.link-btn{font-size:8px;color:var(--muted);background:none;border:1px solid var(--border2);
+  border-radius:3px;padding:1px 5px;cursor:pointer;letter-spacing:.05em;flex-shrink:0;}
+.link-btn:hover{color:var(--text);border-color:var(--accent);}
+.link-btn.linked{background:var(--accent);border-color:var(--accent);color:#fff;}
+
+/* Guitar picker popup */
+#gpicker{
+  position:fixed;z-index:999;background:var(--bg1);border:1px solid var(--border2);
+  border-radius:6px;box-shadow:0 8px 32px #00000080;padding:8px;min-width:160px;
+  display:none;
+}
+#gpicker.open{display:block;}
+.gp-title{font-size:9px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);padding:2px 4px 6px;border-bottom:1px solid var(--border);margin-bottom:4px;}
+.gp-item{display:flex;align-items:center;gap:7px;padding:5px 7px;
+  border-radius:4px;cursor:pointer;font-size:11px;transition:background .1s;}
+.gp-item:hover{background:var(--bg3);}
+.gp-item .gdot{width:7px;height:7px;border-radius:50%;}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Guitar Body <span>Morphing</span> Studio</h1>
+  <div class="htag">PHASE 3 - ARC CHAIN GENERATOR</div>
+  <div id="hinfo">- segs · - ms</div>
+</header>
+
+<div id="panel-left">
+  <!-- Mode toggle -->
+  <div id="mode-toggle">
+    <button class="mtab active" id="tab-global" onclick="setMode('global')">GLOBAL MORPH</button>
+    <button class="mtab" id="tab-mix" onclick="setMode('mix')">SECTION MIX</button>
+  </div>
+
+  <!-- Global mode: guitar list + morph slider -->
+  <div id="global-mode">
+    <div class="psec">
+      <h2>Shape A → Shape B</h2>
+      <div id="guitar-list"></div>
+    </div>
+    <div id="morph-section">
+      <h2>Morph</h2>
+      <div class="mlrow">
+        <span class="ml-a" id="label-a">Strat</span>
+        <span class="ml-b" id="label-b">Jazzmaster</span>
+      </div>
+      <input type="range" id="morph-slider" min="0" max="1000" value="0">
+      <div id="morph-t">t = 0.000</div>
+    </div>
+  </div>
+
+  <!-- Section mix mode -->
+  <div id="section-mixer">
+    <div class="smix-header">Per-Section Control</div>
+    <div id="smix-rows"></div>
+  </div>
+
+  <div id="view-section">
+    <h2>View</h2>
+    <div class="trow on"  id="tog-both"     onclick="toggle('both')"><div class="tbox"></div><span class="tlabel">Source shapes (ghost)</span></div>
+    <div class="trow on"  id="tog-morph"    onclick="toggle('morph')"><div class="tbox"></div><span class="tlabel">Morph outline</span></div>
+    <div class="trow"     id="tog-heel"     onclick="toggle('heel')"><div class="tbox"></div><span class="tlabel">Neck heel gap</span></div>
+    <div class="trow on"  id="tog-waist"    onclick="toggle('waist')"><div class="tbox"></div><span class="tlabel">Waist line</span></div>
+    <div class="trow"     id="tog-landmarks"onclick="toggle('landmarks')"><div class="tbox"></div><span class="tlabel">Landmarks</span></div>
+    <div class="trow"     id="tog-sections" onclick="toggle('sections')"><div class="tbox"></div><span class="tlabel">Section colours</span></div>
+  </div>
+  <div class="help" id="help-text">
+    <b>Click</b> → set shape A<br>
+    <b>Shift+click</b> → set shape B<br>
+    <kbd>←</kbd><kbd>→</kbd> step t by 0.01<br>
+    <kbd>Space</kbd> jump A↔B<br>
+    Scroll → zoom · Drag → pan
+  </div>
+</div>
+
+<!-- Guitar picker popup -->
+<div id="gpicker">
+  <div class="gp-title" id="gp-title">Select guitar</div>
+  <div id="gp-list"></div>
+</div>
+
+<div id="canvas-wrap">
+  <svg id="canvas" viewBox="-700 -300 1500 2400" xmlns="http://www.w3.org/2000/svg">
+    <g id="grid"></g>
+    <g id="origin">
+      <line x1="-650" y1="0" x2="650" y2="0" stroke="#ffffff0c" stroke-width="0.8"/>
+      <line x1="0" y1="-250" x2="0" y2="2200" stroke="#ffffff0c" stroke-width="0.8"/>
+      <circle cx="0" cy="0" r="3" fill="#ffffff20"/>
+    </g>
+    <g id="src-a" opacity="0.28"></g>
+    <g id="src-b" opacity="0.28"></g>
+    <g id="morph-g"></g>
+    <g id="landmarks-g"></g>
+  </svg>
+</div>
+
+<div id="panel-right">
+  <div class="psec"><h2>Morphed Parameters</h2><div id="morph-params"></div></div>
+  <div class="psec"><h2>A vs B</h2><div id="compare-params"></div></div>
+</div>
+
+<script>
+// ── Embedded data ─────────────────────────────────────────────────────────────
+const FINAL     = FINAL_DATA;
+const LANDMARKS = LANDMARK_DATA;
+const ORGANIZED = ORGANIZED_DATA;
+
+// ── Constants ─────────────────────────────────────────────────────────────────
+const GUITARS = ['Strat','Tele','Jazzmaster','Mustang','Fender Lead','Akula','Wolfgang','Les Paul'];
+const COLORS  = {
+  Strat:'#ff5e5e',Tele:'#ffd147',Jazzmaster:'#4eca7a',Mustang:'#4da0ff',
+  'Fender Lead':'#ff8c42',Akula:'#b37fff',Wolfgang:'#3bd4f0','Les Paul':'#f0c040'
+};
+const SEC_COLORS = {
+  bass_side:'#4488ff', inner_bass_cutaway:'#44ee88',
+  inner_treble_cutaway:'#ffcc44', treble_side:'#ff5544', bottom:'#cc44ff'
+};
+const SECTIONS = ['bass_side','inner_bass_cutaway','inner_treble_cutaway','treble_side','bottom'];
+// Neck heel is the open gap between inner_bass_cutaway and inner_treble_cutaway
+const HEEL_GAP_AFTER = 'inner_bass_cutaway';
+
+// ── State ─────────────────────────────────────────────────────────────────────
+let shapeA = 'Strat', shapeB = 'Jazzmaster', morphT = 0;
+const views = {both:true,morph:true,heel:false,waist:true,landmarks:false,sections:false};
+
+// Section mix mode
+let mixMode = false;
+
+const SEC_LABELS = {
+  bass_side:            'Bass Side',
+  inner_bass_cutaway:   'Bass Cutaway',
+  inner_treble_cutaway: 'Treble Cutaway',
+  treble_side:          'Treble Side',
+  bottom:               'Bottom',
+};
+
+function defaultSectionConfig() {
+  return Object.fromEntries(SECTIONS.map(sn => [sn, {
+    guitarA: shapeA, guitarB: shapeB, t: morphT, linked: true,
+  }]));
+}
+let sectionConfig = defaultSectionConfig();
+
+let pickerTarget = null; // { sn, slot:'a'|'b' }
+
+function mixSourceNames() {
+  const names = new Set();
+  for (const sn of SECTIONS) {
+    names.add(sectionConfig[sn].guitarA);
+    names.add(sectionConfig[sn].guitarB);
+  }
+  return [...names];
+}
+
+// ── Math ──────────────────────────────────────────────────────────────────────
+const V = {
+  sub:  (a,b)=>({x:a.x-b.x,y:a.y-b.y}),
+  add:  (a,b)=>({x:a.x+b.x,y:a.y+b.y}),
+  scale:(a,s)=>({x:a.x*s,y:a.y*s}),
+  len:  a=>Math.sqrt(a.x*a.x+a.y*a.y),
+  norm: a=>{const l=Math.sqrt(a.x*a.x+a.y*a.y)||1;return{x:a.x/l,y:a.y/l};},
+  perp: a=>({x:-a.y,y:a.x}),
+  dot:  (a,b)=>a.x*b.x+a.y*b.y,
+  angle:a=>Math.atan2(a.y,a.x),
+  lerp: (a,b,t)=>({x:a.x+(b.x-a.x)*t,y:a.y+(b.y-a.y)*t}),
+  lerpA:(a,b,t)=>{let d=b-a;while(d>Math.PI)d-=2*Math.PI;while(d<-Math.PI)d+=2*Math.PI;return a+d*t;},
+  dist: (a,b)=>Math.sqrt((a.x-b.x)**2+(a.y-b.y)**2),
+};
+
+// ── Curvature-Integration Morph Engine ───────────────────────────────────────
+/**
+ * STRATEGY: Represent each arc as signed curvature κ = ±1/R over arc-length.
+ * Morph by blending κ(s) profiles in normalized arc-length space, then integrate
+ * to get tangent angle θ(s), then position x(s), y(s).
+ *
+ * Guarantees:
+ *   • G1 everywhere within a section (integration is inherently smooth)
+ *   • Zero gaps at all arc junctions (position is carried exactly)
+ *   • Exact source reproduction at t=0 and t=1
+ *   • Correct section endpoints via per-section similarity xform (scale+rotate)
+ *
+ * Cross-section G1: After each section's xform, the ROTATED teAngle is carried
+ * as the next section's startTsAngle. This ensures tangent continuity across
+ * section boundaries - the rotation correction applies cleanly to the carry.
+ */
+
+function sampleKappa(profile, s) {
+  let cum = 0;
+  for (const seg of profile) {
+    if (cum + seg.arcLen >= s - 1e-9) return seg.kappa;
+    cum += seg.arcLen;
+  }
+  return profile[profile.length-1].kappa;
+}
+
+/**
+ * Build one section's arc chain by curvature integration.
+ * Returns {arcs, carryTeAngle} where carryTeAngle is the post-xform end tangent
+ * for carrying to the next section's startTsAngle.
+ */
+function buildSection(segsA, segsB, t, startP, startTsAngle, endP) {
+  if (!segsA.length || !segsB.length) return { arcs: [], carryTeAngle: startTsAngle };
+
+  // Convert to signed curvature profiles - lines get kappa=0
+  function segToProfile(s) {
+    if (s.type === 'arc') return { kappa: s.sweep ? 1/s.rx : -1/s.rx, arcLen: s.arcLength };
+    return { kappa: 0, arcLen: Math.hypot(s.x1-s.x0, s.y1-s.y0) };
+  }
+  const profA = segsA.map(segToProfile);
+  const profB = segsB.map(segToProfile);
+  const totalLenA = profA.reduce((a,p) => a+p.arcLen, 0);
+  const totalLenB = profB.reduce((a,p) => a+p.arcLen, 0);
+  const totalLen  = totalLenA + (totalLenB - totalLenA) * t;
+
+  // Normalized breakpoints = union of arc boundaries from both sources
+  const cumA = [0]; for (const p of profA) cumA.push(cumA[cumA.length-1] + p.arcLen/totalLenA);
+  const cumB = [0]; for (const p of profB) cumB.push(cumB[cumB.length-1] + p.arcLen/totalLenB);
+  const breaks = [...new Set([...cumA, ...cumB])].sort((a,b) => a-b);
+
+  // Integrate κ(s) → θ(s) → x(s),y(s)
+  const arcs = [];
+  let px = startP.x, py = startP.y, theta = startTsAngle;
+
+  for (let i = 0; i < breaks.length-1; i++) {
+    const u0 = breaks[i], u1 = breaks[i+1], uMid = (u0+u1)/2;
+    const kappaA = sampleKappa(profA, uMid * totalLenA);
+    const kappaB = sampleKappa(profB, uMid * totalLenB);
+    const kappa  = kappaA + (kappaB - kappaA) * t;
+    const segLen = (u1 - u0) * totalLen;
+    if (segLen < 0.5) continue;
+
+    if (Math.abs(kappa) < 1e-6) {
+      // Straight segment
+      const x1 = px + Math.cos(theta)*segLen, y1 = py + Math.sin(theta)*segLen;
+      arcs.push({ x0:px, y0:py, x1, y1, radius:1e8, sweep:true, largeArc:false,
+                  arcLength:segLen, tsAngle:theta, teAngle:theta, isLine:true });
+      px = x1; py = y1;
+    } else {
+      const radius = Math.abs(1/kappa), sweep = kappa > 0, dtheta = kappa * segLen;
+      const tx = Math.cos(theta), ty = Math.sin(theta);
+      const cx = sweep ? px + (-ty)*radius : px + ty*radius;
+      const cy = sweep ? py + tx*radius    : py + (-tx)*radius;
+      const theta1 = Math.atan2(py-cy, px-cx), theta2 = theta1 + dtheta;
+      const x1 = cx + radius*Math.cos(theta2), y1 = cy + radius*Math.sin(theta2);
+      const sin2 = Math.sin(theta2), cos2 = Math.cos(theta2);
+      const teAngle = sweep ? Math.atan2(cos2,-sin2) : Math.atan2(-cos2,sin2);
+      arcs.push({ x0:px, y0:py, x1, y1, cx, cy, radius, sweep,
+                  largeArc: Math.abs(dtheta) > Math.PI,
+                  arcLength: Math.abs(dtheta)*radius,
+                  tsAngle: theta, teAngle });
+      theta = teAngle; px = x1; py = y1;
+    }
+  }
+
+  if (!arcs.length) return { arcs, carryTeAngle: startTsAngle };
+
+  // ── Endpoint correction: similarity xform (scale + rotate about startP) ────
+  // Maps actual end → target end, preserving start point exactly.
+  // IMPORTANT: tangent angles in arcs are NOT updated (they'd introduce cross-section kinks).
+  // The carry angle is updated separately = pre-xform teAngle + rotation.
+  let carryTeAngle = arcs[arcs.length-1].teAngle;
+
+  if (endP) {
+    const gotEnd = { x: arcs[arcs.length-1].x1, y: arcs[arcs.length-1].y1 };
+    const dxG = gotEnd.x - startP.x, dyG = gotEnd.y - startP.y;
+    const dxW = endP.x   - startP.x, dyW = endP.y   - startP.y;
+    const lenG = Math.hypot(dxG, dyG), lenW = Math.hypot(dxW, dyW);
+
+    if (lenG > 1 && lenW > 1) {
+      const scale  = lenW / lenG;
+      const rCos   = (dxG*dxW + dyG*dyW) / (lenG * lenW);
+      const rSin   = (dxG*dyW - dyG*dxW) / (lenG * lenW);
+      const rot    = Math.atan2(rSin, rCos);
+
+      function xformPt(x, y) {
+        const rx = x - startP.x, ry = y - startP.y;
+        return { x: startP.x + scale*(rx*rCos - ry*rSin),
+                 y: startP.y + scale*(rx*rSin + ry*rCos) };
+      }
+      for (const arc of arcs) {
+        const p0 = xformPt(arc.x0, arc.y0), p1 = xformPt(arc.x1, arc.y1);
+        arc.x0 = p0.x; arc.y0 = p0.y; arc.x1 = p1.x; arc.y1 = p1.y;
+        arc.radius *= scale;
+        if (arc.cx !== undefined) {
+          const c = xformPt(arc.cx, arc.cy); arc.cx = c.x; arc.cy = c.y;
+        }
+        // Tangent angles in arc NOT updated - only carryTeAngle gets the rotation
+      }
+      carryTeAngle = arcs[arcs.length-1].teAngle + rot;  // post-xform end tangent
+    }
+  }
+
+  return { arcs, carryTeAngle };
+}
+
+// ── Core morph builder ────────────────────────────────────────────────────────
+function buildMorph(nameA, nameB, t, secCfg) {
+  // secCfg: optional map of sn -> {guitarA, guitarB, t}
+
+  const result = {};
+  let curP   = null;
+  let curTsA = null;
+
+  // ── Resolve per-section guitars and t ──────────────────────────────────────
+  function getCfg(sn) {
+    const cfg = secCfg ? secCfg[sn] : null;
+    return { gA: cfg ? cfg.guitarA : nameA,
+             gB: cfg ? cfg.guitarB : nameB,
+             tSec: cfg ? cfg.t : t };
+  }
+
+  // ── Landmark-based endpoint for each section join point ───────────────────
+  // In mix mode, section endpoints must come from the landmark skeleton so that
+  // adjacent sections share the same join point regardless of guitar assignment.
+  // Each join point is "owned" by the section that ENDS there, and that section's
+  // guitar/t determines the interpolated position.
+  //
+  //   bottomLeft  - owned by bottom   (its endP), also bass_side startP
+  //   heelBass    - owned by inner_bass_cutaway (its endP), also bass_side endP if no cutaway
+  //   heelTreble  - restart point, owned by inner_treble_cutaway startP
+  //   bottomRight - owned by treble_side (its endP), also bottom startP
+  //
+  function lmPt(guitar, key) {
+    return LANDMARKS[guitar]?.landmarks?.[key] || null;
+  }
+  function lerpPt(ptA, ptB, tVal) {
+    if (!ptA || !ptB) return ptA || ptB;
+    return { x: ptA.x + (ptB.x - ptA.x)*tVal, y: ptA.y + (ptB.y - ptA.y)*tVal };
+  }
+
+  // Pre-compute all skeleton join points using each section's own guitar/t
+  function skelPt(sn, landmark) {
+    const { gA, gB, tSec } = getCfg(sn);
+    return lerpPt(lmPt(gA, landmark), lmPt(gB, landmark), tSec);
+  }
+  // Raw segment endpoint lerp for join points that have no matching landmark
+  function segEndP(sn) {
+    const { gA, gB, tSec } = getCfg(sn);
+    const asmA = FINAL[gA], asmB = FINAL[gB];
+    const secA = asmA.sections.find(s=>s.name===sn);
+    const secB = asmB.sections.find(s=>s.name===sn);
+    const segsA = secA ? asmA.segments.slice(secA.segStart, secA.segEnd+1) : [];
+    const segsB = secB ? asmB.segments.slice(secB.segStart, secB.segEnd+1) : [];
+    const srcA = segsA.length ? segsA : segsB, srcB = segsB.length ? segsB : segsA;
+    if (!srcA.length) return null;
+    const p1A = { x:srcA[srcA.length-1].x1, y:srcA[srcA.length-1].y1 };
+    const p1B = { x:srcB[srcB.length-1].x1, y:srcB[srcB.length-1].y1 };
+    return lerpPt(p1A, p1B, tSec);
+  }
+
+  // Section endpoint ownership (verified against actual segment data):
+  //   bottomLeft   → bottom.endP    = bass_side.startP       (landmark: bottom)
+  //   bass horn    → bass_side.endP = inner_bass_cutaway.startP  (NO landmark - raw seg lerp)
+  //   bassCWDeep   → inner_bass_cutaway.endP                 (landmark: inner_bass_cutaway)
+  //   trebCWDeep   → inner_treble_cutaway.startP (heel reset) (landmark: inner_treble_cutaway)
+  //   treble exit  → inner_treble_cutaway.endP = treble_side.startP (NO landmark - raw seg lerp)
+  //   bottomRight  → treble_side.endP = bottom.startP        (landmark: treble_side)
+
+  const bottomLeftP    = skelPt('bottom',              'bottomLeft');   // closing join
+  const bassHeelP      = skelPt('inner_bass_cutaway',  'bassCWDeep');   // cutaway deep point
+  const bassHornP      = segEndP('bass_side');                          // horn tip - no landmark
+  const trebHealP      = skelPt('inner_treble_cutaway','trebCWDeep');   // treble heel
+  const trebExitP      = segEndP('inner_treble_cutaway');               // cutaway exit - no landmark
+  const bottomRightP   = skelPt('treble_side',         'bottomRight');  // bottom-right corner
+
+  const skelEndpoints = {
+    bass_side:            { startP: bottomLeftP,   endP: bassHornP    },
+    inner_bass_cutaway:   { startP: bassHornP,     endP: bassHeelP    },
+    inner_treble_cutaway: { startP: trebHealP,     endP: trebExitP    },
+    treble_side:          { startP: trebExitP,     endP: bottomRightP },
+    bottom:               { startP: bottomRightP,  endP: bottomLeftP  },
+  };
+
+  for (const sn of SECTIONS) {
+    const { gA, gB, tSec } = getCfg(sn);
+    const asmA = FINAL[gA], asmB = FINAL[gB];
+    const lmA  = LANDMARKS[gA], lmB = LANDMARKS[gB];
+
+    if (sn === 'inner_treble_cutaway') {
+      // Neck heel gap: reset carry to this section's heel entry tangent
+      const htA = lmA.heelTangents?.treble, htB = lmB.heelTangents?.treble;
+      curTsA = (htA && htB) ? V.lerpA(Math.atan2(htA.y,htA.x), Math.atan2(htB.y,htB.x), tSec) : null;
+      // In mix mode, anchor startP to the landmark heelTreble (ensures join with treble cutaway).
+      // In global mode, leave curP=null so startP is lerped from raw segment endpoints (original behaviour).
+      curP = secCfg ? skelEndpoints.inner_treble_cutaway.startP : null;
+    }
+
+    const secA = asmA.sections.find(s=>s.name===sn);
+    const secB = asmB.sections.find(s=>s.name===sn);
+    if (!secA && !secB) continue;
+
+    const segsA = secA ? asmA.segments.slice(secA.segStart, secA.segEnd+1) : [];
+    const segsB = secB ? asmB.segments.slice(secB.segStart, secB.segEnd+1) : [];
+    const srcA  = segsA.length ? segsA : segsB;
+    const srcB  = segsB.length ? segsB : segsA;
+
+    // Use skeleton endpoints only in mix mode (secCfg present).
+    // In global mode, fall back to the original raw segment endpoint lerp.
+    const skel   = secCfg ? skelEndpoints[sn] : null;
+    const startP = curP || skel?.startP
+                || { x:srcA[0].x0+(srcB[0].x0-srcA[0].x0)*tSec,
+                     y:srcA[0].y0+(srcB[0].y0-srcA[0].y0)*tSec };
+    const endP   = skel?.endP
+                || { x:srcA[srcA.length-1].x1+(srcB[srcB.length-1].x1-srcA[srcA.length-1].x1)*tSec,
+                     y:srcA[srcA.length-1].y1+(srcB[srcB.length-1].y1-srcA[srcA.length-1].y1)*tSec };
+
+    if (curTsA === null) {
+      function segStartAngle(s) {
+        if (s.tangentStart) return Math.atan2(s.tangentStart.y, s.tangentStart.x);
+        return Math.atan2(s.y1-s.y0, s.x1-s.x0);
+      }
+      curTsA = V.lerpA(segStartAngle(srcA[0]), segStartAngle(srcB[0]), tSec);
+    }
+
+    const { arcs, carryTeAngle } = buildSection(srcA, srcB, tSec, startP, curTsA, endP);
+    if (!arcs.length) continue;
+
+    result[sn] = arcs;
+    curP   = { x: arcs[arcs.length-1].x1, y: arcs[arcs.length-1].y1 };
+    curTsA = carryTeAngle;
+
+    if (sn === HEEL_GAP_AFTER) { curP = null; curTsA = null; }
+  }
+
+  return result;
+}
+
+// ── SVG path builders ─────────────────────────────────────────────────────────
+function arcsToD(arcs) {
+  let d='', px=null, py=null;
+  for (const a of arcs) {
+    if (px===null||Math.abs(a.x0-px)>.1||Math.abs(a.y0-py)>.1)
+      d+=`M${a.x0.toFixed(1)} ${a.y0.toFixed(1)} `;
+    if (a.isLine||a.radius>1e5)
+      d+=`L${a.x1.toFixed(1)} ${a.y1.toFixed(1)} `;
+    else
+      d+=`A${a.radius.toFixed(1)} ${a.radius.toFixed(1)} 0 ${a.largeArc?1:0} ${a.sweep?1:0} ${a.x1.toFixed(1)} ${a.y1.toFixed(1)} `;
+    px=a.x1; py=a.y1;
+  }
+  return d;
+}
+
+function segsToD(segs) {
+  let d='', px=null, py=null;
+  for (const s of segs) {
+    if (px===null||Math.abs(s.x0-px)>.1||Math.abs(s.y0-py)>.1)
+      d+=`M${s.x0.toFixed(1)} ${s.y0.toFixed(1)} `;
+    if (s.type==='arc')
+      d+=`A${s.rx.toFixed(1)} ${s.ry.toFixed(1)} ${s.rot||0} ${s.largeArc?1:0} ${s.sweep?1:0} ${s.x1.toFixed(1)} ${s.y1.toFixed(1)} `;
+    else
+      d+=`L${s.x1.toFixed(1)} ${s.y1.toFixed(1)} `;
+    px=s.x1; py=s.y1;
+  }
+  return d;
+}
+
+// ── Landmark interpolation ────────────────────────────────────────────────────
+function lerpLM(lmA, lmB, t) {
+  const lA=lmA.landmarks, lB=lmB.landmarks;
+  const pA=lmA.params,    pB=lmB.params;
+  function lp(a,b){
+    if(!a&&!b)return null; if(!a)return b; if(!b)return a;
+    return V.lerp(a,b,t);
+  }
+  function ls(a,b){
+    if(a==null&&b==null)return null;
+    if(a==null)return b; if(b==null)return a;
+    return a+(b-a)*t;
+  }
+  return {
+    landmarks:{
+      bassHornTip: lp(lA.bassHornTip,lB.bassHornTip),
+      trebHornTip: lp(lA.trebHornTip,lB.trebHornTip),
+      bottomPt:    lp(lA.bottomPt,lB.bottomPt),
+      heelBass:    lp(lA.heelBass,lB.heelBass),
+      heelTreble:  lp(lA.heelTreble,lB.heelTreble),
+      waistBass:   lp(lA.waistBass,lB.waistBass),
+      waistTreble: lp(lA.waistTreble,lB.waistTreble),
+    },
+    params:{
+      bodyHeight:    ls(pA.bodyHeight,pB.bodyHeight),
+      bodyWidth:     ls(pA.bodyWidth,pB.bodyWidth),
+      waistAngleDeg: ls(pA.waistAngleDeg,pB.waistAngleDeg),
+      neckHeelWidth: ls(pA.neckHeelWidth,pB.neckHeelWidth),
+      bassHornRadius:ls(pA.bassHornRadius,pB.bassHornRadius),
+      trebHornRadius:ls(pA.trebHornRadius,pB.trebHornRadius),
+      bassCWRadius:  ls(pA.bassCWRadius,pB.bassCWRadius),
+      trebCWRadius:  ls(pA.trebCWRadius,pB.trebCWRadius),
+      bottomRadius:  ls(pA.bottomRadius,pB.bottomRadius),
+    }
+  };
+}
+
+// ── SVG rendering ─────────────────────────────────────────────────────────────
+const NS='http://www.w3.org/2000/svg';
+function el(tag,attrs,parent){
+  const e=document.createElementNS(NS,tag);
+  for(const[k,v]of Object.entries(attrs))e.setAttribute(k,String(v));
+  if(parent)parent.appendChild(e);
+  return e;
+}
+
+function buildGrid(){
+  const g=document.getElementById('grid'); g.innerHTML='';
+  for(let x=-700;x<=800;x+=100)
+    el('line',{x1:x,y1:-300,x2:x,y2:2250,
+      stroke:x===0?'#ffffff0e':'#ffffff05',
+      'stroke-width':x%500===0?.8:.4},g);
+  for(let y=-300;y<=2250;y+=100){
+    el('line',{x1:-700,y1:y,x2:800,y2:y,
+      stroke:y===0?'#ffffff0e':'#ffffff05',
+      'stroke-width':y%500===0?.8:.4},g);
+    if(y%500===0){
+      const t=el('text',{x:-690,y:y+3,fill:'#ffffff12','font-size':9,'font-family':'monospace'},g);
+      t.textContent=y;
+    }
+  }
+}
+
+function renderSource(name,layerId,color){
+  const layer=document.getElementById(layerId); layer.innerHTML='';
+  if(!name||!FINAL[name])return;
+  const r=FINAL[name];
+  if(views.sections){
+    for(const sec of r.sections){
+      const segs=r.segments.slice(sec.segStart,sec.segEnd+1);
+      el('path',{d:segsToD(segs),fill:'none',
+        stroke:SEC_COLORS[sec.name]||color,'stroke-width':1.8,'stroke-linecap':'round'},layer);
+    }
+  } else {
+    el('path',{d:segsToD(r.segments),fill:'none',
+      stroke:color,'stroke-width':1.8,'stroke-linecap':'round'},layer);
+  }
+  if(views.waist&&ORGANIZED[name]){
+    const wl=ORGANIZED[name]['waist offset angle'];
+    if(wl&&wl.segments.length){
+      const ws=wl.segments[0];
+      el('line',{x1:ws.x0,y1:ws.y0,x2:ws.x1,y2:ws.y1,
+        stroke:color,'stroke-width':.7,'stroke-dasharray':'8 5',opacity:.5},layer);
+    }
+  }
+  if(views.heel&&r.neckHeelBassEnd&&r.neckHeelTrebleStart){
+    const h=r.neckHeelBassEnd,tr=r.neckHeelTrebleStart;
+    el('line',{x1:h.x,y1:h.y,x2:tr.x,y2:tr.y,
+      stroke:color,'stroke-width':1,'stroke-dasharray':'4 3',opacity:.6},layer);
+  }
+}
+
+function renderMorph(t){
+  const layer=document.getElementById('morph-g');
+  const lmLayer=document.getElementById('landmarks-g');
+  layer.innerHTML=''; lmLayer.innerHTML='';
+  if(!views.morph)return;
+
+  const t0=performance.now();
+  const sections = mixMode
+    ? buildMorph(null, null, t, sectionConfig)
+    : buildMorph(shapeA, shapeB, t);
+  const ms=(performance.now()-t0).toFixed(1);
+
+  let totalArcs=0;
+  if(views.sections){
+    for(const sn of SECTIONS){
+      const arcs=sections[sn];
+      if(!arcs||!arcs.length)continue;
+      totalArcs+=arcs.length;
+      el('path',{d:arcsToD(arcs),fill:'none',
+        stroke:SEC_COLORS[sn]||'#fff','stroke-width':2.5,'stroke-linecap':'round'},layer);
+    }
+  } else {
+    let allArcs=[];
+    for(const sn of SECTIONS){ if(sections[sn]) allArcs=allArcs.concat(sections[sn]); }
+    totalArcs=allArcs.length;
+    const d=arcsToD(allArcs);
+    el('path',{d,fill:'none',stroke:'#ffffff',
+      'stroke-width':3.5,opacity:.06},layer);
+    el('path',{d,fill:'none',stroke:'#ffffff',
+      'stroke-width':1.8,'stroke-linecap':'round',opacity:.92},layer);
+  }
+
+  document.getElementById('hinfo').textContent=totalArcs+' segs · '+ms+'ms';
+
+  // Landmarks - use first section's A guitar in mix mode
+  const lmAname = mixMode ? sectionConfig['bass_side'].guitarA : shapeA;
+  const lmBname = mixMode ? sectionConfig['bass_side'].guitarB : shapeB;
+  const lmT     = mixMode ? sectionConfig['bass_side'].t : t;
+  const lm=lerpLM(LANDMARKS[lmAname],LANDMARKS[lmBname],lmT).landmarks;
+  if(views.landmarks){
+    const dot=(pt,c,label)=>{
+      if(!pt)return;
+      el('circle',{cx:pt.x,cy:pt.y,r:4,fill:c,opacity:.85},lmLayer);
+      if(label){const tx=el('text',{x:pt.x+6,y:pt.y+4,fill:c,'font-size':9,'font-family':'monospace',opacity:.85},lmLayer);tx.textContent=label;}
+    };
+    dot(lm.bassHornTip,'#4488ff','bass horn');
+    dot(lm.trebHornTip,'#ff5544','treb horn');
+    dot(lm.bottomPt,   '#cc44ff','bottom');
+    dot(lm.heelBass,   '#8899ff','heel B');
+    dot(lm.heelTreble, '#ff9988','heel T');
+  }
+
+  // Waist line
+  if(views.waist&&lm.waistBass&&lm.waistTreble){
+    el('line',{x1:lm.waistBass.x,y1:lm.waistBass.y,
+      x2:lm.waistTreble.x,y2:lm.waistTreble.y,
+      stroke:'#ffcc4470','stroke-width':.8,'stroke-dasharray':'8 5'},layer);
+  }
+  if(views.heel&&lm.heelBass&&lm.heelTreble){
+    el('line',{x1:lm.heelBass.x,y1:lm.heelBass.y,
+      x2:lm.heelTreble.x,y2:lm.heelTreble.y,
+      stroke:'#ffffff50','stroke-width':1.2,'stroke-dasharray':'4 3'},layer);
+  }
+
+  // Parameter panel
+  const lmi=lerpLM(LANDMARKS[lmAname],LANDMARKS[lmBname],lmT);
+  updateParams(lmi.params);
+  if(!mixMode){
+    const tLabel=t<.01?'→ '+shapeA:t>.99?'→ '+shapeB:'';
+    document.getElementById('morph-t').textContent='t = '+t.toFixed(3)+'  '+tLabel;
+  }
+}
+
+// ── Parameter panels ──────────────────────────────────────────────────────────
+function pr(key,val,cls){
+  return`<div class="prow"><span class="pkey">${key}</span><span class="pval ${cls||''}">${val}</span></div>`;
+}
+function updateParams(p){
+  const f=(v,d,u)=>v!=null?v.toFixed(d||0)+(u||''):'-';
+  document.getElementById('morph-params').innerHTML=
+    pr('Body height', f(p.bodyHeight)+' px','blue')+
+    pr('Body width',  f(p.bodyWidth)+' px','blue')+
+    pr('Waist offset',f(p.waistAngleDeg,1,'°'),'gold')+
+    pr('Heel width',  f(p.neckHeelWidth)+' px')+
+    pr('Bass horn R', f(p.bassHornRadius)+' px')+
+    pr('Treble horn R',f(p.trebHornRadius)+' px')+
+    pr('Bass CW R',   f(p.bassCWRadius)+' px')+
+    pr('Treble CW R', f(p.trebCWRadius)+' px')+
+    pr('Bottom R',    f(p.bottomRadius)+' px');
+}
+function updateCompare(){
+  const pA=LANDMARKS[shapeA].params, pB=LANDMARKS[shapeB].params;
+  const row=(l,a,b,d,u)=>{
+    const fa=a!=null?a.toFixed(d||0)+(u||''):'-';
+    const fb=b!=null?b.toFixed(d||0)+(u||''):'-';
+    return`<span class="cg-a">${fa}</span><span class="cg-l">${l}</span><span class="cg-b">${fb}</span>`;
+  };
+  document.getElementById('compare-params').innerHTML=`<div class="cgrid">
+    <span class="cg-a" style="color:var(--accent);font-weight:700">${shapeA}</span>
+    <span class="cg-l"></span>
+    <span class="cg-b" style="color:var(--accent2);font-weight:700">${shapeB}</span>
+    <div class="cg-sep"></div>
+    ${row('ht',pA.bodyHeight,pB.bodyHeight)}
+    ${row('wd',pA.bodyWidth,pB.bodyWidth)}
+    ${row('wst',pA.waistAngleDeg,pB.waistAngleDeg,1,'°')}
+    ${row('heel',pA.neckHeelWidth,pB.neckHeelWidth)}
+    ${row('bHR',pA.bassHornRadius,pB.bassHornRadius)}
+    ${row('tHR',pA.trebHornRadius,pB.trebHornRadius)}
+    ${row('bCW',pA.bassCWRadius,pB.bassCWRadius)}
+    ${row('tCW',pA.trebCWRadius,pB.trebCWRadius)}
+    ${row('bot',pA.bottomRadius,pB.bottomRadius)}
+  </div>`;
+}
+
+// ── Guitar list (global mode) ─────────────────────────────────────────────────
+function buildList(){
+  const list=document.getElementById('guitar-list'); list.innerHTML='';
+  for(const g of GUITARS){
+    const btn=document.createElement('button');
+    btn.className='gbtn'+(g===shapeA?' sel-a':'')+(g===shapeB?' sel-b':'');
+    const tags=[
+      g===shapeA?'<span class="tag tag-a">A</span>':'',
+      g===shapeB?'<span class="tag tag-b">B</span>':''
+    ].join('');
+    btn.innerHTML=`<div class="dot" style="background:${COLORS[g]}"></div>${g}${tags}`;
+    btn.onclick=e=>{
+      if(e.shiftKey){shapeB=g;}else{shapeA=g;}
+      document.getElementById('label-a').textContent=shapeA;
+      document.getElementById('label-b').textContent=shapeB;
+      // Sync linked section configs
+      for(const sn of SECTIONS){
+        if(sectionConfig[sn].linked){
+          sectionConfig[sn].guitarA=shapeA;
+          sectionConfig[sn].guitarB=shapeB;
+        }
+      }
+      buildList(); buildMixerRows(); updateAll();
+    };
+    list.appendChild(btn);
+  }
+}
+
+// ── Mode switching ────────────────────────────────────────────────────────────
+function setMode(mode){
+  mixMode = (mode==='mix');
+  document.getElementById('tab-global').classList.toggle('active',!mixMode);
+  document.getElementById('tab-mix').classList.toggle('active',mixMode);
+  document.getElementById('global-mode').style.display = mixMode ? 'none' : '';
+  document.getElementById('section-mixer').classList.toggle('visible', mixMode);
+  document.getElementById('help-text').innerHTML = mixMode
+    ? '<b>Click A/B slot</b> → pick guitar<br><b>Slider</b> → morph that section<br><b>🔗</b> link to global slider<br>Scroll → zoom · Drag → pan'
+    : '<b>Click</b> → set shape A<br><b>Shift+click</b> → set shape B<br><kbd>←</kbd><kbd>→</kbd> step t by 0.01<br><kbd>Space</kbd> jump A↔B<br>Scroll → zoom · Drag → pan';
+  updateAll();
+}
+
+// ── Section mixer rows ────────────────────────────────────────────────────────
+function buildMixerRows(){
+  const container=document.getElementById('smix-rows');
+  container.innerHTML='';
+
+  for(const sn of SECTIONS){
+    const cfg=sectionConfig[sn];
+    const secColor=SEC_COLORS[sn];
+
+    const row=document.createElement('div');
+    row.className='srow';
+    row.id='srow-'+sn;
+
+    // Gradient on the slider based on the two guitar colors
+    const colA=COLORS[cfg.guitarA]||'#5577ff';
+    const colB=COLORS[cfg.guitarB]||'#8855ff';
+
+    row.innerHTML=`
+      <div class="srow-label">
+        <div class="sec-pip" style="background:${secColor}"></div>
+        ${SEC_LABELS[sn]}
+      </div>
+      <div class="srow-slots">
+        <button class="gslot slot-a" id="slot-a-${sn}" onclick="openPicker('${sn}','a',this)">
+          <div class="gdot" style="background:${colA}"></div>
+          <span class="gname">${cfg.guitarA}</span>
+        </button>
+        <span class="slot-label" style="color:var(--muted);font-size:9px;">↔</span>
+        <button class="gslot slot-b" id="slot-b-${sn}" onclick="openPicker('${sn}','b',this)">
+          <div class="gdot" style="background:${colB}"></div>
+          <span class="gname">${cfg.guitarB}</span>
+        </button>
+      </div>
+      <div class="srow-t">
+        <input type="range" id="st-${sn}" min="0" max="1000"
+          value="${Math.round(cfg.t*1000)}"
+          style="background:linear-gradient(90deg,${colA},${colB})"
+          ${cfg.linked?'disabled':''}>
+        <span class="st-val" id="stv-${sn}">${cfg.linked?'lnk':cfg.t.toFixed(2)}</span>
+        <button class="link-btn ${cfg.linked?'linked':''}" id="lnk-${sn}"
+          onclick="toggleLink('${sn}')" title="Link to global slider">🔗</button>
+      </div>`;
+
+    row.querySelector('#st-'+sn).addEventListener('input', e=>{
+      sectionConfig[sn].t = e.target.value/1000;
+      document.getElementById('stv-'+sn).textContent = sectionConfig[sn].t.toFixed(2);
+      renderMorph(morphT);
+    });
+
+    container.appendChild(row);
+  }
+}
+
+function toggleLink(sn){
+  const cfg=sectionConfig[sn];
+  cfg.linked=!cfg.linked;
+  if(cfg.linked){ cfg.t=morphT; }
+  buildMixerRows();
+  renderMorph(morphT);
+}
+
+// ── Guitar picker popup ───────────────────────────────────────────────────────
+function openPicker(sn, slot, anchorEl){
+  pickerTarget={sn,slot};
+  const picker=document.getElementById('gpicker');
+  document.getElementById('gp-title').textContent=
+    (slot==='a'?'Shape A':'Shape B')+' - '+SEC_LABELS[sn];
+
+  const list=document.getElementById('gp-list'); list.innerHTML='';
+  for(const g of GUITARS){
+    const item=document.createElement('div');
+    item.className='gp-item';
+    const current=(slot==='a'?sectionConfig[sn].guitarA:sectionConfig[sn].guitarB)===g;
+    item.innerHTML=`<div class="gdot" style="background:${COLORS[g]}"></div>${g}${current?' ✓':''}`;
+    item.onclick=()=>selectGuitar(g);
+    list.appendChild(item);
+  }
+
+  // Position near button
+  const rect=anchorEl.getBoundingClientRect();
+  picker.style.top  = (rect.bottom+4)+'px';
+  picker.style.left = Math.min(rect.left, window.innerWidth-180)+'px';
+  picker.classList.add('open');
+
+  // Close on outside click
+  setTimeout(()=>document.addEventListener('click',closePicker,{once:true}),10);
+}
+
+function closePicker(){
+  document.getElementById('gpicker').classList.remove('open');
+  pickerTarget=null;
+}
+
+function selectGuitar(g){
+  if(!pickerTarget)return;
+  const {sn,slot}=pickerTarget;
+  if(slot==='a') sectionConfig[sn].guitarA=g;
+  else           sectionConfig[sn].guitarB=g;
+  sectionConfig[sn].linked=false; // manually changed → unlink
+  buildMixerRows();
+  updateAll();
+  closePicker();
+}
+
+// ── Full render update ────────────────────────────────────────────────────────
+function updateAll(){
+  if(views.both){
+    if(mixMode){
+      // In mix mode show all referenced guitars as ghosts
+      const srcLayer=document.getElementById('src-a');
+      const srcLayerB=document.getElementById('src-b');
+      srcLayer.innerHTML=''; srcLayerB.innerHTML='';
+      const names=mixSourceNames();
+      // First two into src-a and src-b layers, rest into src-a
+      names.forEach((n,i)=>{
+        renderSource(n, i===1?'src-b':'src-a', COLORS[n]||'#888');
+      });
+    } else {
+      renderSource(shapeA,'src-a',COLORS[shapeA]);
+      renderSource(shapeB,'src-b',COLORS[shapeB]);
+    }
+  } else {
+    document.getElementById('src-a').innerHTML='';
+    document.getElementById('src-b').innerHTML='';
+  }
+  renderMorph(morphT);
+  updateCompare();
+}
+
+// ── Controls ──────────────────────────────────────────────────────────────────
+document.getElementById('morph-slider').addEventListener('input',e=>{
+  morphT=e.target.value/1000;
+  // Sync all linked sections
+  for(const sn of SECTIONS){
+    if(sectionConfig[sn].linked){
+      sectionConfig[sn].t=morphT;
+      const sv=document.getElementById('stv-'+sn);
+      const si=document.getElementById('st-'+sn);
+      if(sv) sv.textContent='lnk';
+      if(si) si.value=Math.round(morphT*1000);
+    }
+  }
+  renderMorph(morphT);
+});
+function toggle(key){
+  views[key]=!views[key];
+  document.getElementById('tog-'+key).classList.toggle('on',views[key]);
+  updateAll();
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowLeft'){morphT=Math.max(0,morphT-.01);document.getElementById('morph-slider').value=morphT*1000;renderMorph(morphT);}
+  if(e.key==='ArrowRight'){morphT=Math.min(1,morphT+.01);document.getElementById('morph-slider').value=morphT*1000;renderMorph(morphT);}
+  if(e.key===' '){e.preventDefault();morphT=morphT>.5?0:1;document.getElementById('morph-slider').value=morphT*1000;renderMorph(morphT);}
+  if(e.key==='Escape')closePicker();
+});
+
+// ── Pan/zoom ──────────────────────────────────────────────────────────────────
+const svg=document.getElementById('canvas');
+let vb={x:-700,y:-300,w:1500,h:2400},drag=false,ds,vs;
+function applyVB(){svg.setAttribute('viewBox',`${vb.x} ${vb.y} ${vb.w} ${vb.h}`);}
+svg.addEventListener('wheel',e=>{
+  e.preventDefault();
+  const f=e.deltaY>0?1.1:.91;
+  const rect=svg.getBoundingClientRect();
+  const mx=(e.clientX-rect.left)/rect.width*vb.w+vb.x;
+  const my=(e.clientY-rect.top)/rect.height*vb.h+vb.y;
+  vb={x:mx-(mx-vb.x)*f,y:my-(my-vb.y)*f,w:vb.w*f,h:vb.h*f};
+  applyVB();
+},{passive:false});
+svg.addEventListener('mousedown',e=>{drag=true;ds={x:e.clientX,y:e.clientY};vs={...vb};});
+svg.addEventListener('mouseup',()=>drag=false);
+svg.addEventListener('mouseleave',()=>drag=false);
+svg.addEventListener('mousemove',e=>{
+  if(!drag)return;
+  const rect=svg.getBoundingClientRect();
+  vb.x=vs.x-(e.clientX-ds.x)/rect.width*vs.w;
+  vb.y=vs.y-(e.clientY-ds.y)/rect.height*vs.h;
+  applyVB();
+});
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+buildGrid();
+buildList();
+buildMixerRows();
+document.getElementById('label-a').textContent=shapeA;
+document.getElementById('label-b').textContent=shapeB;
+updateAll();
+</script>
+</body>
+</html>
