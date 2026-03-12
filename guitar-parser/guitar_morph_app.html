@@ -111,6 +111,18 @@ svg#canvas:active{cursor:grabbing;}
 .cg-b{color:#cc99ff;}
 .cg-sep{grid-column:1/-1;border-top:1px solid var(--border);margin:3px 0;}
 
+/* ── Section mix right-panel cards ── */
+.rp-mix-summary{padding:10px 14px;}
+.mix-card{border-bottom:1px solid var(--border);padding:8px 14px;}
+.mix-card:last-child{border-bottom:none;}
+.mix-card-header{display:flex;align-items:center;gap:6px;margin-bottom:6px;}
+.mix-card-pip{width:8px;height:8px;border-radius:2px;flex-shrink:0;}
+.mix-card-name{font-family:var(--display);font-size:9px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--muted);flex:1;}
+.mix-card-pair{display:flex;align-items:center;gap:4px;font-size:9px;}
+.mix-card-ga{font-weight:700;}.mix-card-gb{font-weight:700;}
+.mix-card-t{color:var(--muted);font-size:8px;letter-spacing:.04em;}
+
 .help{padding:10px 14px;font-size:10px;color:var(--muted);line-height:1.6;flex:1;}
 .help kbd{background:var(--bg2);border:1px solid var(--border2);
   border-radius:3px;padding:1px 4px;font-family:var(--mono);}
@@ -257,8 +269,16 @@ svg#canvas:active{cursor:grabbing;}
 </div>
 
 <div id="panel-right">
-  <div class="psec"><h2>Morphed Parameters</h2><div id="morph-params"></div></div>
-  <div class="psec"><h2>A vs B</h2><div id="compare-params"></div></div>
+  <!-- Global mode panels -->
+  <div id="rp-global">
+    <div class="psec"><h2>Morphed Parameters</h2><div id="morph-params"></div></div>
+    <div class="psec"><h2>A vs B</h2><div id="compare-params"></div></div>
+  </div>
+  <!-- Section mix mode panels -->
+  <div id="rp-mix" style="display:none">
+    <div class="psec rp-mix-summary"><h2>Body (overall)</h2><div id="mix-summary"></div></div>
+    <div id="mix-sec-cards"></div>
+  </div>
 </div>
 
 <script>
@@ -825,6 +845,85 @@ function updateCompare(){
   </div>`;
 }
 
+// Per-section parameter map: which params are shown on each section's card
+const SEC_PARAMS = {
+  bass_side:            [['Bass horn R', p=>p.bassHornRadius, 0, ' px']],
+  inner_bass_cutaway:   [['Bass CW R',   p=>p.bassCWRadius,   0, ' px']],
+  inner_treble_cutaway: [['Treble CW R', p=>p.trebCWRadius,   0, ' px']],
+  treble_side:          [['Treble horn R',p=>p.trebHornRadius,0, ' px']],
+  bottom:               [['Bottom R',    p=>p.bottomRadius,   0, ' px']],
+};
+
+function updateMixParams(){
+  const f=(v,d,u)=>v!=null?v.toFixed(d||0)+(u||''):'-';
+
+  // ── Global summary (body height, width, waist, heel) ──────────────────────
+  // Use bass_side's pair as the reference for whole-body measurements
+  const bsCfg = sectionConfig['bass_side'];
+  const sumP = lerpLM(LANDMARKS[bsCfg.guitarA], LANDMARKS[bsCfg.guitarB], bsCfg.t).params;
+  document.getElementById('mix-summary').innerHTML=
+    pr('Body height', f(sumP.bodyHeight)+' px','blue')+
+    pr('Body width',  f(sumP.bodyWidth)+' px','blue')+
+    pr('Waist offset',f(sumP.waistAngleDeg,1,'°'),'gold')+
+    pr('Heel width',  f(sumP.neckHeelWidth)+' px');
+
+  // ── Per-section cards ─────────────────────────────────────────────────────
+  const container = document.getElementById('mix-sec-cards');
+  container.innerHTML = '';
+
+  for (const sn of SECTIONS) {
+    const cfg = sectionConfig[sn];
+    const secColor = SEC_COLORS[sn];
+    const colA = COLORS[cfg.guitarA] || '#5577ff';
+    const colB = COLORS[cfg.guitarB] || '#8855ff';
+
+    // Compute interpolated params for THIS section's guitar pair and t
+    const secP = lerpLM(LANDMARKS[cfg.guitarA], LANDMARKS[cfg.guitarB], cfg.t).params;
+    const tLabel = cfg.linked ? `t=${cfg.t.toFixed(2)} 🔗` : `t=${cfg.t.toFixed(2)}`;
+
+    // A→B comparison row for the section-specific param
+    const paramDefs = SEC_PARAMS[sn] || [];
+    let paramsHtml = '';
+    for (const [label, accessor, dec, unit] of paramDefs) {
+      const morphedVal = f(accessor(secP), dec, unit);
+      const pA = LANDMARKS[cfg.guitarA].params;
+      const pB = LANDMARKS[cfg.guitarB].params;
+      const aVal = f(accessor(pA), dec, unit);
+      const bVal = f(accessor(pB), dec, unit);
+      const isSame = cfg.guitarA === cfg.guitarB;
+      paramsHtml += `
+        <div class="prow">
+          <span class="pkey">${label}</span>
+          <span class="pval">${morphedVal}</span>
+        </div>
+        ${isSame ? '' : `<div class="prow" style="opacity:.55">
+          <span class="pkey" style="font-size:9px">
+            <span style="color:${colA}">${cfg.guitarA}</span>
+            <span style="color:var(--muted)"> / </span>
+            <span style="color:${colB}">${cfg.guitarB}</span>
+          </span>
+          <span style="font-size:9px;color:var(--muted)">${aVal} / ${bVal}</span>
+        </div>`}`;
+    }
+
+    const card = document.createElement('div');
+    card.className = 'mix-card';
+    card.innerHTML = `
+      <div class="mix-card-header">
+        <div class="mix-card-pip" style="background:${secColor}"></div>
+        <span class="mix-card-name">${SEC_LABELS[sn]}</span>
+        <span class="mix-card-t">${tLabel}</span>
+      </div>
+      <div class="mix-card-pair">
+        <span class="mix-card-ga" style="color:${colA}">${cfg.guitarA}</span>
+        <span style="color:var(--muted);font-size:9px"> → </span>
+        <span class="mix-card-gb" style="color:${colB}">${cfg.guitarB}</span>
+      </div>
+      <div class="mix-card-params">${paramsHtml}</div>`;
+    container.appendChild(card);
+  }
+}
+
 // ── Guitar list (global mode) ─────────────────────────────────────────────────
 function buildList(){
   const list=document.getElementById('guitar-list'); list.innerHTML='';
@@ -863,6 +962,9 @@ function setMode(mode){
   // Morph slider is always visible; adapt its label for the current mode
   document.getElementById('morph-section-label').textContent = mixMode ? 'Global t (linked sections)' : 'Morph';
   document.getElementById('morph-ab-row').classList.toggle('hidden', mixMode);
+  // Right panel: swap between global and mix views
+  document.getElementById('rp-global').style.display = mixMode ? 'none' : '';
+  document.getElementById('rp-mix').style.display    = mixMode ? ''     : 'none';
   document.getElementById('help-text').innerHTML = mixMode
     ? '<b>Click A/B slot</b> → pick guitar<br><b>Slider</b> → morph that section<br><b>🔗</b> link to global slider<br>Scroll → zoom · Drag → pan'
     : '<b>Click</b> → set shape A<br><b>Shift+click</b> → set shape B<br><kbd>←</kbd><kbd>→</kbd> step t by 0.01<br><kbd>Space</kbd> jump A↔B<br>Scroll → zoom · Drag → pan';
@@ -915,7 +1017,7 @@ function buildMixerRows(){
     row.querySelector('#st-'+sn).addEventListener('input', e=>{
       sectionConfig[sn].t = e.target.value/1000;
       document.getElementById('stv-'+sn).textContent = sectionConfig[sn].t.toFixed(2);
-      renderMorph(morphT);
+      renderAndUpdate(morphT);
     });
 
     container.appendChild(row);
@@ -927,7 +1029,7 @@ function toggleLink(sn){
   cfg.linked=!cfg.linked;
   if(cfg.linked){ cfg.t=morphT; }
   buildMixerRows();
-  renderMorph(morphT);
+  renderAndUpdate(morphT);
 }
 
 // ── Guitar picker popup ───────────────────────────────────────────────────────
@@ -995,10 +1097,17 @@ function updateAll(){
     document.getElementById('src-b').innerHTML='';
   }
   renderMorph(morphT);
-  updateCompare();
+  if(mixMode){ updateMixParams(); } else { updateCompare(); }
 }
 
 // ── Controls ──────────────────────────────────────────────────────────────────
+// Helper: render the morph AND refresh the right-panel params.
+// Use this everywhere instead of bare renderMorph() so the panel stays in sync.
+function renderAndUpdate(t){
+  renderMorph(t);
+  if(mixMode){ updateMixParams(); } else { updateCompare(); }
+}
+
 document.getElementById('morph-slider').addEventListener('input',e=>{
   morphT=e.target.value/1000;
   // Sync all linked sections
@@ -1011,7 +1120,7 @@ document.getElementById('morph-slider').addEventListener('input',e=>{
       if(si) si.value=Math.round(morphT*1000);
     }
   }
-  renderMorph(morphT);
+  renderAndUpdate(morphT);
 });
 function toggle(key){
   views[key]=!views[key];
@@ -1019,9 +1128,9 @@ function toggle(key){
   updateAll();
 }
 document.addEventListener('keydown',e=>{
-  if(e.key==='ArrowLeft'){morphT=Math.max(0,morphT-.01);document.getElementById('morph-slider').value=morphT*1000;renderMorph(morphT);}
-  if(e.key==='ArrowRight'){morphT=Math.min(1,morphT+.01);document.getElementById('morph-slider').value=morphT*1000;renderMorph(morphT);}
-  if(e.key===' '){e.preventDefault();morphT=morphT>.5?0:1;document.getElementById('morph-slider').value=morphT*1000;renderMorph(morphT);}
+  if(e.key==='ArrowLeft'){morphT=Math.max(0,morphT-.01);document.getElementById('morph-slider').value=morphT*1000;renderAndUpdate(morphT);}
+  if(e.key==='ArrowRight'){morphT=Math.min(1,morphT+.01);document.getElementById('morph-slider').value=morphT*1000;renderAndUpdate(morphT);}
+  if(e.key===' '){e.preventDefault();morphT=morphT>.5?0:1;document.getElementById('morph-slider').value=morphT*1000;renderAndUpdate(morphT);}
   if(e.key==='Escape')closePicker();
 });
 

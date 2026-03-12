@@ -298,6 +298,9 @@ When you change the global A or B selection in Global Morph mode, all linked sec
 
 Ghost source shapes on the canvas show all guitars currently referenced across all sections.
 
+**Section mix parameter display** - In Section Mix mode, the right panel now shows a dedicated per-section layout replacing the global parameter readout. A global summary block shows whole-body measurements (height, width, waist, heel) derived from the bass side section. Below it, five section cards each show the A/B guitar pair, the current t value, the morphed characteristic radius for that section, and the raw A and B values for comparison. The global A vs B table is replaced entirely, since it has no meaningful interpretation when every section uses a different guitar pair.
+
+
 ### View Toggles
 
 | Toggle | Default | What it shows |
@@ -695,8 +698,6 @@ This is a constrained arc-fitting problem: given the two endpoint positions, the
 The planned G1 smoothing pass: scan the assembled path for any angular discontinuity above a user-specified threshold. At each such point, insert a circular fillet arc of a user-specified radius that smoothly bridges the two tangent directions. The fillet radius is a UI control. The adjacent arcs are trimmed or extended to accommodate the fillet.
 
 **Post-assembly smoothing (G2)** - Similar to G1 smoothing but enforcing curvature continuity. At each section join, check whether the curvature (κ = 1/R) is continuous across the join. Where it is not, replace the join region with an Euler spiral (clothoid) or a pair of arcs with a smooth curvature ramp. The curvature target on each side comes from the final arc of each section. Unlike fillet insertion, G2 smoothing modifies the shape in the join neighbourhood to achieve a natural curvature transition rather than just a tangent patch.
-
-**Section mix parameter display** - In Section Mix mode, the right panel's parameter readout and A vs B comparison table currently use only the bass side section's guitar pair as a reference. A planned improvement would either show a per-section parameter breakdown (one row per section) or provide a selector letting the user choose which section's guitar pair to use as the reference for the comparison table.
 
 **Real-world units** - Parameters are currently displayed in SVG pixels. A future improvement would convert these to mm or inches and allow rescaling the entire outline to a target body width and/or length.
 
