@@ -1050,7 +1050,7 @@ function renderMorph(t){
 
   document.getElementById('hinfo').textContent=totalArcs+' segs · '+ms+'ms';
 
-  // Landmarks - use first section's A guitar in mix mode
+  // Landmarks - use bass_side's pair as the reference for most landmarks
   const lmAname = mixMode ? sectionConfig['bass_side'].guitarA : shapeA;
   const lmBname = mixMode ? sectionConfig['bass_side'].guitarB : shapeB;
   const lmT     = mixMode ? sectionConfig['bass_side'].t : t;
@@ -1068,11 +1068,22 @@ function renderMorph(t){
     dot(lm.heelTreble, '#ff9988','heel T');
   }
 
-  // Waist line
-  if(views.waist&&lm.waistBass&&lm.waistTreble){
-    el('line',{x1:lm.waistBass.x,y1:lm.waistBass.y,
-      x2:lm.waistTreble.x,y2:lm.waistTreble.y,
-      stroke:'#ffcc4470','stroke-width':.8,'stroke-dasharray':'8 5'},layer);
+  // Waist line - in mix mode waistBass comes from bass_side, waistTreble from treble_side
+  if(views.waist){
+    const wBass = mixMode
+      ? lerpLM(LANDMARKS[sectionConfig['bass_side'].guitarA],
+               LANDMARKS[sectionConfig['bass_side'].guitarB],
+               sectionConfig['bass_side'].t).landmarks.waistBass
+      : lm.waistBass;
+    const wTreb = mixMode
+      ? lerpLM(LANDMARKS[sectionConfig['treble_side'].guitarA],
+               LANDMARKS[sectionConfig['treble_side'].guitarB],
+               sectionConfig['treble_side'].t).landmarks.waistTreble
+      : lm.waistTreble;
+    if(wBass&&wTreb){
+      el('line',{x1:wBass.x,y1:wBass.y,x2:wTreb.x,y2:wTreb.y,
+        stroke:'#ffcc4470','stroke-width':.8,'stroke-dasharray':'8 5'},layer);
+    }
   }
   if(views.heel&&lm.heelBass&&lm.heelTreble){
     el('line',{x1:lm.heelBass.x,y1:lm.heelBass.y,
@@ -1149,10 +1160,18 @@ function updateMixParams(){
   // Use bass_side's pair as the reference for whole-body measurements
   const bsCfg = sectionConfig['bass_side'];
   const sumP = lerpLM(LANDMARKS[bsCfg.guitarA], LANDMARKS[bsCfg.guitarB], bsCfg.t).params;
+  // Waist angle spans both sides: bass point from bass_side, treble point from treble_side
+  const tsCfg = sectionConfig['treble_side'];
+  const wBassLM = lerpLM(LANDMARKS[bsCfg.guitarA], LANDMARKS[bsCfg.guitarB], bsCfg.t).landmarks;
+  const wTrebLM = lerpLM(LANDMARKS[tsCfg.guitarA], LANDMARKS[tsCfg.guitarB], tsCfg.t).landmarks;
+  const wBass = wBassLM.waistBass, wTreb = wTrebLM.waistTreble;
+  const mixWaistAngle = (wBass && wTreb)
+    ? Math.atan2(wTreb.y - wBass.y, wTreb.x - wBass.x) * 180 / Math.PI
+    : sumP.waistAngleDeg;
   document.getElementById('mix-summary').innerHTML=
     pr('Body height', f(sumP.bodyHeight)+' px','blue')+
     pr('Body width',  f(sumP.bodyWidth)+' px','blue')+
-    pr('Waist offset',f(sumP.waistAngleDeg,1,'°'),'gold')+
+    pr('Waist offset',f(mixWaistAngle,1,'°'),'gold')+
     pr('Heel width',  f(sumP.neckHeelWidth)+' px');
 
   // ── Per-section cards ─────────────────────────────────────────────────────
