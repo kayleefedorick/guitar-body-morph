@@ -1,6 +1,6 @@
 # Guitar Body Morphing App
 
-This app morphs classic guitar outlines by blending how the shapes **bend** (their curvature) rather than blending points, then rebuilding the final outline by integrating that blended curvature - the result is smooth, tangent-continuous (G1) and ready for CNC/CAD. (Under the hood this uses ideas from differential geometry - the math of curves - but you don’t need to understand that to use it.) It’s a lot like highway design: road engineers control how sharply a road turns by shaping curvature and adding gentle transition curves so the driving feel is smooth; the morph engine does the same thing for guitar bodies, producing visually pleasing, manufacturable shapes in real time.
+This app morphs classic guitar outlines by blending how the shapes **bend** (their curvature) rather than blending points, then rebuilding the final outline by integrating that blended curvature - the result is smooth, tangent-continuous (G1) and ready for CNC/CAD. (Under the hood this uses ideas from differential geometry - the math of curves - but you don't need to understand that to use it.) It's a lot like highway design: road engineers control how sharply a road turns by shaping curvature and adding gentle transition curves so the driving feel is smooth; the morph engine does the same thing for guitar bodies, producing visually pleasing, manufacturable shapes in real time.
 
 
 ---
@@ -28,6 +28,7 @@ This app morphs classic guitar outlines by blending how the shapes **bend** (the
    - [The Shared Skeleton Problem](#the-shared-skeleton-problem)
    - [Skeleton Join Point Map](#skeleton-join-point-map)
    - [Global Mode vs Mix Mode Distinction](#global-mode-vs-mix-mode-distinction)
+   - [The Generated Bottom](#the-generated-bottom)
 7. [Adding a New Body Shape: Full Workflow](#adding-a-new-body-shape-full-workflow)
    - [Step 1 - Draw and Label the SVG in Inkscape](#step-1--draw-and-label-the-svg-in-inkscape)
    - [Step 2 - Parse the SVG](#step-2--parse-the-svg)
@@ -59,6 +60,7 @@ Open `guitar_morph_app.html` in any modern browser. No build step required.
 - Each section has its own A slot, B slot, and t-slider
 - Click any A or B slot to open a guitar picker and assign any guitar to that section
 - The **link button** links a section's slider to the global t value; click again to unlink and control independently
+- The **ROUND slider** (bottom section only) controls the depth of the generated bottom arc, from flat (0.0) to natural guitar depth (0.5) to deeply rounded (1.0)
 
 **Canvas navigation** (both modes):
 - **Drag** to pan
@@ -195,7 +197,7 @@ scale  = |target_end − start| / |raw_end − start|
 rotate = angle(target_end − start) − angle(raw_end − start)
 ```
 
-This transform is applied to all arc **positions and radii** (scale changes arc sizes; rotation changes their positions). Crucially, the **tangent angles stored in the arc objects are NOT updated** - only a separate `carryTeAngle` value is updated with the rotation. This distinction matters for cross-section continuity, explained next.
+This transform is applied to all arc **positions, centers, and radii** (scale changes arc sizes; rotation changes their positions). Crucially, the **tangent angles stored in the arc objects are NOT updated** - only a separate `carryTeAngle` value is updated with the rotation. This distinction matters for cross-section continuity, explained next.
 
 ---
 
@@ -290,6 +292,8 @@ Click **SECTION MIX** at the top of the left panel to switch modes. Each of the 
 - **t-slider** - morph parameter for this section, coloured as a gradient between the two chosen guitars' colours
 - **🔗 link button** - when lit (blue), the section's t-slider tracks the global morph slider; click to unlink and set an independent t value
 
+The **bottom section** additionally shows a **ROUND slider** (range 0.0 – 1.0) which controls the depth of the synthetically generated bottom arc. See [The Generated Bottom](#the-generated-bottom) for details.
+
 Click any A or B slot to open a guitar picker popup and assign any of the eight guitars to that section. Manually changing a slot automatically unlinks that section.
 
 The **Global t slider** appears below the section rows in both modes. In Section Mix mode its label reads "Global t (linked sections)" and it drives all sections whose 🔗 link is active. The ← / → arrow keys also step the global t in both modes.
@@ -298,8 +302,7 @@ When you change the global A or B selection in Global Morph mode, all linked sec
 
 Ghost source shapes on the canvas show all guitars currently referenced across all sections.
 
-**Section mix parameter display** - In Section Mix mode, the right panel now shows a dedicated per-section layout replacing the global parameter readout. A global summary block shows whole-body measurements (height, width, waist, heel) derived from the bass side section. Below it, five section cards each show the A/B guitar pair, the current t value, the morphed characteristic radius for that section, and the raw A and B values for comparison. The global A vs B table is replaced entirely, since it has no meaningful interpretation when every section uses a different guitar pair.
-
+**Section mix parameter display** - In Section Mix mode, the right panel shows a dedicated per-section layout replacing the global parameter readout. A global summary block shows whole-body measurements (height, width, waist, heel) derived from the bass side section. Below it, five section cards each show the A/B guitar pair, the current t value, the morphed characteristic radius for that section, and the raw A and B values for comparison.
 
 ### View Toggles
 
@@ -376,6 +379,58 @@ A single `buildMorph(nameA, nameB, t, secCfg)` function handles both modes:
 This distinction is critical. The `bassCWDeep` landmark (neck heel, ~y=167 for Strat) is ~400 px away from where `bass_side` actually ends (bass horn tip, ~y=−79 for Strat). Applying the skeleton in global mode would force a massive xform distortion on every guitar's bass side in every morph.
 
 **Validation** across all 168 exhaustive mix-mode combinations (every guitar pair × every section offset × t ∈ {0, 0.5, 1}) and all 280 global-mode morphs: max gap = 0.00 px, max kink = 0.00° at all section joins.
+
+---
+
+### The Generated Bottom
+
+In Section Mix mode the `bottom` section cannot simply be taken from a guitar's source data and xformed to fit. When `treble_side` and `bass_side` use different guitar pairs at different t values, their lower corners (`bottomRight` and `bottomLeft`) land at different Y positions and different widths. A distorted source arc stretched across those two mismatched corners would look unnatural - sometimes with visible kinks where it meets the adjacent sections.
+
+Instead, the bottom is generated as a single circular arc that is solved to be G1 tangent-continuous with both adjacent sections at their actual endpoints. Think of it like a parametric CAD fillet: rather than drawing a specific arc and hoping it fits, you constrain the arc by how it must connect to its neighbors and let the solver find the geometry. In a CAD tool you might constrain a fillet arc by specifying "tangent to edge A, tangent to edge B, radius R" - this is the same idea, except we constrain by "tangent to the end of treble_side, tangent to the start of bass_side, deepest point at Y."
+
+#### How the G1 solver works
+
+At the end of `treble_side` there is a circular arc with a known center **C_ts** and radius **R_ts**. At the start of `bass_side` there is a circular arc with known center **C_bs** and radius **R_bs**. Both centers are fully determined by the endpoint correction (similarity transform) applied during section assembly.
+
+The G1 condition at each join requires:
+
+> The bottom arc's center, the trim point on the adjacent arc, and the adjacent arc's own center must all be **collinear**.
+
+This is because tangent continuity between two circular arcs means they share a common normal at their meeting point - and a circle's normal at any point passes through its center. So both arc centers and the join point must lie on the same line.
+
+The solver works as follows:
+
+1. **Parametrise the trim point.** The point P_R′ where the bottom arc meets `treble_side` can be anywhere on the treble arc circle: P_R′ = C_ts + R_ts · (cos α, sin α). The angle α is the free variable.
+
+2. **Determine the bottom arc center analytically.** Once α is chosen, P_R′ is known. The collinearity condition pins the bottom arc center to the line through P_R′ and C_ts. The depth constraint (the arc's lowest point must reach Y_deepest) gives a single equation in one unknown - the distance along that line - which solves analytically:
+
+   ```
+   t = (Y_deepest − P_R′.y) / (C_ts.y − P_R′.y + R_ts)
+   arc_center = P_R′ + t · (C_ts − P_R′)
+   R_arc = t · R_ts
+   ```
+
+3. **Check the bass-side G1 condition.** Given the arc center and radius, the bass-side trim point P_L′ is automatically placed: P_L′ = arc_center + R_arc · (C_bs − arc_center) / |C_bs − arc_center|. This satisfies the collinearity condition on the bass side by construction. The only remaining question is whether P_L′ lies exactly on the bass arc circle (at distance R_bs from C_bs). The signed distance error `f(α) = |P_L′ − C_bs| − R_bs` is a smooth 1D function of α.
+
+4. **Bisect to find the root.** The solver scans α over a ±85° range around the original corner, collects all sign-change brackets of f(α), refines each bracket to convergence with bisection, and evaluates geometric validity for each candidate (arc must dip below the corners, arc must not sweep the wrong way, trim must not be extreme). If multiple valid roots exist, the one with the **largest angular span** (widest, most naturally rounded arc) is chosen.
+
+5. **Apply the trims.** After the bottom arc is determined, `treble_side`'s last arc is shortened to end at P_R′, and `bass_side`'s first arc is shortened to start at P_L′. Both trimmed arcs remain on their original circle - only their endpoints change - so the arc centers and radii are unaffected, and the G1 joins are exact.
+
+#### The ROUND parameter
+
+The free parameter the user controls is not the arc radius directly - it is the **target depth Y_deepest**, mapped from the ROUND slider:
+
+| ROUND | Y_deepest |
+|-------|-----------|
+| 0.0 | Nearly flat - shallow arc just below the corners |
+| 0.5 | Natural - matches the `bottomPt` landmark of the lerped guitar pair |
+| 1.0 | Deep - 150 px below the natural depth |
+
+At ROUND = 0.5 the bottom arc approximates what the original guitar data would have produced. Moving the slider explores the full space of G1-valid bottom curves, all of which remain tangent-continuous with the adjacent sections within a range of values. Extreme ends of the slider are likely to produce invalid geometry.
+
+#### Fallback
+
+If the G1 solver fails to converge (no valid root found within the ±85° scan range), the bottom falls back to a simple centerline arc: a single arc whose center lies on the body's axis of symmetry, which produces a small tangent kink at the corners but always produces a visually plausible result.
 
 ---
 
@@ -673,6 +728,18 @@ For a circular arc with radius R and angular span |dθ|:
 arcLength = R × |dθ|
 ```
 
+### Clockwise Span (sweep=true)
+
+In SVG's Y-down coordinate system, a sweep=true arc travels clockwise visually. Because the Y axis is inverted relative to standard mathematics, **clockwise in SVG corresponds to increasing angle** in atan2 terms. The angular span of a sweep=true arc from point `p0` to point `p1` on a circle centered at `(cx, cy)` is therefore:
+
+```
+a0   = atan2(p0.y − cy, p0.x − cx)
+a1   = atan2(p1.y − cy, p1.x − cx)
+span = a1 − a0;  if (span <= 0) span += 2π
+```
+
+This gives the short clockwise path (0 < span ≤ 2π). `largeArc = span > π`.
+
 ---
 
 ## Known Limitations and Future Work
@@ -683,21 +750,11 @@ arcLength = R × |dθ|
 
 The planned fix: detect the degenerate case and instead remove the `inner_bass_cutaway` section entirely, extending `bass_side` with a synthetic closing arc that is G2 continuous (matching curvature, not just tangent) at the join. The length of this closing arc is determined by interpolating the neck heel width of the guitar that has the missing cutaway section. This would make the cutaway smoothly grow from nothing as t increases from the no-cutaway guitar toward the cutaway guitar.
 
-**Generated bottom** - In Section Mix mode, when the bass side and treble side sections come from different guitar pairs with different t values, their bottom corners (`bottomLeft` and `bottomRight`) will be at different Y positions and potentially different X widths. The current `bottom` section is taken from its own guitar pair and xformed to span those two corners, which can distort the natural arc shape.
-
-The planned fix: replace the bottom section in Section Mix mode with a synthetically generated arc that is computed to satisfy four constraints simultaneously:
-1. G2 continuous with `bass_side` at `bottomLeft` (matching position, tangent, and curvature at the join)
-2. G2 continuous with `treble_side` at `bottomRight` (same)
-3. Tangent to the imaginary bounding box at Y_max (the lowest point of the outline touches the bounding box with a horizontal tangent)
-4. The bass and treble side sections can be extended or shortened slightly to allow the solver to find a valid solution
-
-This is a constrained arc-fitting problem: given the two endpoint positions, the required tangent and curvature at each end, and the Y_max constraint, solve for the arc chain parameters. The bass and treble side lengths become free variables that absorb the degrees of freedom.
-
-**Post-assembly smoothing (G1)** - In Section Mix mode, after all five sections are assembled, the morph engine guarantees G1 continuity at the section join points within the precision of the landmark skeleton (< 0.01 px gap). However, when sections use very different guitar pairs, the xform corrections can introduce small angular discontinuities at the joins that are technically within validation tolerance but visible when zoomed in.
+**G1 smoothing pass** - In Section Mix mode, after all five sections are assembled, the morph engine guarantees G1 continuity at the section join points within the precision of the landmark skeleton (< 0.01 px gap). However, when sections use very different guitar pairs, the xform corrections can introduce small angular discontinuities at the joins that are technically within validation tolerance but visible when zoomed in.
 
 The planned G1 smoothing pass: scan the assembled path for any angular discontinuity above a user-specified threshold. At each such point, insert a circular fillet arc of a user-specified radius that smoothly bridges the two tangent directions. The fillet radius is a UI control. The adjacent arcs are trimmed or extended to accommodate the fillet.
 
-**Post-assembly smoothing (G2)** - Similar to G1 smoothing but enforcing curvature continuity. At each section join, check whether the curvature (κ = 1/R) is continuous across the join. Where it is not, replace the join region with an Euler spiral (clothoid) or a pair of arcs with a smooth curvature ramp. The curvature target on each side comes from the final arc of each section. Unlike fillet insertion, G2 smoothing modifies the shape in the join neighbourhood to achieve a natural curvature transition rather than just a tangent patch.
+**G2 smoothing pass** - Similar to G1 smoothing but enforcing curvature continuity. At each section join, check whether the curvature (κ = 1/R) is continuous across the join. Where it is not, replace the join region with an Euler spiral (clothoid) or a pair of arcs with a smooth curvature ramp. The curvature target on each side comes from the final arc of each section. Unlike fillet insertion, G2 smoothing modifies the shape in the join neighbourhood to achieve a natural curvature transition rather than just a tangent patch.
 
 **Real-world units** - Parameters are currently displayed in SVG pixels. A future improvement would convert these to mm or inches and allow rescaling the entire outline to a target body width and/or length.
 
@@ -705,8 +762,8 @@ The planned G1 smoothing pass: scan the assembled path for any angular discontin
 
 **SVG / DXF export** - A future feature would add an export button for direct use in CAD/CAM software.
 
-**Custom mode** - A future mode implemenation would allow advanced users to create their own guitar body shapes using text field entry to modify parameters.
+**Custom mode** - A future mode would allow advanced users to create their own guitar body shapes using text field entry to modify parameters.
 
-### Todo Later:
+### Todo Later
 
-**Neck heel** - The app does not yet close the neck heel gap or add the heel geometry. This is required for solid closed geometry suitable for guitar building. This will be implemented in a future feature. The neck heel is essentially a trapezoid with dimensions that can be user specified. This shape will be combined with the main guitar body shape. The body cutaway geometry will be trimmed or extended as needed to intersect the neck heel, then the neck heel will be trimmed and have extraneous lines removed until a single closed path remains. Then, fillets of a user speicifed radius are applied to the inside corners where the new heel meets the body path. Finally, fillets of a different radius are applied to any external non-tangent points.
+**Neck heel** - The app does not yet close the neck heel gap or add the heel geometry. This is required for solid closed geometry suitable for guitar building. This will be implemented in a future feature. The neck heel is essentially a trapezoid with dimensions that can be user specified. This shape will be combined with the main guitar body shape. The body cutaway geometry will be trimmed or extended as needed to intersect the neck heel, then the neck heel will be trimmed and have extraneous lines removed until a single closed path remains. Then, fillets of a user-specified radius are applied to the inside corners where the new heel meets the body path. Finally, fillets of a different radius are applied to any external non-tangent points.

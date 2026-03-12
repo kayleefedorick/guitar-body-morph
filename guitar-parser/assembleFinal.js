@@ -10,7 +10,7 @@
 
 const fs = require('fs');
 
-const organized = JSON.parse(fs.readFileSync('/home/claude/guitar-parser/guitars_organized.json', 'utf8'));
+const organized = JSON.parse(fs.readFileSync('./guitars_organized.json', 'utf8'));
 
 const GUITARS = ['Strat', 'Tele', 'Jazzmaster', 'Mustang', 'Fender Lead', 'Akula', 'Wolfgang', 'Les Paul'];
 
@@ -334,7 +334,7 @@ for (const guitar of GUITARS) {
   result[guitar] = assembleGuitar(guitar, organized[guitar] || {});
 }
 
-fs.writeFileSync('/home/claude/guitar-parser/guitar_final.json', JSON.stringify(result, null, 2));
+fs.writeFileSync('./guitar_final.json', JSON.stringify(result, null, 2));
 
 // ─── Report ───────────────────────────────────────────────────────────────────
 

@@ -235,7 +235,7 @@ function computeBBox(segs) {
 
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
-const svgText = fs.readFileSync('/home/claude/guitar-parser/source.svg', 'utf8');
+const svgText = fs.readFileSync('./source.svg', 'utf8');
 const rawPaths = extractLabeledPaths(svgText);
 
 console.log(`Found ${rawPaths.length} labeled paths\n`);
@@ -287,7 +287,7 @@ for (const { label, d } of rawPaths) {
   };
 }
 
-fs.writeFileSync('/home/claude/guitar-parser/guitar_paths_full.json', JSON.stringify(allData, null, 2));
+fs.writeFileSync('./guitar_paths_full.json', JSON.stringify(allData, null, 2));
 
 // Organize by guitar
 const GUITARS = ['Strat', 'Tele', 'Jazzmaster', 'Mustang', 'Fender Lead', 'Akula', 'Wolfgang', 'Les Paul'];
@@ -313,7 +313,7 @@ for (const guitar of GUITARS) {
   }
 }
 
-fs.writeFileSync('/home/claude/guitar-parser/guitars_organized.json', JSON.stringify(organized, null, 2));
+fs.writeFileSync('./guitars_organized.json', JSON.stringify(organized, null, 2));
 
 // Print summary
 console.log('══════════════════════════════════════════════════════════════');

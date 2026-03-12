@@ -169,6 +169,9 @@ svg#canvas:active{cursor:grabbing;}
   appearance:none;width:12px;height:12px;border-radius:50%;
   background:var(--text);border:1.5px solid var(--bg0);cursor:grab;}
 .st-val{font-size:9px;color:var(--muted);width:30px;text-align:right;flex-shrink:0;}
+.srow-round{display:flex;align-items:center;gap:6px;padding:0 0 2px 0;}
+.round-label{font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);flex-shrink:0;width:36px;}
+.round-val{font-size:9px;color:#cc44ff;width:30px;text-align:right;flex-shrink:0;}
 .link-btn{font-size:8px;color:var(--muted);background:none;border:1px solid var(--border2);
   border-radius:3px;padding:1px 5px;cursor:pointer;letter-spacing:.05em;flex-shrink:0;}
 .link-btn:hover{color:var(--text);border-color:var(--accent);}
@@ -322,6 +325,7 @@ function defaultSectionConfig() {
   }]));
 }
 let sectionConfig = defaultSectionConfig();
+let bottomRound = 0.5; // 0=flat, 0.5=natural (matches guitar), 1.0=deepest
 
 let pickerTarget = null; // { sn, slot:'a'|'b' }
 
@@ -475,6 +479,217 @@ function buildSection(segsA, segsB, t, startP, startTsAngle, endP) {
   return { arcs, carryTeAngle };
 }
 
+// ── Generated bottom (biarc) ──────────────────────────────────────────────────
+/**
+ * Generate the bottom section as a single G1-continuous circular arc that trims
+ * the adjacent treble_side and bass_side arcs to meet it tangentially.
+ *
+ * Inputs:
+ *   P_R, theta_R, trebleLastArc  - nominal right corner, tangent, and last treble arc
+ *   P_L, theta_L, bassFirstArc   - nominal left corner, tangent, and first bass arc
+ *   Y_natural   - landmark-based natural bottom depth (round=0.5 targets this)
+ *   round       - [0..1] depth control: 0=flat, 0.5=natural, 1=deep
+ *
+ * Algorithm:
+ *   The bottom arc center must lie on the normal to both adjacent arcs at the
+ *   trim points (G1 condition). For a sweep=true arc this means:
+ *     (arc_center, P_R', C_ts) are collinear  - P_R' on treble last arc
+ *     (arc_center, P_L', C_bs) are collinear  - P_L' on bass first arc
+ *   where C_ts/C_bs are the centers of the adjacent arcs.
+ *
+ *   Given Y_deepest (from round), we fix the depth constraint:
+ *     arc_center.y + R_arc = Y_deepest
+ *   Combined with the collinearity condition for P_R', this gives t analytically.
+ *   Then we solve 1D for alpha (position of P_R' on treble arc) via bisection until
+ *   |P_L' - arc_center| = R_arc.
+ *
+ *   Falls back to a simple single arc (with small kink) if adjacent arc data is
+ *   missing or the G1 solver fails.
+ *
+ * Returns: { arcs, trimTreeble, trimBass }
+ *   trimTreeble / trimBass - new endpoint data to splice into the adjacent sections.
+ */
+function generateBottom(P_R, theta_R, trebleLastArc,
+                        P_L, theta_L, bassFirstArc,
+                        Y_natural, round) {
+  if (round === undefined) round = 0.5;
+
+  // ── Map round → Y_deepest ─────────────────────────────────────────────────
+  const cornerY  = Math.max(P_R.y, P_L.y);
+  const RANGE    = 150;  // px of depth variation either side of natural
+  const Y_flat   = Math.max(cornerY + 5, Y_natural - RANGE);
+  const Y_deep   = Y_natural + RANGE;
+  let Y_deepest;
+  if (round <= 0.5) {
+    Y_deepest = Y_flat + (Y_natural - Y_flat) * (round / 0.5);
+  } else {
+    Y_deepest = Y_natural + (Y_deep - Y_natural) * ((round - 0.5) / 0.5);
+  }
+  Y_deepest = Math.max(Y_deepest, cornerY + 2);
+
+  // ── G1 solver ────────────────────────────────────────────────────────────
+  // Requires both adjacent arc centers. Fall back to simple arc if unavailable.
+  function tryG1() {
+    if (!trebleLastArc || !bassFirstArc) return null;
+    const C_ts = { x: trebleLastArc.cx, y: trebleLastArc.cy };
+    const R_ts = trebleLastArc.radius;
+    const C_bs = { x: bassFirstArc.cx,  y: bassFirstArc.cy  };
+    const R_bs = bassFirstArc.radius;
+
+    // alpha_base: angle on treble arc circle at the current corner P_R
+    const alpha_base = Math.atan2(P_R.y - C_ts.y, P_R.x - C_ts.x);
+
+    function evalAlpha(alpha) {
+      const P_R2 = { x: C_ts.x + R_ts*Math.cos(alpha), y: C_ts.y + R_ts*Math.sin(alpha) };
+      // t along line (P_R2 → C_ts) to reach depth Y_deepest:
+      //   cy(t) + R_arc(t) = Y_deepest
+      //   (P_R2.y + t*(C_ts.y - P_R2.y)) + t*R_ts = Y_deepest
+      //   t = (Y_deepest - P_R2.y) / (C_ts.y - P_R2.y + R_ts)
+      const denom = C_ts.y - P_R2.y + R_ts;
+      if (Math.abs(denom) < 1e-9) return null;
+      const t = (Y_deepest - P_R2.y) / denom;
+      if (t <= 0) return null;     // center must be on the far side of P_R2
+      const cx  = P_R2.x + t * (C_ts.x - P_R2.x);
+      const cy  = P_R2.y + t * (C_ts.y - P_R2.y);
+      const R   = t * R_ts;
+      if (R < 50 || R > 5e6) return null;   // sanity: arc must be plausible
+
+      // P_L2: point on bass arc circle toward the arc center (G1 condition)
+      const d_bs = Math.hypot(C_bs.x - cx, C_bs.y - cy);
+      if (d_bs < 1e-9) return null;
+      const P_L2 = {
+        x: cx + R * (C_bs.x - cx) / d_bs,
+        y: cy + R * (C_bs.y - cy) / d_bs
+      };
+      // Error: P_L2 must also be on the bass arc circle (at distance R_bs from C_bs)
+      const err = Math.hypot(P_L2.x - C_bs.x, P_L2.y - C_bs.y) - R_bs;
+      return { err, P_R2, P_L2, cx, cy, R, alpha };
+    }
+
+    // Find ALL sign-change brackets across the full alpha range, then pick the
+    // best root: the one with the LARGEST dtheta (widest arc spanning the body).
+    // This avoids degenerate near-point solutions which look like cusps.
+    const brackets = [];
+    let prev = null;
+    for (let da = -85; da <= 85; da += 0.5) {
+      const res = evalAlpha(alpha_base + da * Math.PI / 180);
+      if (!res) { prev = null; continue; }
+      if (prev && prev.err * res.err < 0) {
+        brackets.push({ lo: { da: prev.da, ...prev }, hi: { da, ...res } });
+      }
+      prev = { da, ...res };
+    }
+
+    // Refine each bracket and collect valid candidates
+    const candidates = [];
+    for (const brk of brackets) {
+      let { lo, hi } = brk;
+      for (let iter = 0; iter < 60; iter++) {
+        const da_mid = (lo.da + hi.da) / 2;
+        const mid = evalAlpha(alpha_base + da_mid * Math.PI / 180);
+        if (!mid) break;
+        if (mid.err * lo.err < 0) hi = { da: da_mid, ...mid };
+        else lo = { da: da_mid, ...mid };
+        if (Math.abs(hi.da - lo.da) < 1e-6) break;
+      }
+      const sol = evalAlpha(alpha_base + lo.da * Math.PI / 180);
+      if (!sol || Math.abs(sol.err) > 5) continue;
+
+      // Compute dtheta for this candidate
+      const aR = Math.atan2(sol.P_R2.y - sol.cy, sol.P_R2.x - sol.cx);
+      const aL = Math.atan2(sol.P_L2.y - sol.cy, sol.P_L2.x - sol.cx);
+      let dt = aL - aR; if (dt <= 0) dt += 2 * Math.PI;
+
+      // Validity: arc must span body (not degenerate), go downward, sides not crossed
+      if (dt < 0.15) continue;                          // < ~9° = degenerate
+      if (dt > Math.PI) continue;                       // long-way-around = wrong direction
+      if (sol.cy + sol.R < cornerY - 10) continue;      // arc bottom above corners
+      if (sol.P_R2.x < sol.P_L2.x) continue;            // sides crossed
+      if (Math.abs(lo.da) > 45) continue;               // trim/extend too extreme (>45°)
+
+      candidates.push({ ...sol, dtheta: dt, lo_da: lo.da });
+    }
+
+    if (!candidates.length) return null;
+
+    // Choose the candidate with the LARGEST dtheta (most naturally rounded)
+    const sol = candidates.reduce((best, c) => c.dtheta > best.dtheta ? c : best);
+
+    // Build the arc object and trim data
+    const { P_R2, P_L2, cx, cy, R } = sol;
+
+    // Arc from P_R2 to P_L2 (clockwise sweep)
+    const alpha_arc_R = Math.atan2(P_R2.y - cy, P_R2.x - cx);
+    const alpha_arc_L = Math.atan2(P_L2.y - cy, P_L2.x - cx);
+    let dtheta = alpha_arc_L - alpha_arc_R;
+    if (dtheta <= 0) dtheta += 2 * Math.PI;
+
+    const sin2 = Math.sin(alpha_arc_L), cos2 = Math.cos(alpha_arc_L);
+    const teAngle = Math.atan2(cos2, -sin2);
+
+    // tsAngle at P_R2 (sweep=true):
+    const sin1 = Math.sin(alpha_arc_R), cos1 = Math.cos(alpha_arc_R);
+    const tsAngle = Math.atan2(cos1, -sin1);
+
+    // Trim data for treble_side last arc:
+    const alpha_trim_R = Math.atan2(P_R2.y - C_ts.y, P_R2.x - C_ts.x);
+    const sin_tr = Math.sin(alpha_trim_R), cos_tr = Math.cos(alpha_trim_R);
+    const trimTreeble = {
+      x1: P_R2.x, y1: P_R2.y,
+      teAngle: Math.atan2(cos_tr, -sin_tr)
+    };
+
+    // Trim data for bass_side first arc:
+    const alpha_trim_L = Math.atan2(P_L2.y - C_bs.y, P_L2.x - C_bs.x);
+    const sin_tl = Math.sin(alpha_trim_L), cos_tl = Math.cos(alpha_trim_L);
+    const trimBass = {
+      x0: P_L2.x, y0: P_L2.y,
+      tsAngle: Math.atan2(cos_tl, -sin_tl)
+    };
+
+    return {
+      arcs: [{
+        x0: P_R2.x, y0: P_R2.y, x1: P_L2.x, y1: P_L2.y,
+        cx, cy, radius: R, sweep: true,
+        largeArc: dtheta > Math.PI,
+        arcLength: dtheta * R,
+        tsAngle, teAngle
+      }],
+      trimTreeble, trimBass
+    };
+  }
+
+  const g1 = tryG1();
+  if (g1) return g1;
+
+  // ── Fallback: simple centerline arc (small kink at corners) ──────────────
+  const cx    = (P_R.x + P_L.x) / 2;
+  const avgY  = (P_R.y + P_L.y) / 2;
+  const dY    = avgY - Y_deepest;
+  const hw    = P_R.x - cx;
+  const R     = dY >= 0 ? 50000 : -(hw*hw + dY*dY) / (2*dY);
+  const cy    = Y_deepest - R;
+
+  const alpha_R2 = Math.atan2(P_R.y - cy, P_R.x - cx);
+  const alpha_L2 = Math.atan2(P_L.y - cy, P_L.x - cx);
+  let dtheta = alpha_L2 - alpha_R2;
+  if (dtheta <= 0) dtheta += 2 * Math.PI;
+  const sin2 = Math.sin(alpha_L2), cos2 = Math.cos(alpha_L2);
+  const sin1 = Math.sin(alpha_R2), cos1 = Math.cos(alpha_R2);
+
+  return {
+    arcs: [{
+      x0: P_R.x, y0: P_R.y, x1: P_L.x, y1: P_L.y,
+      cx, cy, radius: R, sweep: true,
+      largeArc: dtheta > Math.PI,
+      arcLength: dtheta * R,
+      tsAngle: Math.atan2(cos1, -sin1),
+      teAngle: Math.atan2(cos2, -sin2)
+    }],
+    trimTreeble: null,
+    trimBass: null
+  };
+}
 // ── Core morph builder ────────────────────────────────────────────────────────
 function buildMorph(nameA, nameB, t, secCfg) {
   // secCfg: optional map of sn -> {guitarA, guitarB, t}
@@ -482,6 +697,15 @@ function buildMorph(nameA, nameB, t, secCfg) {
   const result = {};
   let curP   = null;
   let curTsA = null;
+
+  // For generated bottom: capture bass_side's actual post-xform start tangent.
+  // Computed after bass_side arcs are built:
+  //   theta_L = carryAngle_bass - (lastArc.teAngle - firstArc.tsAngle)
+  // This equals the actual start tangent of bass_side after the xform is applied.
+  let bassPostXformStartTsA = null;
+  // Adjacent arc geometry for G1 bottom generation:
+  let trebleLastArc  = null;  // last arc of treble_side (post-xform cx,cy,radius)
+  let bassFirstArc   = null;  // first arc of bass_side  (post-xform cx,cy,radius)
 
   // ── Resolve per-section guitars and t ──────────────────────────────────────
   function getCfg(sn) {
@@ -594,12 +818,76 @@ function buildMorph(nameA, nameB, t, secCfg) {
       curTsA = V.lerpA(segStartAngle(srcA[0]), segStartAngle(srcB[0]), tSec);
     }
 
+    // In mix mode, synthesise the bottom section as a single G1-continuous arc.
+    // The arc trims the last arc of treble_side and first arc of bass_side to land
+    // exactly on the generated bottom arc with full tangent continuity.
+    if (secCfg && sn === 'bottom' && bassPostXformStartTsA !== null) {
+      const P_R = skelEndpoints.bottom.startP;   // = bottomRightP (nominal corner)
+      const P_L = skelEndpoints.bottom.endP;     // = bottomLeftP  (nominal corner)
+      const theta_R = curTsA;                    // carry angle from treble_side
+      const theta_L = bassPostXformStartTsA;     // post-xform start angle of bass_side
+      // Lerp the landmark bottomPt for this bottom section's guitar pair+t
+      const botCfg = getCfg('bottom');
+      const lmBot  = lerpLM(LANDMARKS[botCfg.gA], LANDMARKS[botCfg.gB], botCfg.tSec);
+      const Y_natural = lmBot.landmarks.bottomPt.y;
+
+      const botResult = generateBottom(
+        P_R, theta_R, trebleLastArc,
+        P_L, theta_L, bassFirstArc,
+        Y_natural, bottomRound
+      );
+      result[sn] = botResult.arcs;
+
+      // Apply trims: shorten the last treble arc and first bass arc to their new endpoints.
+      if (botResult.trimTreeble && result['treble_side'] && result['treble_side'].length) {
+        const la = result['treble_side'][result['treble_side'].length - 1];
+        const tr = botResult.trimTreeble;
+        la.x1 = tr.x1; la.y1 = tr.y1; la.teAngle = tr.teAngle;
+        // Recompute span for sweep=true: angle increases CW in SVG, so CW span = a_end - a_start
+        const a_start = Math.atan2(la.y0 - la.cy, la.x0 - la.cx);
+        const a_end   = Math.atan2(la.y1 - la.cy, la.x1 - la.cx);
+        let span = a_end - a_start; if (span <= 0) span += 2*Math.PI;
+        la.largeArc = span > Math.PI;
+        la.arcLength = span * la.radius;
+      }
+      if (botResult.trimBass && result['bass_side'] && result['bass_side'].length) {
+        const fa = result['bass_side'][0];
+        const tr = botResult.trimBass;
+        fa.x0 = tr.x0; fa.y0 = tr.y0; fa.tsAngle = tr.tsAngle;
+        // Recompute span for sweep=true: angle increases CW in SVG, so CW span = a_end - a_start
+        const a_start = Math.atan2(fa.y0 - fa.cy, fa.x0 - fa.cx);
+        const a_end   = Math.atan2(fa.y1 - fa.cy, fa.x1 - fa.cx);
+        let span = a_end - a_start; if (span <= 0) span += 2*Math.PI;
+        fa.largeArc = span > Math.PI;
+        fa.arcLength = span * fa.radius;
+      }
+
+      // carryTeAngle from bottom is never used (bottom is the last section).
+      continue;
+    }
+
     const { arcs, carryTeAngle } = buildSection(srcA, srcB, tSec, startP, curTsA, endP);
     if (!arcs.length) continue;
 
     result[sn] = arcs;
     curP   = { x: arcs[arcs.length-1].x1, y: arcs[arcs.length-1].y1 };
     curTsA = carryTeAngle;
+
+    // Capture bass_side and treble_side arc geometry for the G1 bottom generator.
+    // The xform rotates the whole section by rot = carryTeAngle - arcs[last].teAngle.
+    // Arc centers rotate by the same angle about the section's startP.
+    if (sn === 'bass_side') {
+      const rot = carryTeAngle - arcs[arcs.length-1].teAngle;
+      bassPostXformStartTsA = arcs[0].tsAngle + rot;
+      // Arc centers are already post-xform (buildSection modifies them in-place).
+      const fa = arcs[0];
+      bassFirstArc = { cx: fa.cx, cy: fa.cy, radius: fa.radius };
+    }
+    if (sn === 'treble_side') {
+      // Arc centers are already post-xform (buildSection modifies them in-place).
+      const la = arcs[arcs.length-1];
+      trebleLastArc = { cx: la.cx, cy: la.cy, radius: la.radius };
+    }
 
     if (sn === HEEL_GAP_AFTER) { curP = null; curTsA = null; }
   }
@@ -1019,6 +1307,25 @@ function buildMixerRows(){
       document.getElementById('stv-'+sn).textContent = sectionConfig[sn].t.toFixed(2);
       renderAndUpdate(morphT);
     });
+
+    // Round slider - only for the bottom section
+    if (sn === 'bottom') {
+      const roundRow = document.createElement('div');
+      roundRow.className = 'srow-round';
+      roundRow.innerHTML = `
+        <span class="round-label">ROUND</span>
+        <input type="range" id="round-slider" min="0" max="1000"
+          value="${Math.round(bottomRound*1000)}"
+          style="flex:1;height:3px;appearance:none;border-radius:2px;outline:none;cursor:pointer;background:linear-gradient(90deg,#888,#cc44ff)">
+        <span class="round-val" id="round-val">${bottomRound.toFixed(2)}</span>
+      `;
+      roundRow.querySelector('#round-slider').addEventListener('input', e => {
+        bottomRound = e.target.value / 1000;
+        document.getElementById('round-val').textContent = bottomRound.toFixed(2);
+        renderAndUpdate(morphT);
+      });
+      row.appendChild(roundRow);
+    }
 
     container.appendChild(row);
   }
