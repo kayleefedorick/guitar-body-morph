@@ -105,7 +105,7 @@ In **Section Mix mode**, the app uses a Shared Skeleton to prevent parts from dr
 
 * **Labeling**: Use **Object Properties - Label** to name paths exactly: `{Guitar Name} {section name}`.
 * **Arcs Only**: Use circular arcs (`A` commands) rather than Bezier curves.
-* **Coordinate System**: $(0,0)$ is the neck centerline. $+Y$ is toward the strap button.
+* **Coordinate System**: $(0,0)$ is the neck centerline and theoretical string end point. $+Y$ is toward the guitar's headstock.
 
 ### 2. Registration and Build
 
@@ -149,8 +149,8 @@ Stores the assembled geometry and metadata for each guitar.
 
 Stores key skeleton points used to align sections in **Section Mix** mode:
 
-* **`bassHornTip` / `trebHornTip**`: The ends of the horns.
-* **`bottomLeft` / `bottomRight**`: The lower corners of the body.
+* **`bassHornTip`** / **`trebHornTip`**: The ends of the horns.
+* **`bottomLeft`** / **`bottomRight`**: The lower corners of the body.
 * **`heelTangents`**: Unit vectors ensuring the neck pocket joins remain smooth.
 
 ---
@@ -162,4 +162,4 @@ Stores key skeleton points used to align sections in **Section Mix** mode:
 * **Mirroring**: A future feature would add a mirroring toggle for creating left-handed guitar shapes.
 * **SVG / DXF export**: A future feature would add an export button for direct use in CAD/CAM software.
 * **Custom mode**: A future mode would allow advanced users to create their own guitar body shapes using text field entry to modify parameters.
-* **Neck heel**: The app does not yet close the neck heel gap or add the heel geometry. This is required for solid closed geometry suitable for guitar building. This will be implemented in a future feature. The neck heel is essentially a trapezoid with dimensions that can be user specified. This shape will be combined with the main guitar body shape. The body cutaway geometry will be trimmed or extended as needed to intersect the neck heel, then the neck heel will be trimmed and have extraneous lines removed until a single closed path remains. Then, fillets of a user-specified radius are applied to the inside corners where the new heel meets the body path. Finally, fillets of a different radius are applied to any external non-tangent points.
+* **Neck heel**: Current builds do not yet generate neck heel geometry or close the body gap, which is necessary for solid, production-ready geometry. Future updates will implement a user-defined trapezoidal heel that integrates with the body through automated path trimming and line removal. This process will ensure a single closed path, finished with customizable fillets for both the internal body-to-heel transitions and external non-tangent points.
